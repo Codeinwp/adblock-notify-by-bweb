@@ -345,7 +345,7 @@ function an_create_options() {
         'desc' => __( 'The alternative text to display when ads are hidden. Images & shortcodes are supported, but use them with caution.', 'an-translate' ),
         'default' => '
                         <p><strong>' . __( 'AdBlock detected!', 'an-translate' ) . '</strong></p>
-                        <p>' . __( 'Please add', 'an-translate' ) . ' <a title="http://b-website.com/" href="b-website.com" target="_blank">www.b-website.com</a> ' . __( 'to your adblocking whitelist or disable your adblocking software.', 'an-translate' ) . '</p>
+                        <p>' . __( 'Please add', 'an-translate' ) . ' <a title="http://themeisle.com/" href="themeisle.com" target="_blank">www.themeisle.com</a> ' . __( 'to your adblocking whitelist or disable your adblocking software.', 'an-translate' ) . '</p>
 			',
     ) );
     $alternativeTab->createOption( array(

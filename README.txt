@@ -24,6 +24,8 @@ Adblock Notify is a very easy to use plugin with get around options and a lot of
 
 NO! This plugin does not completly block adblocker users, it only uses a passive approach, and it will always be that way.
 
+Note: Plugin originally developed by Brice CAPOBIANCO, b-website.com
+
 = Plugin Capabilities =
 
 * Detect adBlocker (eg Adblock Plus)

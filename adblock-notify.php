@@ -152,8 +152,7 @@ add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
  ***************************************************************/
 function an_meta_links( $links, $file ) {
 	if ( $file === 'adblock-notify-by-bweb/adblock-notify.php' ) {
-		$links[] = '<a href="http://b-website.com/category/plugins" target="_blank" title="' . __( 'More b*web Plugins', 'an-translate' ) . '">' . __( 'More b*web Plugins', 'an-translate' ) . '</a>';
-		$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7Z6YVM63739Y8" target="_blank" title="' . __( 'Donate to this plugin &#187;' ) . '"><strong>' . __( 'Donate to this plugin &#187;' ) . '</strong></a>';
+		$links[] = '<a href="http://themeisle.com/wordpress-plugins/" target="_blank" title="' . __( 'More Plugins', 'an-translate' ) . '">' . __( 'More Plugins', 'an-translate' ) . '</a>';
 	}
 	return $links;
 }

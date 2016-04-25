@@ -1,7 +1,7 @@
 /*
 	an_admin_scripts.js
 	AdBlock Notify
-	Copyright: (c) 2014 Brice CAPOBIANCO, b-website.com
+	Copyright: (c) 2016 Themeisle, themeisle.com
 */
 jQuery(document).ready(function($) {
 	
