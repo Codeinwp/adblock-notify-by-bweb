@@ -133,9 +133,17 @@ add_action( 'wp_footer', 'an_prepare' );
 function an_cookies_init() {
 	$an_option = unserialize(get_option( 'adblocker_notify_options' ) );
     $anOptionCookie = $an_option[ 'an_option_cookie' ];
-    $anPageNojsActivation = $an_option[ 'an_page_nojs_activation' ];
-    $anPageNojsRedirect = $an_option[ 'an_page_nojs_redirect' ];
     $anOptionCookieLife = $an_option[ 'an_option_cookie_life' ];
+	if( isset( $an_option[ 'an_page_nojs_activation' ] ) ){
+    	$anPageNojsActivation = $an_option[ 'an_page_nojs_activation' ];
+	} else {
+    	$anPageNojsActivation = '';
+	}
+	if( isset( $an_option[ 'an_page_nojs_redirect' ] ) ){
+		$anPageNojsRedirect = $an_option[ 'an_page_nojs_redirect' ];
+	} else {
+    	$anPageNojsRedirect = '';
+	}
     
     if (!empty($anPageNojsActivation) && isset( $_COOKIE[AN_COOKIE] ) && !$_COOKIE[AN_COOKIE]) {
         //redirect URL with NO JS

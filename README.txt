@@ -2,8 +2,8 @@
 Contributors: themeisle
 Tags:  adblock, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, adBlocker, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
-Tested up to: 4.4.2
-Stable tag: 1.8.3
+Tested up to: 4.5
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,6 +110,11 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 3. Statistics on the WordPress Dashboard
 
 == Changelog ==
+
+= 1.9 = 
+* Tested on WP 4.5 with success! 
+* The temp folder has now a randomly generated name since Adblock softwares just blacklisted it. 
+* themeisle added as plugin author 
 
 = 1.8.3 =
 * Fix a warning with PHP 7

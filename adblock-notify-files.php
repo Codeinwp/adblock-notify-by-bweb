@@ -33,7 +33,7 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
     $fileContent = wp_remote_retrieve_body( $fileResponse ) . $content;
 
     
-    //Flush semectors
+    //Flush selectors
     if ( $flush == true ) {
         //Replace default selectors with new ones
         $defaultSelectors = array( 'an-Modal', 'reveal-modal', 'an-alternative' );
@@ -88,28 +88,46 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
 function an_save_setting_random_selectors() {
 
 	//Restart cookie on every options save.
-	setcookie( AN_COOKIE, null, -1, '/' );
+	if ( isset( $_COOKIE[AN_COOKIE] ) ){
+		setcookie( AN_COOKIE, null, -1, '/' );
+	}
     
     $an_option = unserialize( get_option( 'adblocker_notify_options' ) );
+    $anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
   
-    //Define new temp path
-    $uploadDir = wp_upload_dir();
-    $tempFolderPath = trailingslashit( $uploadDir[ 'basedir' ] ) . 'an-temp/';
-    $tempFolderURL = trailingslashit( $uploadDir[ 'baseurl' ] ) . 'an-temp/';
-
     if( $an_option[ 'an_option_selectors' ] == true ) {
+		
+		//Define new temp path
+		$uploadDir = wp_upload_dir();
+		$tempDirName = an_random_slug();
+		$tempFolderPath = trailingslashit( $uploadDir[ 'basedir' ] ) . $tempDirName . '/';
+		$tempFolderURL = trailingslashit( $uploadDir[ 'baseurl' ] ) . $tempDirName . '/';
         
         //Retrieve old files infos
-        $anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
         if( !isset( $anScripts[ 'files' ][ 'css' ] ) ) $anScripts[ 'files' ][ 'css' ] = '';
         if( !isset( $anScripts[ 'files' ][ 'js' ] ) ) $anScripts[ 'files' ][ 'js' ] = '';
         if( !isset( $anScripts[ 'selectors' ] ) ) $anScripts[ 'selectors' ] = '';
+        if( !isset( $anScripts[ 'temp-path' ] ) ) $anScripts[ 'temp-path' ] = false;
 
         //Define new selectors
         $newSelectors = array( an_random_slug(), an_random_slug(), an_random_slug() );
     
         $flush = false;
-        if( $an_option[ 'an_option_flush' ] == true || !file_exists($tempFolderPath) ||  $anScripts[ 'temp-path' ] == false ) $flush = true;
+        if( $an_option[ 'an_option_flush' ] == true || !file_exists( $anScripts[ 'temp-path' ] ) || $anScripts[ 'temp-path' ] == false ) $flush = true;
+     
+        //Keep old directory name and selectors if no flushed
+        if ( $flush == false ){
+            $newSelectors = $anScripts[ 'selectors' ];
+			if ( isset( $anScripts[ 'temp-path' ] ) && $anScripts[ 'temp-path' ] != false ){
+				$tempFolderPath = $anScripts[ 'temp-path' ];
+				$tempFolderURL = $anScripts[ 'temp-url' ];
+			}
+		} else {
+			// Or remove it before new files creation
+			if ( isset( $anScripts[ 'temp-path' ] ) && $anScripts[ 'temp-path' ] != false ){
+				an_delete_temp_folder( $anScripts[ 'temp-path' ] );
+			}
+		}
 
         //Generate new css and js files
         $titanCssContent = an_update_titan_css_selectors( $an_option );
@@ -139,11 +157,6 @@ function an_save_setting_random_selectors() {
         if ( $newCSS == false || $newJS == false ) {
             $tempFolderPath = false;
         }
-        
-        //Keep old selectors if no flushed
-        if ( $flush == false ) {
-            $newSelectors = $anScripts[ 'selectors' ];
-        }
     
         //Store data
         $newFiles = array(
@@ -165,7 +178,9 @@ function an_save_setting_random_selectors() {
     } else {
 
         // Remove temp files
-        an_delete_temp_folder( $tempFolderPath );
+		if ( isset( $anScripts[ 'temp-path' ] ) ){
+			an_delete_temp_folder( $anScripts[ 'temp-path' ] );
+		}
    
     }
 }
@@ -205,8 +220,12 @@ add_action( 'admin_notices', 'an_error_admin_notices' );
 function an_update_titan_css_selectors( $an_option ) {
 
     $tfStyle = '';
-    $tfStyle .= $an_option[ 'an_alternative_custom_css' ];
-    $tfStyle .= $an_option[ 'an_option_modal_custom_css' ];
+	if( isset( $an_option[ 'an_alternative_custom_css' ] ) ){
+    	$tfStyle .= $an_option[ 'an_alternative_custom_css' ];
+	}
+	if( isset( $an_option[ 'an_option_modal_custom_css' ] ) ){
+    	$tfStyle .= $an_option[ 'an_option_modal_custom_css' ];
+	}
 
     //Remove TitanFramework Generated Style
     $uploadDir = wp_upload_dir();

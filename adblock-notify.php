@@ -3,7 +3,7 @@
  * Plugin Name: Adblock Notify
  * Plugin URI: http://themeisle.com/plugins/adblock-notify/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 1.8.3
+ * Version: 1.9.1
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -68,7 +68,7 @@ foreach ($anFiles as $anFile) {
  ***************************************************************/
 function an_enqueue_an_sripts() {
     if (!is_admin()) {
-		$anVersion =  '1.6.1';
+		$anVersion =  '1.9.1';
         $anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
         $an_option = TitanFramework::getInstance( 'adblocker_notify' );
 
@@ -216,7 +216,9 @@ function an_delete_temp_folder( $dirPath ) {
 function adblocker_notify_uninstall() {
     // Remove temp files
     $anTempDir = unserialize( get_option( 'adblocker_notify_selectors' ) );
-    an_delete_temp_folder( $anTempDir[ 'temp-path' ] );
+	if ( isset( $anTempDir[ 'temp-path' ] ) ){
+    	an_delete_temp_folder( $anTempDir[ 'temp-path' ] );
+	}
    
     //Remove TitanFramework Generated Style
     $uploadDir = wp_upload_dir();
