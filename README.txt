@@ -17,7 +17,7 @@ Adblock Notify has been blacklisted by adblocker softwares but it is still worki
 
 </blockquote>
 
-Detect Adblock and nofity users. Help to block adblock (eg: Adblock Plus) and increase your ad revenue.
+Detect Adblock and nofity users. Whether you are running a <a href="http://themeisle.com/wordpress-themes/blog/" rel="friend" target="_blank">personal blog</a> or a <a href="http://themeisle.com/wordpress-themes/magazine/" rel="friend" target="_blank">magazine website</a>, Adblock Notify will help you block adblockers (eg: Adblock Plus) and increase your ad revenue.
 Adblock Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
 
 **Can I stop adblocker users?**
@@ -71,6 +71,18 @@ You can notify users with an activated Adblocker software by one of THREE ways !
 
 * WordPress 3.7+ (not tested on above versions, but may works)
 
+**About us:**
+
+We are a young team of WordPress enthusiasts who enjoy developing <a href="http://themeisle.com/wordpress-plugins/" rel="friend" target="_blank">free WordPress plugins</a> and <a href="http://themeisle.com/wordpress-themes/" rel="friend" target="_blank">themes</a> for small businesses and startups. Check them out and let us know what you think, our goal is to build fully fledged products that will solve your needs.
+
+We also love to blog at CodeinWP and help our users finding the <a href="http://www.codeinwp.com/blog/best-wordpress-shared-hosting-providers/" rel="friend">best hosting</a> or <a href="http://justfreethemes.com/" rel="friend">themes</a>.
+
+**More from us**
+
+- <a href="http://justfreethemes.com/" rel="friend" target="_blank">JustFreeThemes</a> - Find the best free WordPress Themes
+- <a href="http://www.codeinwp.com/" rel="friend" target="_blank">CodeinWP</a> - Turn your PSD file into a WordPress Theme
+- <a href="http://revive.social/" rel="friend" target="_blank">Revive.Social</a> - WordPress plugins for Social Media marketers
+
 = Supported languages =
 * English [en_US]
 * French [fr_FR]
@@ -78,8 +90,7 @@ You can notify users with an activated Adblocker software by one of THREE ways !
 * Russian [ru_Ru] - Thanks to Ivanka from [Coupofy](http://www.coupofy.com/ "Coupofy")
 * Chinese [zh_CN] - Thanks to [Changmeng Hu](http://www.wpdaxue.com "Changmeng Hu")
 
-Become a translator and send me your translation!
-
+Become a translator and send us your translation!
 
 == Installation ==
 1. Upload and activate the plugin (or install it through the WP admin console)
