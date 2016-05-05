@@ -26,6 +26,8 @@ NO! This plugin does not completly block adblocker users, it only uses a passive
 
 Note: Plugin originally developed by Brice CAPOBIANCO, b-website.com
 
+Documentation link: http://docs.themeisle.com/article/274-adblock-notify-documentation
+
 = Plugin Capabilities =
 
 * Detect adBlocker (eg Adblock Plus)
