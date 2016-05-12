@@ -13,11 +13,11 @@ Detect Adblock and nofity users. Simple plugin with get around options and a lot
 
 <blockquote>
 
-Adblock Notify has been blacklisted by adblocker softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your adblocker to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
+<a href="http://themeisle.com/plugins/adblock-notify" rel="friend" target="_blank">Adblock Notify</a> has been blacklisted by adblocker softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your adblocker to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
 
 </blockquote>
 
-Detect Adblock and nofity users. Whether you are running a <a href="http://themeisle.com/wordpress-themes/blog/" rel="friend" target="_blank">personal blog</a> or a <a href="http://themeisle.com/wordpress-themes/magazine/" rel="friend" target="_blank">magazine website</a>, Adblock Notify will help you block adblockers (eg: Adblock Plus) and increase your ad revenue.
+Detect Adblock and notify users. Whether you are running a personal blog or a magazine website, Adblock Notify will help you block adblockers (eg: Adblock Plus) and increase your ad revenue.
 Adblock Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
 
 **Can I stop adblocker users?**
@@ -73,17 +73,14 @@ You can notify users with an activated Adblocker software by one of THREE ways !
 
 * WordPress 3.7+ (not tested on above versions, but may works)
 
-**About us:**
 
-We are a young team of WordPress enthusiasts who enjoy developing <a href="http://themeisle.com/wordpress-plugins/" rel="friend" target="_blank">free WordPress plugins</a> and <a href="http://themeisle.com/wordpress-themes/" rel="friend" target="_blank">themes</a> for small businesses and startups. Check them out and let us know what you think, our goal is to build fully fledged products that will solve your needs.
+For updates follow https://twitter.com/themeisle If you have anything you can let us know <a href="http://themeisle.com/contact/?utm_source=readmetop&utm_medium=announce&utm_campaign=top">here</a>.
 
-We also love to blog at CodeinWP and help our users finding the <a href="http://www.codeinwp.com/blog/best-wordpress-shared-hosting-providers/" rel="friend">best hosting</a> or <a href="http://justfreethemes.com/" rel="friend">themes</a>.
+** Useful Resources **
 
-**More from us**
-
-- <a href="http://justfreethemes.com/" rel="friend" target="_blank">JustFreeThemes</a> - Find the best free WordPress Themes
-- <a href="http://www.codeinwp.com/" rel="friend" target="_blank">CodeinWP</a> - Turn your PSD file into a WordPress Theme
-- <a href="http://revive.social/" rel="friend" target="_blank">Revive.Social</a> - WordPress plugins for Social Media marketers
+- Check-out our <a href="http://docs.themeisle.com" rel="friend" target="_blank">tutorials site</a>
+- Take a look at our other <a href="http://themeisle.com/wordpress-plugins/" rel="friend" target="_blank">plugins</a>.
+- Find out what is the <a href="http://www.codeinwp.com/blog/" rel="friend" target="_blank">best WordPress hosting</a> (real research ).
 
 = Supported languages =
 * English [en_US]
