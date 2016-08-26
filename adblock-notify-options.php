@@ -172,7 +172,7 @@ function an_create_options() {
         'rows' => '13',
         'desc' => __( 'The text of the modal box : images & shortcodes are supported.', 'an-translate' ),
         'default' => '
-                        <p>' . __( 'We\'ve detected that you are using AdBlock Plus ore some other adblocking software which is preventing the page from fully loading.', 'an-translate' ) . '</p>
+                        <p>' . __( 'We\'ve detected that you are using AdBlock Plus or some other adblocking software which is preventing the page from fully loading.', 'an-translate' ) . '</p>
                         <p>' . __( 'We don\'t have any banner, Flash, animation, obnoxious sound, or popup ad. We do not implement these annoying types of ads!', 'an-translate' ) . '</p>
                         <p>' . __( 'We need money to operate the site, and almost all of it comes from our online advertising.', 'an-translate' ) . '</p> 
                         <p><strong>' . __( 'Please add', 'an-translate' ) . ' <a title="' . get_bloginfo( 'name' ) . '" href="' . get_bloginfo( 'url' ) . '" target="_blank">' . preg_replace( '#^https?://#', '', rtrim( get_bloginfo( 'url' ), '/' ) ) . '</a> ' . __( 'to your ad blocking whitelist or disable your adblocking software.', 'an-translate' ) . '<strong></p>
