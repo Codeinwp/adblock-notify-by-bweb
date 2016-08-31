@@ -1,2 +1,6 @@
 <?php
-//Kisses from France...
+/**
+ * Nothing to see here.
+ *
+ * @package adblock-notify
+ */
