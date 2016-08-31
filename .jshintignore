@@ -1,0 +1,3 @@
+lib/**/*.js
+vendor/**/*.js
+**/*.min.js
