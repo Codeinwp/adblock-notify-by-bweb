@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Adblock Notify 1.9.2\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2016-08-31 16:19:33+00:00\n"
+"POT-Creation-Date: 2016-09-09 17:41:55+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,14 +25,14 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: adblock-notify-files.php:213
+#: adblock-notify-files.php:215
 msgid ""
 "WARNING: There was an error creating Adblock Notify CSS and JS files. "
 "Upload directory is not writable. Please CHMOD \"wp-content/uploads\" to "
 "0664 and verify your server settings"
 msgstr ""
 
-#: adblock-notify-files.php:217
+#: adblock-notify-files.php:219
 msgid ""
 "Don't worry, we thought about it. Adblock Notify will print the scripts "
 "directly in your DOM, but for performance purpose it is recommended to "
@@ -646,14 +646,14 @@ msgid ""
 "this is not advised."
 msgstr ""
 
-#: adblock-notify-options.php:436 adblock-notify-options.php:442
-#: adblock-notify-options.php:448 adblock-notify-options.php:454
+#: adblock-notify-options.php:438 adblock-notify-options.php:444
+#: adblock-notify-options.php:450 adblock-notify-options.php:456
 #: lib/titan-framework/lib/class-option-save.php:21
 msgid "Save Changes"
 msgstr ""
 
-#: adblock-notify-options.php:437 adblock-notify-options.php:443
-#: adblock-notify-options.php:449 adblock-notify-options.php:455
+#: adblock-notify-options.php:439 adblock-notify-options.php:445
+#: adblock-notify-options.php:451 adblock-notify-options.php:457
 #: lib/titan-framework/lib/class-option-save.php:24
 msgid "Reset to Defaults"
 msgstr ""
@@ -694,7 +694,7 @@ msgstr ""
 msgid "You may probably increase this number by improving your custom messages"
 msgstr ""
 
-#: adblock-notify-widget.php:235 adblock-notify.php:164
+#: adblock-notify-widget.php:235 adblock-notify.php:171
 msgid "Settings"
 msgstr ""
 
@@ -706,7 +706,7 @@ msgstr ""
 msgid "Reset Stats"
 msgstr ""
 
-#: adblock-notify.php:178
+#: adblock-notify.php:189
 msgid "More Plugins"
 msgstr ""
 
@@ -731,18 +731,18 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:114
+#: lib/titan-framework/lib/class-admin-page.php:115
 msgid ""
 "<em>Options Page Created with <a "
 "href='http://titanframework.net?utm_source=admin&utm_medium=admin "
 "footer'>Titan Framework</a></em>"
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:333
+#: lib/titan-framework/lib/class-admin-page.php:336
 msgid "Settings saved."
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:335
+#: lib/titan-framework/lib/class-admin-page.php:338
 msgid "Settings reset to default."
 msgstr ""
 

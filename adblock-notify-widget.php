@@ -38,7 +38,7 @@ function an_adblock_counter() {
 		return; }
 
 	$an_states = $_POST['an_state'];
-	$anCount = get_option( 'adblocker_notify_counter' );
+	$anCount = get_site_option( 'adblocker_notify_counter' );
 
 	foreach ( $an_states as $an_state ) {
 
@@ -55,7 +55,7 @@ function an_adblock_counter() {
 	}
 
 	// update db
-	update_option( 'adblocker_notify_counter', $anCount );
+	update_site_option( 'adblocker_notify_counter', $anCount );
 
 	exit;
 }
@@ -146,7 +146,7 @@ function an_widget_data_histoty( $anCount, $val = null ) {
  * Display the Dashboard Widget
  ***************************************************************/
 function an_get_counters() {
-	$anCount = get_option( 'adblocker_notify_counter' );
+	$anCount = get_site_option( 'adblocker_notify_counter' );
 
 	if ( empty( $anCount ) ) {
 		echo '<p>No data</p>';
@@ -164,7 +164,7 @@ function an_get_counters() {
 		}
 
 		// update db
-		update_option( 'adblocker_notify_counter', $anCount );
+		update_site_option( 'adblocker_notify_counter', $anCount );
 
 	}
 

@@ -71,7 +71,8 @@ class TitanFrameworkAdminPage {
 			$priority = intval( $this->settings['position'] );
 		}
 
-		add_action( 'admin_menu', array( $this, 'register' ), $priority );
+        $prefix = is_multisite() ? "network_" : "";
+		add_action( $prefix.'admin_menu', array( $this, 'register' ), $priority );
 	}
 
 	public function createAdminPanel( $settings ) {
@@ -244,8 +245,10 @@ class TitanFrameworkAdminPage {
 			return false;
 		}
 
+        $prefix = is_multisite() ? "-network" : "";
+
 		$screen = get_current_screen();
-		if ( $screen->id != $this->panelID ) {
+		if ( $screen->id != $this->panelID . $prefix ) {
 			return false;
 		}
 

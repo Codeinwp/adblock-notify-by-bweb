@@ -44,6 +44,16 @@ function an_prepare() {
 	$anOptionModalBxtitle = $an_option->getOption( 'an_option_modal_bxtitle' );
 	$anOptionModalBxtext = $an_option->getOption( 'an_option_modal_bxtext' );
 	$anOptionModalCustomCSS = $an_option->getOption( 'an_option_modal_custom_css' );
+	$anOptionModalShowAfter = $an_option->getOption( 'an_option_modal_after_pages' );
+	$anPageMD5              = '';
+	$anSiteID               = 0;
+	if ( ! $anOptionModalShowAfter ) {
+		$anOptionModalShowAfter = 0;
+	} else {
+		$anOptionModalShowAfter = intval( $anOptionModalShowAfter );
+		$anPageMD5              = md5( $_SERVER['REQUEST_URI'] );
+		$anSiteID               = is_multisite() ? get_current_blog_id() : 0;
+	}
 
 	// Modal Options
 	$anAlternativeActivation = $an_option->getOption( 'an_alternative_activation' );
@@ -66,7 +76,7 @@ function an_prepare() {
 	$anOptionModalOverlay = an_hex2rgba( $anOptionModalBgcolor, $anOptionModalBgopacity / 100 );
 
 	// Load random selectors
-	$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
 
 	// DOM and Json
 	if ( false == $anOptionSelectors  ) {
@@ -104,6 +114,9 @@ function an_prepare() {
 				'anAlternativeText' 		=> do_shortcode( $anAlternativeText ),
 				'anAlternativeClone' 		=> $anAlternativeClone,
 				'anAlternativeProperties' 	=> $anAlternativeProperties,
+				'anOptionModalShowAfter' 	=> $anOptionModalShowAfter,
+				'anPageMD5' 	            => $anPageMD5,
+				'anSiteID' 	                => $anSiteID,
 	) );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
@@ -138,7 +151,7 @@ add_action( 'wp_footer', 'an_prepare' );
  * prevent Header already sent notice
  ***************************************************************/
 function an_cookies_init() {
-	$an_option = unserialize( get_option( 'adblocker_notify_options' ) );
+	$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
 	$anOptionCookie = $an_option['an_option_cookie'];
 	$anOptionCookieLife = $an_option['an_option_cookie_life'];
 	if ( isset( $an_option['an_page_nojs_activation'] ) ) {
@@ -321,8 +334,10 @@ function an_stats_notice() {
  * Reset statistics
  */
 function an_reset_stats() {
+	$prefix = is_multisite() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( 'toplevel_page_' . AN_ID != $screen->id ) {
+	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {
 		return; }
 
 	if ( isset( $_GET['an-reset'] ) && 'true' == $_GET['an-reset']  ) {

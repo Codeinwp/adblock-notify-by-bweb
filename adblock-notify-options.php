@@ -427,6 +427,8 @@ function an_create_options() {
 		'lang' => 'css',
 	) );
 
+	do_action( 'an_pro_add_tab_options', $generalTab, $modalTab, $redirectTab, $alternativeTab );
+
 	/**
 	*************************************************************
 	 * Launch options framework instance
@@ -454,4 +456,5 @@ function an_create_options() {
 		'save' => __( 'Save Changes', 'an-translate' ),
 		'reset' => __( 'Reset to Defaults', 'an-translate' ),
 	) );
+
 }//end an_create_options()

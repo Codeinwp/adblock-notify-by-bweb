@@ -12,6 +12,7 @@
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
  * Domain Path: /languages
+ * Network: true
  */
 
 /**
@@ -49,6 +50,9 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 if ( ! defined( 'AN_VERSION' ) ) {
 	define( 'AN_VERSION', '1.9.2' );
 }
+if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
+	define( 'AN_TEMP_DEVELOPMENT', false );
+}
 
 
 /**
@@ -85,15 +89,15 @@ foreach ( $anFiles as $anFile ) {
 function an_enqueue_an_sripts() {
 	if ( ! is_admin() ) {
 		$anVersion = AN_VERSION;
-		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+		$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
 		$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 
 		// Disabled due to too many bug repports
 		// wp_enqueue_script( 'an_fuckadblock', AN_URL . 'js/an-detect.min.js', array( 'jquery' ), NULL, true );
 		if ( $an_option->getOption( 'an_option_selectors' ) == false ) {
 
-			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts.min.js', array( 'jquery' ),  $anVersion, true );
-			wp_register_style( 'an_style', AN_URL . 'css/an-style.min.css', array(),  $anVersion, null );
+			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts' . (AN_TEMP_DEVELOPMENT ? '' : '.min') . '.js', array( 'jquery' ),  $anVersion, true );
+			wp_register_style( 'an_style', AN_URL . 'css/an-style' . (AN_TEMP_DEVELOPMENT ? '' : '.min') . '.css', array(),  $anVersion, null );
 
 		} elseif ( $anScripts['temp-path'] != false ) {
 
@@ -145,8 +149,10 @@ function an_register_admin_scripts() {
  * Enqueue admin scripts
  */
 function an_enqueue_admin_scripts() {
+	$prefix = is_multisite() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID ) {
+	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return; }
 
 	an_register_admin_scripts();
@@ -161,11 +167,16 @@ add_action( 'admin_enqueue_scripts', 'an_enqueue_admin_scripts' );
  * Add settings link on plugin list page
  ***************************************************************/
 function an_settings_link( $links ) {
-	$links[] = '<a href="options-general.php?page=' . AN_ID . '">' . __( 'Settings', 'an-translate' ) . '</a>';
+	$url    = is_multisite() ? network_admin_url( 'admin.php' ) : admin_url( 'options-general.php' );
+	$links[] = '<a href="' . $url . '?page=' . AN_ID . '">' . __( 'Settings', 'an-translate' ) . '</a>';
 	return $links;
 }
 
-add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
+if ( is_multisite() ) {
+	add_filter( 'network_admin_plugin_action_links_' . AN_BASE, 'an_settings_link' );
+} else {
+	add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
+}
 
 
 /**
@@ -189,8 +200,10 @@ add_filter( 'plugin_row_meta', 'an_meta_links', 10, 2 );
  * Admin Panel Favico
  ***************************************************************/
 function an_add_favicon() {
+	$prefix = is_multisite() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID ) {
+	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return; }
 
 	$favicon_url = AN_URL . 'img/icon-bweb.svg';
@@ -250,7 +263,7 @@ function an_delete_temp_folder( $dirPath ) {
  */
 function adblocker_notify_uninstall() {
 	// Remove temp files
-	$anTempDir = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	$anTempDir = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
 	if ( isset( $anTempDir['temp-path'] ) ) {
 		an_delete_temp_folder( $anTempDir['temp-path'] );
 	}
