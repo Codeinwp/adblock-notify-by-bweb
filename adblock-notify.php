@@ -12,7 +12,6 @@
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
  * Domain Path: /languages
- * Network: true
  */
 
 /**

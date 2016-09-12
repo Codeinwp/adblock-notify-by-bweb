@@ -17,10 +17,6 @@ jQuery(document).ready(function ($) {
 
     $(window).load(function () {
 
-        if(an_disable_behaviour_if_multisite_subsite()){
-            return;
-        }
-
         setTimeout(function () {
 
             //launch FIRST test (jQuery) - check adsense element height
@@ -69,10 +65,6 @@ jQuery(document).ready(function ($) {
 
     /*  Do action
      /* ------------------------------------ */
-
-    function an_disable_behaviour_if_multisite_subsite(){
-        return parseInt(anOptions.anSiteID) === -1;
-    }
 
     function an_count_unique_pages_b4_showing(){
         if(parseInt(anOptions.anOptionModalShowAfter) === 0){

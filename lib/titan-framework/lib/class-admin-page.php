@@ -73,8 +73,7 @@ class TitanFrameworkAdminPage {
 
         if (apply_filters('an_pro_activated', false) && is_multisite()) {
             add_action( 'network_admin_menu', array( $this, 'register' ), $priority );
-        } else if (is_main_site()) {
-            // show the menu only on the main site if not network activated
+        } else {
     		add_action( 'admin_menu', array( $this, 'register' ), $priority );
         }
 	}

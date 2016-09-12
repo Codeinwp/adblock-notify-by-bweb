@@ -53,9 +53,9 @@ function an_prepare() {
 		$anOptionModalShowAfter = intval( $anOptionModalShowAfter );
 		$anPageMD5              = md5( $_SERVER['REQUEST_URI'] );
 		$anSiteID               = apply_filters( 'an_pro_activated', false ) && is_multisite() ? get_current_blog_id() : 0;
-		if ( ! apply_filters( 'an_pro_activated', false ) && is_multisite() && ! is_main_site() ) {
-			// disable the behaviour if its a free version on a multisite but is not the main site
-			$anSiteID           = -1;
+		if ( !apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+            // if only free is active on a multsite, disable modal per X pages behavior
+			$anOptionModalShowAfter = 0;
 		}
 	}
 
