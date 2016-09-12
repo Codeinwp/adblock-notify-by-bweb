@@ -100,8 +100,13 @@ function an_save_setting_random_selectors() {
 		setcookie( AN_COOKIE, null, -1, '/' );
 	}
 
-	$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
-	$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
+		$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
+	} else {
+		$an_option = unserialize( get_option( 'adblocker_notify_options' ) );
+		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	}
 
 	if ( true == $an_option['an_option_selectors'] ) {
 
@@ -177,18 +182,24 @@ function an_save_setting_random_selectors() {
 			'selectors' => $newSelectors,
 		);
 
-		update_site_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
-
+		if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+			update_site_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
+		} else {
+			update_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
+		}
 		// remove option flush
 		$an_option['an_option_flush'] = false;
-		update_site_option( 'adblocker_notify_options', serialize( $an_option ) );
-
-	} else {
+		if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+			update_site_option( 'adblocker_notify_options', serialize( $an_option ) );
+		} else {
+			update_option( 'adblocker_notify_options', serialize( $an_option ) );
+		}
+} else {
 
 		// Remove temp files
 		if ( isset( $anScripts['temp-path'] ) ) {
 			an_delete_temp_folder( $anScripts['temp-path'] );
-		}
+			}
 }
 }
 add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_selectors', 99 );
@@ -200,13 +211,17 @@ add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_s
  * Admin Panel notice if wrong CHMOD on "wp-content/uploads"
  ***************************************************************/
 function an_error_admin_notices() {
-	$prefix = is_multisite() ? '-network' : '';
+	$prefix = apply_filters( 'an_pro_activated', false ) && is_multisite() ? '-network' : '';
 
 	$screen = get_current_screen();
 	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {
 		return; }
 
-	$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
+	} else {
+		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	}
 
 	if ( ! empty( $anScripts ) &&  false == $anScripts['temp-path'] ) {
 		echo '

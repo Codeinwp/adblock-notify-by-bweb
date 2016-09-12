@@ -52,7 +52,11 @@ function an_prepare() {
 	} else {
 		$anOptionModalShowAfter = intval( $anOptionModalShowAfter );
 		$anPageMD5              = md5( $_SERVER['REQUEST_URI'] );
-		$anSiteID               = is_multisite() ? get_current_blog_id() : 0;
+		$anSiteID               = apply_filters( 'an_pro_activated', false ) && is_multisite() ? get_current_blog_id() : 0;
+		if ( ! apply_filters( 'an_pro_activated', false ) && is_multisite() && ! is_main_site() ) {
+			// disable the behaviour if its a free version on a multisite but is not the main site
+			$anSiteID           = -1;
+		}
 	}
 
 	// Modal Options
@@ -76,8 +80,11 @@ function an_prepare() {
 	$anOptionModalOverlay = an_hex2rgba( $anOptionModalBgcolor, $anOptionModalBgopacity / 100 );
 
 	// Load random selectors
-	$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
-
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
+	} else {
+		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	}
 	// DOM and Json
 	if ( false == $anOptionSelectors  ) {
 		$output .= '<div id="an-Modal" class="reveal-modal" ';
@@ -151,7 +158,11 @@ add_action( 'wp_footer', 'an_prepare' );
  * prevent Header already sent notice
  ***************************************************************/
 function an_cookies_init() {
-	$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
+	} else {
+		$an_option = unserialize( get_option( 'adblocker_notify_options' ) );
+	}
 	$anOptionCookie = $an_option['an_option_cookie'];
 	$anOptionCookieLife = $an_option['an_option_cookie_life'];
 	if ( isset( $an_option['an_page_nojs_activation'] ) ) {
@@ -334,7 +345,7 @@ function an_stats_notice() {
  * Reset statistics
  */
 function an_reset_stats() {
-	$prefix = is_multisite() ? '-network' : '';
+	$prefix = apply_filters( 'an_pro_activated', false ) && is_multisite() ? '-network' : '';
 
 	$screen = get_current_screen();
 	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {

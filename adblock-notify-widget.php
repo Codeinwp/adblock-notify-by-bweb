@@ -38,8 +38,11 @@ function an_adblock_counter() {
 		return; }
 
 	$an_states = $_POST['an_state'];
-	$anCount = get_site_option( 'adblocker_notify_counter' );
-
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$anCount = get_site_option( 'adblocker_notify_counter' );
+	} else {
+		$anCount = get_option( 'adblocker_notify_counter' );
+	}
 	foreach ( $an_states as $an_state ) {
 
 		if ( empty( $anCount ) ) {
@@ -55,8 +58,11 @@ function an_adblock_counter() {
 	}
 
 	// update db
-	update_site_option( 'adblocker_notify_counter', $anCount );
-
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		update_site_option( 'adblocker_notify_counter', $anCount );
+	} else {
+		update_option( 'adblocker_notify_counter', $anCount );
+	}
 	exit;
 }
 add_action( 'wp_ajax_call_an_adblock_counter', 'an_adblock_counter' );
@@ -146,8 +152,11 @@ function an_widget_data_histoty( $anCount, $val = null ) {
  * Display the Dashboard Widget
  ***************************************************************/
 function an_get_counters() {
-	$anCount = get_site_option( 'adblocker_notify_counter' );
-
+	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+		$anCount = get_site_option( 'adblocker_notify_counter' );
+	} else {
+		$anCount = get_option( 'adblocker_notify_counter' );
+	}
 	if ( empty( $anCount ) ) {
 		echo '<p>No data</p>';
 		return;
@@ -164,8 +173,11 @@ function an_get_counters() {
 		}
 
 		// update db
-		update_site_option( 'adblocker_notify_counter', $anCount );
-
+		if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
+			update_site_option( 'adblocker_notify_counter', $anCount );
+		} else {
+			update_option( 'adblocker_notify_counter', $anCount );
+		}
 	}
 
 	if ( empty( $anCount['total'] ) ) {

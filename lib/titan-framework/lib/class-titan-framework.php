@@ -225,8 +225,11 @@ class TitanFramework {
 		}
 
 		// Check if we have options saved already.
-		$currentOptions = get_site_option( $this->optionNamespace . '_options' );
-
+        if (apply_filters('an_pro_activated', false) && is_multisite()) {
+    		$currentOptions = get_site_option( $this->optionNamespace . '_options' );
+        } else {
+    		$currentOptions = get_option( $this->optionNamespace . '_options' );
+        }
 		// First time run, this action hook can be used to trigger something.
 		if ( false === $currentOptions ) {
 			do_action( 'tf_init_no_options_' . $this->optionNamespace );
@@ -305,7 +308,11 @@ class TitanFramework {
 		// Run this first to ensure that adminOptions carries all our admin page options.
 		$this->getInternalAdminOptions();
 
-		update_site_option( $this->optionNamespace . '_options', serialize( $this->adminOptions ) );
+        if (apply_filters('an_pro_activated', false) && is_multisite()) {
+    		update_site_option( $this->optionNamespace . '_options', serialize( $this->adminOptions ) );
+        } else {
+    		update_option( $this->optionNamespace . '_options', serialize( $this->adminOptions ) );
+        }
 		do_action( 'tf_save_options_' . $this->optionNamespace );
 		return $this->adminOptions;
 	}
