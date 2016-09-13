@@ -52,9 +52,9 @@ function an_prepare() {
 	} else {
 		$anOptionModalShowAfter = intval( $anOptionModalShowAfter );
 		$anPageMD5              = md5( $_SERVER['REQUEST_URI'] );
-		$anSiteID               = apply_filters( 'an_pro_activated', false ) && is_multisite() ? get_current_blog_id() : 0;
-		if ( !apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
-            // if only free is active on a multsite, disable modal per X pages behavior
+		$anSiteID               = an_is_pro() && is_multisite() ? get_current_blog_id() : 0;
+		if ( ! an_is_pro() && is_multisite() ) {
+			// if only free is active on a multsite, disable modal per X pages behavior
 			$anOptionModalShowAfter = 0;
 		}
 	}
@@ -80,11 +80,7 @@ function an_prepare() {
 	$anOptionModalOverlay = an_hex2rgba( $anOptionModalBgcolor, $anOptionModalBgopacity / 100 );
 
 	// Load random selectors
-	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
-		$anScripts = unserialize( get_site_option( 'adblocker_notify_selectors' ) );
-	} else {
-		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
-	}
+	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 	// DOM and Json
 	if ( false == $anOptionSelectors  ) {
 		$output .= '<div id="an-Modal" class="reveal-modal" ';
@@ -158,11 +154,7 @@ add_action( 'wp_footer', 'an_prepare' );
  * prevent Header already sent notice
  ***************************************************************/
 function an_cookies_init() {
-	if ( apply_filters( 'an_pro_activated', false ) && is_multisite() ) {
-		$an_option = unserialize( get_site_option( 'adblocker_notify_options' ) );
-	} else {
-		$an_option = unserialize( get_option( 'adblocker_notify_options' ) );
-	}
+	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
 	$anOptionCookie = $an_option['an_option_cookie'];
 	$anOptionCookieLife = $an_option['an_option_cookie_life'];
 	if ( isset( $an_option['an_page_nojs_activation'] ) ) {
@@ -345,15 +337,92 @@ function an_stats_notice() {
  * Reset statistics
  */
 function an_reset_stats() {
-	$prefix = apply_filters( 'an_pro_activated', false ) && is_multisite() ? '-network' : '';
+	$prefix = an_is_pro() && is_multisite() ? '-network' : '';
 
 	$screen = get_current_screen();
 	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {
-		return; }
+		return;
+	}
 
 	if ( isset( $_GET['an-reset'] ) && 'true' == $_GET['an-reset']  ) {
-		delete_option( 'adblocker_notify_counter' );
+		an_an_delete_option( 'adblocker_notify_counter' );
 		add_action( 'admin_notices', 'an_stats_notice' );
 	}
 }
 add_filter( 'admin_head', 'an_reset_stats' );
+
+/**
+ * Get option/site option
+ */
+function an_get_option( $key ) {
+	if ( ! an_check_key( $key ) ) { return null;
+	}
+	return apply_filters( 'an_get_option_' . $key, apply_filters( 'an_get_option', $key ) );
+}
+
+/**
+ * Get option
+ */
+function an_get_option_free( $key ) {
+	return get_option( $key );
+}
+
+add_filter( 'an_get_option', 'an_get_option_free', 10, 1 );
+
+/**
+ * Update option/site option
+ */
+function an_update_option( $key, $value ) {
+	if ( ! an_check_key( $key ) ) { return null;
+	}
+	return apply_filters( 'an_update_option_' . $key, apply_filters( 'an_update_option', $key, $value ) );
+}
+
+/**
+ * Update option
+ */
+function an_update_option_free( $key, $value ) {
+	return update_option( $key, $value );
+}
+
+add_filter( 'an_update_option', 'an_update_option_free', 10, 2 );
+
+/**
+ * Delete option/site option
+ */
+function an_delete_option( $key ) {
+	if ( ! an_check_key( $key ) ) { return null;
+	}
+	return apply_filters( 'an_delete_option_' . $key, apply_filters( 'an_delete_option', $key ) );
+}
+
+/**
+ * Delete option
+ */
+function an_delete_option_free( $key ) {
+	return delete_option( $key );
+}
+
+add_filter( 'an_delete_option', 'an_delete_option_free', 10, 1 );
+
+
+/**
+ * Check if key exists
+ */
+function an_check_key( $key ) {
+	$all_keys   = array(
+		'adblocker_notify_options',
+		'adblocker_notify_selectors',
+		'adblocker_notify_counter',
+	);
+
+	return in_array( $key, $all_keys );
+}
+
+
+/**
+ * Check if pro is activated
+ */
+function an_is_pro() {
+	return apply_filters( 'an_pro_activated', false );
+}
