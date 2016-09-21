@@ -86,7 +86,11 @@ function an_prepare() {
 
 	$output .= 'style="background:' . $anOptionModalBxcolor . ';';
 	if ( ! empty( $anOptionModalBxtext ) ) {
-		$output .= 'color:' . $anOptionModalBxtext;
+		$output .= 'color:' . $anOptionModalBxtext . ';';
+    }
+    $anOptionModalBxWidth   = $an_option->getOption( 'an_option_modal_width' );
+	if ( ! empty( $anOptionModalBxWidth ) ) {
+		$output .= 'max-width:' . $anOptionModalBxWidth . 'px;';
     }
 
     $modalHTML  = apply_filters('an_get_modal_html', null, $an_option);
