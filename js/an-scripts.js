@@ -118,18 +118,7 @@ jQuery(document).ready(function ($) {
             //IF MODAL BOX IS ACTIVATED
 
             if ((parseInt(anOptions.anOptionChoice) === 2 && parseInt(anOptions.anOptionCookie) === 1 && getCookie('anCookie') !== 'true') || (parseInt(anOptions.anOptionChoice) === 2 && parseInt(anOptions.anOptionCookie) === 2) && an_count_unique_pages_b4_showing()) {
-                var headingColor = '';
-                if (anOptions.anOptionModalBxtitle !== '') {
-                    headingColor = 'style="color:' + anOptions.anOptionModalBxtitle + '"';
-                }
-
-                //Closing cross
-                var closingCross = '';
-                if (parseInt(anOptions.anOptionModalCross) === 2) {
-                    closingCross = '<a class="close-reveal-modal">&#215;</a>';
-                }
-
-                $('#an-Modal').prepend('<h1 ' + headingColor + '>' + anOptions.anModalTitle + '</h1>' + anOptions.anModalText + closingCross);
+                $('#an-Modal').prepend(anOptions.modalHTML);
 
                 $('#an-Modal').bind('reveal:open', function () {                    	//on modale box open
                     $('.reveal-modal-bg').css({                                     	//apply custom style
@@ -147,7 +136,7 @@ jQuery(document).ready(function ($) {
                     animation: anOptions.anOptionModalEffect,                       	//fade, fadeAndPop, none
                     animationspeed: anOptions.anOptionModalspeed,                  	 	//how fast animtions are
                     closeonbackgroundclick: anOptions.anOptionModalclose,           	//if you click background will modal close?
-                    dismissmodalclass: 'close-reveal-modal'                         	//the class of a button or element that will close an open modal
+                    dismissmodalclass: 'close-modal'                         	//the class of a button or element that will close an open modal
                 }).trigger('reveal:open');
 
                 $('#an-Modal').bind('reveal:close', function () {                   	//on modale box close
@@ -625,7 +614,7 @@ jQuery(document).ready(function ($) {
             animation: 'fadeAndPop',                                            //fade, fadeAndPop, none
             animationspeed: 350,                                                //how fast animtions are
             closeonbackgroundclick: true,                                       //if you click background will modal close?
-            dismissmodalclass: 'close-reveal-modal'                             //the class of a button or element that will close an open modal
+            dismissmodalclass: 'close-modal'                             //the class of a button or element that will close an open modal
         };
 
         //Extend dem' options
