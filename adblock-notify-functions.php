@@ -87,13 +87,13 @@ function an_prepare() {
 	$output .= 'style="background:' . $anOptionModalBxcolor . ';';
 	if ( ! empty( $anOptionModalBxtext ) ) {
 		$output .= 'color:' . $anOptionModalBxtext . ';';
-    }
-    $anOptionModalBxWidth   = $an_option->getOption( 'an_option_modal_width' );
+	}
+	$anOptionModalBxWidth   = $an_option->getOption( 'an_option_modal_width' );
 	if ( ! empty( $anOptionModalBxWidth ) ) {
 		$output .= 'max-width:' . $anOptionModalBxWidth . 'px;';
-    }
+	}
 
-    $modalHTML  = apply_filters('an_get_modal_html', null, $an_option);
+	$modalHTML  = apply_filters( 'an_get_modal_html', null, $an_option );
 
 	$output .= '"></div>   ';
 
@@ -428,30 +428,29 @@ function an_is_pro() {
 	return apply_filters( 'an_pro_activated', false );
 }
 
-add_filter('an_get_modal_html', 'an_get_modal_html', 10, 2);
+add_filter( 'an_get_modal_html', 'an_get_modal_html', 10, 2 );
 /**
  * Create the modal html
  */
-function an_get_modal_html($html, $an_option)
-{
-    if (!apply_filters('an_pro_activated', false)) {
-        $anModalTitle   = $an_option->getOption( 'an_modal_title' );
-        $anModalText    = do_shortcode($an_option->getOption( 'an_modal_text' ));
-        $anOptionModalCross = $an_option->getOption( 'an_option_modal_cross' );
-        $anOptionModalBxtitle = $an_option->getOption( 'an_option_modal_bxtitle' );
+function an_get_modal_html( $html, $an_option ) {
+	if ( ! apply_filters( 'an_pro_activated', false ) ) {
+		$anModalTitle   = $an_option->getOption( 'an_modal_title' );
+		$anModalText    = do_shortcode( $an_option->getOption( 'an_modal_text' ) );
+		$anOptionModalCross = $an_option->getOption( 'an_option_modal_cross' );
+		$anOptionModalBxtitle = $an_option->getOption( 'an_option_modal_bxtitle' );
 
-        $headingColor = '';
-        if ($anOptionModalBxtitle) {
-            $headingColor = 'style="color:' . $anOptionModalBxtitle . '"';
-        }
+		$headingColor = '';
+		if ( $anOptionModalBxtitle ) {
+			$headingColor = 'style="color:' . $anOptionModalBxtitle . '"';
+		}
 
-        //Closing cross
-        $closingCross = '';
-        if (intval($anOptionModalCross) === 2) {
-            $closingCross = '<a class="close-reveal-modal">&#215;</a>';
-        }
-        return '<h1 ' . $headingColor . '>' . $anModalTitle . '</h1>' . $anModalText . $closingCross;
-    } else {
-        return apply_filters('an_build_selected_template', null);
-    }
+		// Closing cross
+		$closingCross = '';
+		if ( intval( $anOptionModalCross ) === 2 ) {
+			$closingCross = '<a class="close-reveal-modal">&#215;</a>';
+		}
+		return '<h1 ' . $headingColor . '>' . $anModalTitle . '</h1>' . $anModalText . $closingCross;
+	} else {
+		return apply_filters( 'an_build_selected_template', null );
+	}
 }
