@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Adblock Notify 1.9.2\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2016-08-31 16:19:33+00:00\n"
+"POT-Creation-Date: 2016-09-21 14:35:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,51 +51,51 @@ msgstr ""
 msgid "Redirection Options"
 msgstr ""
 
-#: adblock-notify-options.php:51 adblock-notify-options.php:315
+#: adblock-notify-options.php:51 adblock-notify-options.php:317
 msgid "Alternative Message"
 msgstr ""
 
-#: adblock-notify-options.php:60
+#: adblock-notify-options.php:62
 msgid "Welcome to Adblock Notify Plugin"
 msgstr ""
 
-#: adblock-notify-options.php:64
+#: adblock-notify-options.php:66
 msgid ""
 "You can notify users with an activated Adblocker software by one of THREE "
 "ways !"
 msgstr ""
 
-#: adblock-notify-options.php:66
+#: adblock-notify-options.php:68
 msgid "A pretty cool and lightweight Modal Box with a custom content:"
 msgstr ""
 
-#: adblock-notify-options.php:66
+#: adblock-notify-options.php:68
 msgid "the COMPLIANT solution"
 msgstr ""
 
-#: adblock-notify-options.php:67
+#: adblock-notify-options.php:69
 msgid "A simple redirection to the page of your choice:"
 msgstr ""
 
-#: adblock-notify-options.php:67
+#: adblock-notify-options.php:69
 msgid "the AGRESSIVE solution"
 msgstr ""
 
-#: adblock-notify-options.php:68
+#: adblock-notify-options.php:70
 msgid "A custom alternative message where your hidden ads would normally appear:"
 msgstr ""
 
-#: adblock-notify-options.php:68
+#: adblock-notify-options.php:70
 msgid "the TRANSPARENT solution"
 msgstr ""
 
-#: adblock-notify-options.php:72
+#: adblock-notify-options.php:74
 msgid ""
 "Only one of the two first options can be activated at the same time. The "
 "third one is standalone and can be setting up independently."
 msgstr ""
 
-#: adblock-notify-options.php:74
+#: adblock-notify-options.php:76
 msgid "You can easily switch between them without losing your options."
 msgstr ""
 
@@ -103,320 +103,320 @@ msgstr ""
 msgid "Adblock Notify"
 msgstr ""
 
-#: adblock-notify-options.php:77
+#: adblock-notify-options.php:79
 msgid ""
 "nativally uses cookies for a better user experience and a less intrusive "
 "browsing of your site. It means visitors will see the Modal Box only once "
 "or be redirected to your custom page once."
 msgstr ""
 
-#: adblock-notify-options.php:79
+#: adblock-notify-options.php:81
 msgid ""
 "You can deactivate them, however if your visitor has an activated adblocker "
 "software they will see a modal box or get a redirection on every visited "
 "page."
 msgstr ""
 
-#: adblock-notify-options.php:86
+#: adblock-notify-options.php:88
 msgid "Modal Box or Redirection ?"
 msgstr ""
 
-#: adblock-notify-options.php:89 adblock-notify-options.php:201
+#: adblock-notify-options.php:91 adblock-notify-options.php:203
 msgid "None"
 msgstr ""
 
-#: adblock-notify-options.php:90
+#: adblock-notify-options.php:92
 msgid "Modal Box"
 msgstr ""
 
-#: adblock-notify-options.php:91
+#: adblock-notify-options.php:93
 msgid "Page redirection"
 msgstr ""
 
-#: adblock-notify-options.php:94
+#: adblock-notify-options.php:96
 msgid ""
 "Would you like to use the Modal Box or redirect users to a custom page when "
 "adblock is detected? - Default: None"
 msgstr ""
 
-#: adblock-notify-options.php:98
+#: adblock-notify-options.php:100
 msgid "Enable statistics Widget"
 msgstr ""
 
-#: adblock-notify-options.php:101
+#: adblock-notify-options.php:103
 msgid ""
 "If you have many page views, this option may cause server overload. You can "
 "disable it to make the plugin more lightweight - Default: Yes"
 msgstr ""
 
-#: adblock-notify-options.php:101
+#: adblock-notify-options.php:103
 msgid ""
 "Adblock Notify Stats widget is available on your admin dashboard (if not "
 "visible, go to the top menu and visit \"Screen Options\")."
 msgstr ""
 
-#: adblock-notify-options.php:103 adblock-notify-options.php:131
-#: adblock-notify-options.php:221 adblock-notify-options.php:232
-#: adblock-notify-options.php:303
+#: adblock-notify-options.php:105 adblock-notify-options.php:133
+#: adblock-notify-options.php:223 adblock-notify-options.php:234
+#: adblock-notify-options.php:305
 msgid "Yes"
 msgstr ""
 
-#: adblock-notify-options.php:104 adblock-notify-options.php:132
-#: adblock-notify-options.php:222 adblock-notify-options.php:233
-#: adblock-notify-options.php:372
+#: adblock-notify-options.php:106 adblock-notify-options.php:134
+#: adblock-notify-options.php:224 adblock-notify-options.php:235
+#: adblock-notify-options.php:374
 msgid "No"
 msgstr ""
 
-#: adblock-notify-options.php:109
+#: adblock-notify-options.php:111
 msgid "Improve detection (optional)"
 msgstr ""
 
-#: adblock-notify-options.php:113
+#: adblock-notify-options.php:115
 msgid "Adverts selectors"
 msgstr ""
 
-#: adblock-notify-options.php:113 adblock-notify-options.php:341
-#: adblock-notify-options.php:409
+#: adblock-notify-options.php:115 adblock-notify-options.php:343
+#: adblock-notify-options.php:411
 msgid "Comma separated"
 msgstr ""
 
-#: adblock-notify-options.php:116
+#: adblock-notify-options.php:118
 msgid "The Element CLASS or ID of your ads. - Default: Empty"
 msgstr ""
 
-#: adblock-notify-options.php:117
+#: adblock-notify-options.php:119
 msgid ""
 "The selector you provide must still be present within your DOM after the ad "
 "has been blocked. We only detect the height of the element so it can not be "
 "fixed. "
 msgstr ""
 
-#: adblock-notify-options.php:119 adblock-notify-options.php:346
-#: adblock-notify-options.php:414
+#: adblock-notify-options.php:121 adblock-notify-options.php:348
+#: adblock-notify-options.php:416
 msgid "Read"
 msgstr ""
 
-#: adblock-notify-options.php:119 adblock-notify-options.php:346
+#: adblock-notify-options.php:121 adblock-notify-options.php:348
 msgid "Selectors | jQuery API Documentation"
 msgstr ""
 
-#: adblock-notify-options.php:119 adblock-notify-options.php:346
-#: adblock-notify-options.php:414
+#: adblock-notify-options.php:121 adblock-notify-options.php:348
+#: adblock-notify-options.php:416
 msgid "for more details"
 msgstr ""
 
-#: adblock-notify-options.php:122
+#: adblock-notify-options.php:124
 msgid "Cookies Options"
 msgstr ""
 
-#: adblock-notify-options.php:126
+#: adblock-notify-options.php:128
 msgid "Cookies activation"
 msgstr ""
 
-#: adblock-notify-options.php:129
+#: adblock-notify-options.php:131
 msgid ""
 "Prevent Modal Box from opening or Page redirection on every visited page - "
 "Default: Yes"
 msgstr ""
 
-#: adblock-notify-options.php:129
+#: adblock-notify-options.php:131
 msgid ""
 "Your own cookie is automatically reset on options save to see settings "
 "changes."
 msgstr ""
 
-#: adblock-notify-options.php:137
+#: adblock-notify-options.php:139
 msgid "Cookies Lifetime"
 msgstr ""
 
-#: adblock-notify-options.php:137
+#: adblock-notify-options.php:139
 msgid "Days"
 msgstr ""
 
-#: adblock-notify-options.php:140
+#: adblock-notify-options.php:142
 msgid "Set the lifetime of the cookie session - Default: 30 days"
 msgstr ""
 
-#: adblock-notify-options.php:147
+#: adblock-notify-options.php:149
 msgid "Random selectors and files"
 msgstr ""
 
-#: adblock-notify-options.php:151
+#: adblock-notify-options.php:153
 msgid "Use random selectors and files"
 msgstr ""
 
-#: adblock-notify-options.php:154
+#: adblock-notify-options.php:156
 msgid ""
 "Random selectors and files name to prevent adblock to block the plugin. "
 "Temp files with new selectors will be generated and stored in a temp folder "
 "in your /uploads directory  - Default: Checked"
 msgstr ""
 
-#: adblock-notify-options.php:158
+#: adblock-notify-options.php:160
 msgid "Flush files"
 msgstr ""
 
-#: adblock-notify-options.php:161
+#: adblock-notify-options.php:163
 msgid "Will recreate the selectors and temps files on options saved."
 msgstr ""
 
-#: adblock-notify-options.php:166
+#: adblock-notify-options.php:168
 msgid "Modal Box Options"
 msgstr ""
 
-#: adblock-notify-options.php:170
+#: adblock-notify-options.php:172
 msgid "Modal Title"
 msgstr ""
 
-#: adblock-notify-options.php:173
+#: adblock-notify-options.php:175
 msgid "The title of the modal box"
 msgstr ""
 
-#: adblock-notify-options.php:174
+#: adblock-notify-options.php:176
 msgid "Adblocker detected! Please consider reading this notice."
 msgstr ""
 
-#: adblock-notify-options.php:177
+#: adblock-notify-options.php:179
 msgid "Modal Text"
 msgstr ""
 
-#: adblock-notify-options.php:181
+#: adblock-notify-options.php:183
 msgid "The text of the modal box : images & shortcodes are supported."
 msgstr ""
 
-#: adblock-notify-options.php:183
+#: adblock-notify-options.php:185
 msgid ""
 "We've detected that you are using AdBlock Plus or some other adblocking "
 "software which is preventing the page from fully loading."
 msgstr ""
 
-#: adblock-notify-options.php:184
+#: adblock-notify-options.php:186
 msgid ""
 "We don't have any banner, Flash, animation, obnoxious sound, or popup ad. "
 "We do not implement these annoying types of ads!"
 msgstr ""
 
-#: adblock-notify-options.php:185
+#: adblock-notify-options.php:187
 msgid ""
 "We need money to operate the site, and almost all of it comes from our "
 "online advertising."
 msgstr ""
 
-#: adblock-notify-options.php:186 adblock-notify-options.php:356
+#: adblock-notify-options.php:188 adblock-notify-options.php:358
 msgid "Please add"
 msgstr ""
 
-#: adblock-notify-options.php:186
+#: adblock-notify-options.php:188
 msgid "to your ad blocking whitelist or disable your adblocking software."
 msgstr ""
 
-#: adblock-notify-options.php:190
+#: adblock-notify-options.php:192
 msgid "Modal Box Settings"
 msgstr ""
 
-#: adblock-notify-options.php:194
+#: adblock-notify-options.php:196
 msgid "Modal Box effect"
 msgstr ""
 
-#: adblock-notify-options.php:197
+#: adblock-notify-options.php:199
 msgid "The Modal Box animation effect - Default: Fade and Pop"
 msgstr ""
 
-#: adblock-notify-options.php:199
+#: adblock-notify-options.php:201
 msgid "Fade and Pop"
 msgstr ""
 
-#: adblock-notify-options.php:200
+#: adblock-notify-options.php:202
 msgid "Fade"
 msgstr ""
 
-#: adblock-notify-options.php:206
+#: adblock-notify-options.php:208
 msgid "Animation Speed"
 msgstr ""
 
-#: adblock-notify-options.php:206
+#: adblock-notify-options.php:208
 msgid "Milliseconds"
 msgstr ""
 
-#: adblock-notify-options.php:209
+#: adblock-notify-options.php:211
 msgid ""
 "The Modal Box animation speed. Will not be applied if modal effect is set "
 "to  None - Default: 350ms"
 msgstr ""
 
-#: adblock-notify-options.php:216
+#: adblock-notify-options.php:218
 msgid "Hide modal box close button"
 msgstr ""
 
-#: adblock-notify-options.php:219
+#: adblock-notify-options.php:221
 msgid "Hide the x close button of the modal box? - Default: No"
 msgstr ""
 
-#: adblock-notify-options.php:227
+#: adblock-notify-options.php:229
 msgid "Close the modal box on background click"
 msgstr ""
 
-#: adblock-notify-options.php:230
+#: adblock-notify-options.php:232
 msgid "If you click background will Modal close? - Default: Yes"
 msgstr ""
 
-#: adblock-notify-options.php:238
+#: adblock-notify-options.php:240
 msgid "Modal Box Style"
 msgstr ""
 
-#: adblock-notify-options.php:242
+#: adblock-notify-options.php:244
 msgid "Overlay Color"
 msgstr ""
 
-#: adblock-notify-options.php:242
+#: adblock-notify-options.php:244
 msgid "Background"
 msgstr ""
 
-#: adblock-notify-options.php:246 adblock-notify-options.php:263
+#: adblock-notify-options.php:248 adblock-notify-options.php:265
 msgid "Default:"
 msgstr ""
 
-#: adblock-notify-options.php:249
+#: adblock-notify-options.php:251
 msgid "Overlay Opacity"
 msgstr ""
 
-#: adblock-notify-options.php:252
+#: adblock-notify-options.php:254
 msgid "Modal Box overlay (background) opacity - Default: 80%"
 msgstr ""
 
-#: adblock-notify-options.php:259
+#: adblock-notify-options.php:261
 msgid "Modal Box Background Color"
 msgstr ""
 
-#: adblock-notify-options.php:266
+#: adblock-notify-options.php:268
 msgid "Modal Box Title Color"
 msgstr ""
 
-#: adblock-notify-options.php:269
+#: adblock-notify-options.php:271
 msgid "Default is your theme &lt;h1&gt; color"
 msgstr ""
 
-#: adblock-notify-options.php:273
+#: adblock-notify-options.php:275
 msgid "Modal Box Text Color"
 msgstr ""
 
-#: adblock-notify-options.php:276
+#: adblock-notify-options.php:278
 msgid "Default is your theme body text color"
 msgstr ""
 
-#: adblock-notify-options.php:280 adblock-notify-options.php:418
+#: adblock-notify-options.php:282 adblock-notify-options.php:420
 msgid "Custom CSS"
 msgstr ""
 
-#: adblock-notify-options.php:280 adblock-notify-options.php:418
+#: adblock-notify-options.php:282 adblock-notify-options.php:420
 msgid "Advance users"
 msgstr ""
 
-#: adblock-notify-options.php:283
+#: adblock-notify-options.php:285
 msgid "Put your custom CSS rules here. Modal Box ID is"
 msgstr ""
 
-#: adblock-notify-options.php:285 adblock-notify-options.php:425
+#: adblock-notify-options.php:287 adblock-notify-options.php:427
 msgid ""
 "This selector will be changed during settings update by a random new one to "
 "prevent adblock to hide this element. All the CSS and JS files are parsed "
@@ -424,236 +424,236 @@ msgid ""
 "custom style in the above field and not in you theme stylesheet."
 msgstr ""
 
-#: adblock-notify-options.php:290 adblock-notify-options.php:307
+#: adblock-notify-options.php:292 adblock-notify-options.php:309
 msgid "Target Page"
 msgstr ""
 
-#: adblock-notify-options.php:293 adblock-notify-options.php:310
+#: adblock-notify-options.php:295 adblock-notify-options.php:312
 msgid "Select a page to redirect to. List your current published pages"
 msgstr ""
 
-#: adblock-notify-options.php:296
+#: adblock-notify-options.php:298
 msgid "No JS Redirection"
 msgstr ""
 
-#: adblock-notify-options.php:296
+#: adblock-notify-options.php:298
 msgid "Warning"
 msgstr ""
 
-#: adblock-notify-options.php:300
+#: adblock-notify-options.php:302
 msgid "Redirect if no JS detected?"
 msgstr ""
 
-#: adblock-notify-options.php:303
+#: adblock-notify-options.php:305
 msgid "This option used your Cookies Options"
 msgstr ""
 
-#: adblock-notify-options.php:303
+#: adblock-notify-options.php:305
 msgid "Default: Unchecked"
 msgstr ""
 
-#: adblock-notify-options.php:303
+#: adblock-notify-options.php:305
 msgid ""
 "Will redirect visitor to a custom page if Javascript is disable. It is NOT "
 "SEO friendly, use it only on private site."
 msgstr ""
 
-#: adblock-notify-options.php:319
+#: adblock-notify-options.php:321
 msgid "You can insert a custom message where your hidden ads would normally appear."
 msgstr ""
 
-#: adblock-notify-options.php:321
+#: adblock-notify-options.php:323
 msgid ""
 "The plugin will append a new \"clean\" DIV element just before the advert "
 "container to display your custom message."
 msgstr ""
 
-#: adblock-notify-options.php:323
+#: adblock-notify-options.php:325
 msgid "Note:"
 msgstr ""
 
-#: adblock-notify-options.php:323
+#: adblock-notify-options.php:325
 msgid "Some minimal HTML knowledge is required to set up this functionality."
 msgstr ""
 
-#: adblock-notify-options.php:330
+#: adblock-notify-options.php:332
 msgid "Activate this option?"
 msgstr ""
 
-#: adblock-notify-options.php:333
+#: adblock-notify-options.php:335
 msgid "Yes - Default: Unchecked"
 msgstr ""
 
-#: adblock-notify-options.php:333
+#: adblock-notify-options.php:335
 msgid "If unchecked, below options will not be used"
 msgstr ""
 
-#: adblock-notify-options.php:337
+#: adblock-notify-options.php:339
 msgid "Required Settings"
 msgstr ""
 
-#: adblock-notify-options.php:341
+#: adblock-notify-options.php:343
 msgid "Advert containers"
 msgstr ""
 
-#: adblock-notify-options.php:344
+#: adblock-notify-options.php:346
 msgid "The Element CLASS or ID of your ads containers. - Default: Empty"
 msgstr ""
 
-#: adblock-notify-options.php:349
+#: adblock-notify-options.php:351
 msgid "Alternative Text"
 msgstr ""
 
-#: adblock-notify-options.php:353
+#: adblock-notify-options.php:355
 msgid ""
 "The alternative text to display when ads are hidden. Images & shortcodes "
 "are supported, but use them with caution."
 msgstr ""
 
-#: adblock-notify-options.php:355
+#: adblock-notify-options.php:357
 msgid "AdBlock detected!"
 msgstr ""
 
-#: adblock-notify-options.php:356
+#: adblock-notify-options.php:358
 msgid "to your adblocking whitelist or disable your adblocking software."
 msgstr ""
 
-#: adblock-notify-options.php:360
+#: adblock-notify-options.php:362
 msgid "Optional Settings"
 msgstr ""
 
-#: adblock-notify-options.php:364
+#: adblock-notify-options.php:366
 msgid "Clone ad container?"
 msgstr ""
 
-#: adblock-notify-options.php:367
+#: adblock-notify-options.php:369
 msgid "Will copy your original ad container CSS properties - Default: No"
 msgstr ""
 
-#: adblock-notify-options.php:367
+#: adblock-notify-options.php:369
 msgid "This feature is not 100% reliable but could help for a quick set up."
 msgstr ""
 
-#: adblock-notify-options.php:369 adblock-notify-options.php:390
+#: adblock-notify-options.php:371 adblock-notify-options.php:392
 msgid "Custom Mode"
 msgstr ""
 
-#: adblock-notify-options.php:370 adblock-notify-options.php:391
+#: adblock-notify-options.php:372 adblock-notify-options.php:393
 msgid "Soft Mode (Recommended)"
 msgstr ""
 
-#: adblock-notify-options.php:371 adblock-notify-options.php:392
+#: adblock-notify-options.php:373 adblock-notify-options.php:394
 msgid "Hard Mode"
 msgstr ""
 
-#: adblock-notify-options.php:381
+#: adblock-notify-options.php:383
 msgid "What does \"Clone ad container\" mean?"
 msgstr ""
 
-#: adblock-notify-options.php:383
+#: adblock-notify-options.php:385
 msgid ""
 "It means you can ask Adblock Notify Plugin to copy the CSS properties of "
 "the element that contains your ad to a new element which will not be hidden "
 "by an adblocker software. With this process, your design should not break."
 msgstr ""
 
-#: adblock-notify-options.php:385
+#: adblock-notify-options.php:387
 msgid ""
 "The new element will be the same type (DIV,SPAN,etc.) as its source, and "
 "will have the .an-alternative class."
 msgstr ""
 
-#: adblock-notify-options.php:388
+#: adblock-notify-options.php:390
 msgid "Available options are:"
 msgstr ""
 
-#: adblock-notify-options.php:390
+#: adblock-notify-options.php:392
 msgid ""
 ": Will try to catch all the CSS rules defined in your theme files, and let "
 "you choose which ones to keep (see Custom Mode CSS properties)."
 msgstr ""
 
-#: adblock-notify-options.php:391
+#: adblock-notify-options.php:393
 msgid ""
 ": Will try to catch all the CSS rules defined in your theme files, and add "
 "them to the new created element. If the browser does not support this "
 "feature, it will try Hard Mode fetching."
 msgstr ""
 
-#: adblock-notify-options.php:392
+#: adblock-notify-options.php:394
 msgid ""
 ": Will try to fetch all the elements CSS rules based on browser CSS "
 "compilation (not reading directly in your CSS files). This option may add a "
 "lot of inline CSS rules to your newly created element."
 msgstr ""
 
-#: adblock-notify-options.php:396
+#: adblock-notify-options.php:398
 msgid ""
 "This feature is performed through Javascript (+jQuery) and is 95% "
 "functional on all modern browser even on IE8+. For the 5% left, the plugin "
 "will drop potential JS errors and insert .an-alternative div."
 msgstr ""
 
-#: adblock-notify-options.php:398
+#: adblock-notify-options.php:400
 msgid "Tested and works great on Chrome, Firefox, Safari, Opera, IE8+"
 msgstr ""
 
-#: adblock-notify-options.php:401
+#: adblock-notify-options.php:403
 msgid "What's appended if I don't turn on this option?"
 msgstr ""
 
-#: adblock-notify-options.php:403
+#: adblock-notify-options.php:405
 msgid ""
 "The plugin will append a new \"clean\" DIV element with .an-alternative "
 "class just before the advert container. You can add your own custom rules "
 "with the Custom CSS field below."
 msgstr ""
 
-#: adblock-notify-options.php:409
+#: adblock-notify-options.php:411
 msgid "Custom Mode CSS properties"
 msgstr ""
 
-#: adblock-notify-options.php:412
+#: adblock-notify-options.php:414
 msgid "The element CSS properties you want to clone - Default: Empty"
 msgstr ""
 
-#: adblock-notify-options.php:413
+#: adblock-notify-options.php:415
 msgid "Eg: color, width, height, background-color, border"
 msgstr ""
 
-#: adblock-notify-options.php:414
+#: adblock-notify-options.php:416
 msgid "CSS Reference | w3schools.com"
 msgstr ""
 
-#: adblock-notify-options.php:421
+#: adblock-notify-options.php:423
 msgid "Put your custom CSS rules here. The new Element class is .an-alternative"
 msgstr ""
 
-#: adblock-notify-options.php:423
+#: adblock-notify-options.php:425
 msgid "NOTE:"
 msgstr ""
 
-#: adblock-notify-options.php:423
+#: adblock-notify-options.php:425
 msgid ""
 "If you've activated the ads containers cloning, you can still add custom "
 "CSS on your text."
 msgstr ""
 
-#: adblock-notify-options.php:424
+#: adblock-notify-options.php:426
 msgid ""
 "If you really have to overload .an-alternative with your own CSS "
 "properties, you may probably need to use !important after each of them, but "
 "this is not advised."
 msgstr ""
 
-#: adblock-notify-options.php:436 adblock-notify-options.php:442
-#: adblock-notify-options.php:448 adblock-notify-options.php:454
+#: adblock-notify-options.php:440 adblock-notify-options.php:446
+#: adblock-notify-options.php:452 adblock-notify-options.php:458
 #: lib/titan-framework/lib/class-option-save.php:21
 msgid "Save Changes"
 msgstr ""
 
-#: adblock-notify-options.php:437 adblock-notify-options.php:443
-#: adblock-notify-options.php:449 adblock-notify-options.php:455
+#: adblock-notify-options.php:441 adblock-notify-options.php:447
+#: adblock-notify-options.php:453 adblock-notify-options.php:459
 #: lib/titan-framework/lib/class-option-save.php:24
 msgid "Reset to Defaults"
 msgstr ""
@@ -662,51 +662,51 @@ msgstr ""
 msgid "Adblock Notify Stats"
 msgstr ""
 
-#: adblock-notify-widget.php:201
+#: adblock-notify-widget.php:197
 msgid "Admins are excluded from this statistics."
 msgstr ""
 
-#: adblock-notify-widget.php:202 adblock-notify-widget.php:218
+#: adblock-notify-widget.php:198 adblock-notify-widget.php:214
 msgid "Total"
 msgstr ""
 
-#: adblock-notify-widget.php:203 adblock-notify-widget.php:223
+#: adblock-notify-widget.php:199 adblock-notify-widget.php:219
 msgid "Today"
 msgstr ""
 
-#: adblock-notify-widget.php:206
+#: adblock-notify-widget.php:202
 msgid "Pages Views"
 msgstr ""
 
-#: adblock-notify-widget.php:211
+#: adblock-notify-widget.php:207
 msgid "Pages with Adblock"
 msgstr ""
 
-#: adblock-notify-widget.php:218 adblock-notify-widget.php:223
+#: adblock-notify-widget.php:214 adblock-notify-widget.php:219
 msgid "Ads blocked"
 msgstr ""
 
-#: adblock-notify-widget.php:227
+#: adblock-notify-widget.php:223
 msgid "Ad Blocker software deactivated"
 msgstr ""
 
-#: adblock-notify-widget.php:228
+#: adblock-notify-widget.php:224
 msgid "You may probably increase this number by improving your custom messages"
 msgstr ""
 
-#: adblock-notify-widget.php:235 adblock-notify.php:164
+#: adblock-notify-widget.php:231 adblock-notify.php:183
 msgid "Settings"
 msgstr ""
 
-#: adblock-notify-widget.php:239
+#: adblock-notify-widget.php:235
 msgid "Are you sure you want to delete permanently your datas?"
 msgstr ""
 
-#: adblock-notify-widget.php:240
+#: adblock-notify-widget.php:236
 msgid "Reset Stats"
 msgstr ""
 
-#: adblock-notify.php:178
+#: adblock-notify.php:198
 msgid "More Plugins"
 msgstr ""
 
@@ -731,18 +731,18 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:114
+#: lib/titan-framework/lib/class-admin-page.php:118
 msgid ""
 "<em>Options Page Created with <a "
 "href='http://titanframework.net?utm_source=admin&utm_medium=admin "
 "footer'>Titan Framework</a></em>"
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:333
+#: lib/titan-framework/lib/class-admin-page.php:339
 msgid "Settings saved."
 msgstr ""
 
-#: lib/titan-framework/lib/class-admin-page.php:335
+#: lib/titan-framework/lib/class-admin-page.php:341
 msgid "Settings reset to default."
 msgstr ""
 
@@ -931,11 +931,11 @@ msgid ""
 "multiple times."
 msgstr ""
 
-#: lib/titan-framework/lib/class-titan-framework.php:407
+#: lib/titan-framework/lib/class-titan-framework.php:406
 msgid "%s needs a %s parameter."
 msgstr ""
 
-#: lib/titan-framework/lib/class-titan-framework.php:417
+#: lib/titan-framework/lib/class-titan-framework.php:416
 msgid "Container of type %s, does not exist."
 msgstr ""
 

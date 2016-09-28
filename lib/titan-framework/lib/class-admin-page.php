@@ -71,7 +71,11 @@ class TitanFrameworkAdminPage {
 			$priority = intval( $this->settings['position'] );
 		}
 
-		add_action( 'admin_menu', array( $this, 'register' ), $priority );
+        if (apply_filters('an_pro_activated', false) && is_multisite()) {
+            add_action( 'network_admin_menu', array( $this, 'register' ), $priority );
+        } else {
+    		add_action( 'admin_menu', array( $this, 'register' ), $priority );
+        }
 	}
 
 	public function createAdminPanel( $settings ) {
@@ -244,8 +248,10 @@ class TitanFrameworkAdminPage {
 			return false;
 		}
 
+        $prefix = apply_filters('an_pro_activated', false) && is_multisite() ? "-network" : "";
+
 		$screen = get_current_screen();
-		if ( $screen->id != $this->panelID ) {
+		if ( $screen->id != $this->panelID . $prefix ) {
 			return false;
 		}
 
