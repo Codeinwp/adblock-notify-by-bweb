@@ -20,6 +20,11 @@ check:
 'check:i18n':
   - 'checktextdomain'
 
+'travis':
+  - 'mkdir:logs'
+  - 'check:php'
+  - 'check:js'
+  - 'check:i18n'
 
 # Default task
 default:
