@@ -225,8 +225,7 @@ class TitanFramework {
 		}
 
 		// Check if we have options saved already.
-		$currentOptions = get_option( $this->optionNamespace . '_options' );
-
+        $currentOptions = an_get_option( $this->optionNamespace . '_options' );
 		// First time run, this action hook can be used to trigger something.
 		if ( false === $currentOptions ) {
 			do_action( 'tf_init_no_options_' . $this->optionNamespace );
@@ -305,7 +304,7 @@ class TitanFramework {
 		// Run this first to ensure that adminOptions carries all our admin page options.
 		$this->getInternalAdminOptions();
 
-		update_option( $this->optionNamespace . '_options', serialize( $this->adminOptions ) );
+        an_update_option( $this->optionNamespace . '_options', serialize( $this->adminOptions ) );
 		do_action( 'tf_save_options_' . $this->optionNamespace );
 		return $this->adminOptions;
 	}
@@ -741,7 +740,7 @@ class TitanFramework {
 	 */
 	public function addCustomizerSaveFilter( $value, $optionName, $oldValue ) {
 
-		$theme = get_option( 'stylesheet' );
+		$theme = get_site_option( 'stylesheet' );
 
 		// Intercept theme mods only.
 		if ( strpos( $optionName, 'theme_mods_' . $theme ) !== 0 ) {

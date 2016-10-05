@@ -56,6 +56,8 @@ function an_create_options() {
 	 * Create tab's options
 	 */
 	// Adblock Notify Options
+	do_action( 'an_pro_add_tab_options_top', $generalTab, $modalTab, $redirectTab, $alternativeTab );
+
 	$generalTab->createOption( array(
 		'name' => '<h3 class="home">' . __( 'Welcome to Adblock Notify Plugin', 'an-translate' ) . '</h3>',
 		'desc' => '
@@ -427,6 +429,8 @@ function an_create_options() {
 		'lang' => 'css',
 	) );
 
+	do_action( 'an_pro_add_tab_options', $generalTab, $modalTab, $redirectTab, $alternativeTab );
+
 	/**
 	*************************************************************
 	 * Launch options framework instance
@@ -454,4 +458,5 @@ function an_create_options() {
 		'save' => __( 'Save Changes', 'an-translate' ),
 		'reset' => __( 'Reset to Defaults', 'an-translate' ),
 	) );
+
 }//end an_create_options()

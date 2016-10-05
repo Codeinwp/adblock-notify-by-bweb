@@ -69,7 +69,7 @@ class TitanFrameworkCSS {
 
 		// If the setting is 'generate css' and we can't just echo it out
 		if ( $this->frameworkInstance->settings['css'] == 'generate' ) {
-			$css = get_option( $this->getCSSSlug() );
+			$css = an_get_option( $this->getCSSSlug() );
 			if ( ! empty( $css ) ) {
 				echo "<style>{$css}</style>";
 			}
@@ -95,7 +95,7 @@ class TitanFrameworkCSS {
 		// Only enqueue the generated css if we have the settings for it
 		if ( $this->frameworkInstance->settings['css'] == 'generate' ) {
 
-			$css = get_option( $this->getCSSSlug() );
+			$css = an_get_option( $this->getCSSSlug() );
 			$generatedCss = $this->getCSSFilePath();
 
 			if ( file_exists( $generatedCss ) && empty( $css ) ) {
@@ -322,11 +322,11 @@ class TitanFrameworkCSS {
 		// Save our css
 		if ( $this->writeCSS( $cssString, $this->getCSSFilePath() ) ) {
 			// If we were able to save, remove our CSS option if it exists
-			delete_option( $this->getCSSSlug() );
+			an_delete_option( $this->getCSSSlug() );
 		} else {
 			// If we were NOT able to save our generated CSS, save our CSS
 			// as an option, we'll load that in wp_head in a hook
-			update_option( $this->getCSSSlug(), $cssString );
+			an_update_option( $this->getCSSSlug(), $cssString );
 		}
 	}
 
