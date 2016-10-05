@@ -121,7 +121,7 @@ function an_prepare() {
 				'anPageMD5' 	            => $anPageMD5,
 				'anSiteID' 	                => $anSiteID,
 				'modalHTML'                 => $modalHTML,
-	) );
+			) );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
 

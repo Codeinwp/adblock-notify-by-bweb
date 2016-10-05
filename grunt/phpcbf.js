@@ -3,7 +3,9 @@
 
 module.exports = {
     run: {
-        options: {},
+        options: {
+            standard: 'phpcs.xml'
+        },
         files: {
             src:['<%= files.php %>']
         }

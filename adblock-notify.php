@@ -102,7 +102,7 @@ function an_enqueue_an_sripts() {
 
 			// check if server is SSL
 			if ( is_ssl() ) {
-			$anScripts['temp-url'] = preg_replace( '/^http:/i', 'https:', $anScripts['temp-url'] ); }
+				$anScripts['temp-url'] = preg_replace( '/^http:/i', 'https:', $anScripts['temp-url'] ); }
 
 			wp_register_script( 'an_scripts', $anScripts['temp-url'] . $anScripts['files']['js'], array( 'jquery' ), $anVersion, true );
 			wp_register_style( 'an_style', $anScripts['temp-url'] . $anScripts['files']['css'], array(),  $anVersion, null );
@@ -127,7 +127,7 @@ function an_enqueue_an_sripts() {
 		if ( $an_option->getOption( 'an_option_selectors' ) == true ) {
 			wp_dequeue_style( 'tf-compiled-options-adblocker_notify' );
 		}
-}
+	}
 }
 add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
 

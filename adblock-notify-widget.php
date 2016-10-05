@@ -247,7 +247,7 @@ function an_get_counters() {
 				'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
 				'anDataHistotyTotal' => an_widget_data_histoty( $anCount, 'total' ),
 				'anDataHistotyBlocked' => an_widget_data_histoty( $anCount, 'blocked' ),
-	) );
+			) );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
 

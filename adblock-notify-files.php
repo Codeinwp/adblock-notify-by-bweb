@@ -140,26 +140,26 @@ function an_save_setting_random_selectors() {
 		// Generate new css and js files
 		$titanCssContent = an_update_titan_css_selectors( $an_option );
 		$newCSS = an_change_files_css_selectors(
-					$flush,
-					$tempFolderPath,
-					$tempFolderURL,
-					AN_URL . 'css/an-style.min.css',
-					$anScripts['files']['css'],
-					an_random_slug(),
-					$anScripts['selectors'],
-					$newSelectors,
-					$titanCssContent
-				);
+			$flush,
+			$tempFolderPath,
+			$tempFolderURL,
+			AN_URL . 'css/an-style.min.css',
+			$anScripts['files']['css'],
+			an_random_slug(),
+			$anScripts['selectors'],
+			$newSelectors,
+			$titanCssContent
+		);
 		$newJS = an_change_files_css_selectors(
-					$flush,
-					$tempFolderPath,
-					$tempFolderURL,
-					AN_URL . 'js/an-scripts.min.js',
-					$anScripts['files']['js'],
-					an_random_slug(),
-					$anScripts['selectors'],
-					$newSelectors
-				);
+			$flush,
+			$tempFolderPath,
+			$tempFolderURL,
+			AN_URL . 'js/an-scripts.min.js',
+			$anScripts['files']['js'],
+			an_random_slug(),
+			$anScripts['selectors'],
+			$newSelectors
+		);
 
 		// Upload dir and temp dir are not writable
 		if ( false == $newCSS  || false == $newJS ) {
@@ -181,13 +181,13 @@ function an_save_setting_random_selectors() {
 		// remove option flush
 		$an_option['an_option_flush'] = false;
 		an_update_option( 'adblocker_notify_options', serialize( $an_option ) );
-} else {
+	} else {
 
 		// Remove temp files
 		if ( isset( $anScripts['temp-path'] ) ) {
 			an_delete_temp_folder( $anScripts['temp-path'] );
-			}
-}
+		}
+	}
 }
 add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_selectors', 99 );
 
