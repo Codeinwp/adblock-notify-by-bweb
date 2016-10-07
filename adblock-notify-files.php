@@ -206,7 +206,7 @@ function an_error_admin_notices() {
 
 	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 
-	if ( ! empty( get_site_url() ) &&  false == $anScripts['temp-path'] ) {
+	if ( ! empty( $anScripts ) &&  false == $anScripts['temp-path'] ) {
 		echo '
                 <div class="error warning">
                     <p>
