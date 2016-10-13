@@ -449,7 +449,7 @@ function an_get_modal_html( $html, $an_option ) {
 		if ( intval( $anOptionModalCross ) === 2 ) {
 			$closingCross = '<a class="close-reveal-modal">&#215;</a>';
 		}
-		return '<h1 ' . $headingColor . '>' . $anModalTitle . '</h1>' . $anModalText . $closingCross;
+		return '<div class="reveal-modal-default"><h1 ' . $headingColor . '>' . $anModalTitle . '</h1>' . $anModalText . $closingCross . '</div>';
 	} else {
 		return apply_filters( 'an_build_selected_template', null );
 	}

@@ -50,7 +50,7 @@ if ( ! defined( 'AN_VERSION' ) ) {
 	define( 'AN_VERSION', '1.9.2' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
-	define( 'AN_TEMP_DEVELOPMENT', false );
+	define( 'AN_TEMP_DEVELOPMENT', true );
 }
 
 

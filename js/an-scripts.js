@@ -113,7 +113,7 @@ jQuery(document).ready(function ($) {
     }
 
     function an_message_display($an_state) {
-        if ($an_state === true) {
+        if ($an_state !== true) {
 
             //IF MODAL BOX IS ACTIVATED
 
