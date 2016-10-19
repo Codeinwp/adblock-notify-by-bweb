@@ -274,110 +274,117 @@ div.error.warning {
 }
 
 .adblock-notify-top {
+	margin: 20px 0 15px;
+	padding: 20px 10px;
+	border-top: 5px solid #252b37;
+	border-bottom: 1px solid #d4d4d4;
 	background: #fff;
-    border-bottom: 1px solid #d4d4d4;
-    border-top: 5px solid #252b37;
-    margin: 20px 0 15px;
-    padding: 20px 10px;
 }
+
 .adblock-notify-top .logo {
-    background: url(../img/logo-adblock-notify.png) no-repeat left center;
-    color: #3c3c3c;
-    display: inline-block;
-    font-family: "Open Sans", sans-serif;
-    font-size: 2em;
-    font-weight: 700;
-    letter-spacing: -1px;
-    line-height: 60px;
-    padding: 0 0 0 55px;
-    margin-left: 5px;
+	display: inline-block;
+	margin-left: 5px;
+	padding: 0 0 0 55px;
+	color: #3c3c3c;
+	background: url(../img/logo-adblock-notify.png) no-repeat left center;
+	font-family: "Open Sans", sans-serif;
+	font-size: 2em;
+	font-weight: 700;
+	line-height: 60px;
+	letter-spacing: -1px;
 }
+
 .adblock-notify-top .slogan {
-    color: #858585;
-    display: inline-block;
-    font-family: "Open Sans", sans-serif;
-    font-size: 17px;
-    line-height: 3.5;
-    margin: 0 0 0 5px;
-    padding: 0;
+	display: inline-block;
+	margin: 0 0 0 5px;
+	padding: 0;
+	color: #858585;
+	font-family: "Open Sans", sans-serif;
+	font-size: 17px;
+	line-height: 3.5;
 }
+
 .adblock-notify-top .slogan a {
 	color: #858585;
-    font-weight: 600;
-    text-decoration: none;
-    font-style: italic;
-    -webkit-transition: all 0.250s ease-in-out;
-    -moz-transition: all 0.250s ease-in-out;
-    -o-transition: all 0.250s ease-in-out;
-    transition: all 0.250s ease-in-out;
+	font-weight: 600;
+	font-style: italic;
+	text-decoration: none;
+	-webkit-transition: all 0.250s ease-in-out;
+	transition: all 0.250s ease-in-out;
 }
+
 .adblock-notify-top .slogan a:hover {
-    color: #FF6160;
+	color: #ff6160;
 }
-.adblock-notify-top .adblock-notify-actions{
+
+.adblock-notify-top .adblock-notify-actions {
 	float: right;
 }
+
 .adblock-notify-top .adblock-notify-actions .tweet-about-it {
-    background: #52c4ef;
-    text-decoration: none;
-    border-radius: 3px;
-    display: block;
-    height: 30px;
-    border-radius: 3px;
-    font-family: "Open Sans", sans-serif;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 0px 1px 0px #33a4ce;
-    line-height: 2.3;
-    padding-right: 10px;
-    display: inline-block;
-    margin-top: 14px;
-    margin-right: 5px;
+	display: block;
+	display: inline-block;
+	height: 30px;
+	margin-top: 14px;
+	margin-right: 5px;
+	padding-right: 10px;
+	border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
+	background: #52c4ef;
+	text-shadow: 0 1px 0 #33a4ce;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+	line-height: 2.3;
+	text-decoration: none;
+	text-transform: uppercase;
 }
+
 .adblock-notify-top .adblock-notify-actions .tweet-about-it span {
-    background: url(../img/twitter_icon.png) no-repeat center center, #3eaed8;
-    width: 30px;
-    height: 30px;
-    display: block;
-    float: left;
-    border-radius: 3px 0px 0px 3px;
-    margin-right: 10px;
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	border-radius: 3px 0 0 3px;
+	background: url(../img/twitter_icon.png) no-repeat center center, #3eaed8;
 }
+
 .adblock-notify-top .adblock-notify-actions .leave-a-review {
+	display: block;
+	display: inline-block;
+	height: 30px;
+	margin-top: 14px;
+	margin-right: 5px;
+	padding-right: 10px;
+	border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
 	background: #f9866b;
-    text-decoration: none;
-    border-radius: 3px;
-    display: block;
-    height: 30px;
-    border-radius: 3px;
-    font-family: "Open Sans", sans-serif;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 0px 1px 0px #e46b3d;
-    line-height: 2.3;
-    padding-right: 10px;
-    display: inline-block;
-    margin-top: 14px;
-    margin-right: 5px;
+	text-shadow: 0 1px 0 #e46b3d;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
+	line-height: 2.3;
+	text-decoration: none;
+	text-transform: uppercase;
 }
+
 .adblock-notify-top .adblock-notify-actions .leave-a-review span {
-    background: url(../img/review_icon.png) no-repeat center center, #f16848;
-    width: 30px;
-    height: 30px;
-    display: block;
-    float: left;
-    border-radius: 3px 0px 0px 3px;
-    margin-right: 10px;
+	display: block;
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+	border-radius: 3px 0 0 3px;
+	background: url(../img/review_icon.png) no-repeat center center, #f16848;
 }
-#an_option_modal_template label img{
+
+#an_option_modal_template label img {
 	opacity: 1;
 	-webkit-transition: all 0.250s ease-in-out;
-    -moz-transition: all 0.250s ease-in-out;
-    -o-transition: all 0.250s ease-in-out;
-    transition: all 0.250s ease-in-out;
+	transition: all 0.250s ease-in-out;
 }
-#an_option_modal_template label:hover img{
+
+#an_option_modal_template label:hover img {
 	opacity: 0.5;
 }

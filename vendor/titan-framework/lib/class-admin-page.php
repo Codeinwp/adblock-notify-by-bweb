@@ -293,32 +293,14 @@ class TitanFrameworkAdminPage {
 	public function createAdminPage() {
 		do_action( 'tf_admin_page_before' );
 		do_action( 'tf_admin_page_before_' . $this->getOptionNamespace() );
-
 		?>
-		<div class="wrap">
 		<!--h2><?php //echo $this->settings['title'] ?></h2-->
 		<?php
 		/*if ( ! empty( $this->settings['desc'] ) ) {
 			?><p class='description'><?php echo $this->settings['desc'] ?></p><?php
 		}*/
 		?>
-		
-		<div class="adblock-notify-top">
-			<h1 class="logo"><?php echo $this->settings['title']; ?></h1>
-			<span class="slogan">by <a href="http://themeisle.com/plugins/adblock-notify/?utm_source=topadmin&utm_medium=announce&utm_campaign=top">ThemeIsle</a></span>
-			<div class="adblock-notify-actions">
-				<a target="_blank" href="https://twitter.com/intent/tweet?text=Check-out%20this%20awesome%20plugin%20-%20&amp;url=http%3A%2F%2Frevive.social%2Fplugins%2Frevive-old-post%2F&amp;via=ReviveSocial" class="tweet-about-it"><span></span> Show your love</a>
 
-				<a target="_blank" href="https://wordpress.org/support/plugin/adblock-notify-by-bweb/reviews/" class="leave-a-review"><span></span> Leave A Review</a>
-
-				<?php
-					$pro = apply_filters('an_pro_activated','');
-					if( ! $pro) { 
-				?>
-				<a href="http://themeisle.com/plugins/adblock-notify/?utm_source=topadmin&utm_medium=announce&utm_campaign=top" title="Buy Now">Buy Now</a>
-				<?php } ?>
-			</div>
-		</div>
 
 		<div class='titan-framework-panel-wrap'>
 		<?php

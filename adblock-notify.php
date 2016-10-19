@@ -72,7 +72,7 @@ add_action( 'plugins_loaded', 'an_translate_load_textdomain', 1 );
 *************************************************************
  * Load plugin files
  */
-require_once( AN_PATH . 'lib/titan-framework/titan-framework-embedder.php' );
+require_once( AN_PATH . 'vendor/titan-framework/titan-framework-embedder.php' );
 
 $anFiles = array( 'options', 'functions', 'widget', 'files' );
 foreach ( $anFiles as $anFile ) {

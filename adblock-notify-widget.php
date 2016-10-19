@@ -20,7 +20,7 @@ function an_dashboard_widgets() {
 	if ( isset( $an_option ) && $an_option->getOption( 'an_option_stats' ) != 2 ) {
 		wp_add_dashboard_widget( 'an_dashboard_widgets', '<img src="' . AN_URL . 'img/icon-bweb.svg" class="bweb-logo" alt="addblock-notify" style="display:none"/>&nbsp;&nbsp;' . __( 'Adblock Notify Stats', 'an-translate' ), 'an_get_counters' );
 		// Chart JS
-		wp_enqueue_script( 'an_chart_js', AN_URL . 'lib/chart-js/Chart.min.js', array( 'jquery' ), null );
+		wp_enqueue_script( 'an_chart_js', AN_URL . 'vendor/chart-js/Chart.min.js', array( 'jquery' ), null );
 		// CSS & JS
 		add_action( 'admin_enqueue_scripts', 'an_register_admin_scripts' );
 	}

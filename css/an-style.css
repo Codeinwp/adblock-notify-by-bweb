@@ -5,32 +5,32 @@
 	Version: 2.0.0
 */
 .reveal-modal-bg {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background: #000;
 	background: rgba(0,0,0,0.75);
-	display: none;
-	height: 100%;
-	left: 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
 }
 
 .reveal-modal {
-	background: #fff;
-	box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.25);
-	-moz-box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.25);
-	-webkit-box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.25);
-	font-family: Arial, Helvetica, sans-serif;
-	left: 0;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 640px;
-	position: fixed;
-	right: 0;
-	top: 100px;
 	visibility: hidden;
+	position: fixed;
 	z-index: 101;
+	top: 100px;
+	right: 0;
+	left: 0;
+	max-width: 640px;
+	margin-right: auto;
+	margin-left: auto;
+	background: #fff;
+	-webkit-box-shadow: 0 3px 5px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 3px 5px 2px rgba(0,0,0,0.25);
+	box-shadow: 0 3px 5px 2px rgba(0,0,0,0.25);
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .reveal-modal-default,
@@ -40,59 +40,58 @@
 
 .reveal-modal-image {
 	overflow: hidden;
-    position: relative;
-    width: 100%;
+	position: relative;
+	width: 100%;
 }
 
 .reveal-modal-image .reveal-modal-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
 	height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 50%;
 }
 
 .reveal-modal-image .reveal-modal-right {
 	float: right;
-	padding: 30px;
 	width: 50%;
+	padding: 30px;
 }
 
 .reveal-modal.small {
-	margin-left: -140px;
 	width: 200px;
+	margin-left: -140px;
 }
 
 .reveal-modal.medium {
-	margin-left: -240px;
 	width: 400px;
+	margin-left: -240px;
 }
 
 .reveal-modal.large {
-	margin-left: -340px;
 	width: 600px;
+	margin-left: -340px;
 }
 
 .reveal-modal.xlarge {
-	margin-left: -440px;
 	width: 800px;
+	margin-left: -440px;
 }
 
 .close-reveal-modal {
-	color: #bbb;
-	cursor: pointer;
 	display: inline-block;
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 30px;
+	height: 30px;
+	color: #bbb;
 	font-size: 32px;
 	font-weight: 700;
-	height: 30px;
 	line-height: 30px;
-	position: absolute;
-	right: 15px;
 	text-align: center;
-	top: 15px;
-	width: 30px;
+	cursor: pointer;
 	-webkit-transition: 0.3s;
-	-o-transition: 0.3s;
 	transition: 0.3s;
 }
 
@@ -101,11 +100,11 @@
 }
 
 .reveal-modal h1 {
+	margin-bottom: 15px;
+	padding: 0 30px;
 	color: #252b37;
 	font-size: 28px;
 	line-height: 1.25;
-	margin-bottom: 15px;
-	padding: 0 30px;
 	text-align: center;
 }
 
@@ -115,9 +114,9 @@
 }
 
 .reveal-modal p {
+	margin-bottom: 15px;
 	color: #333745;
 	font-size: 14px;
-	margin-bottom: 15px;
 }
 
 .reveal-modal p a {
@@ -126,13 +125,12 @@
 
 .reveal-modal-right .close-modal,
 .reveal-modal-footer .close-modal {
-	background-color: #ff6160;
+	padding: 15px !important;
 	border-radius: 0 !important;
+	background-color: #ff6160;
 	font-size: 14px;
 	letter-spacing: 2px !important;
-	padding: 15px !important;
 	-webkit-transition: 0.3s;
-	-o-transition: 0.3s;
 	transition: 0.3s;
 }
 
@@ -142,14 +140,14 @@
 }
 
 .reveal-modal-footer .grey-button-modal {
-	background-color: #a5a5a5;
 	margin-right: 15px;
+	background-color: #a5a5a5;
 }
 
 .reveal-modal-footer {
-	background-color: #EFF4F7;
 	display: block;
 	padding: 15px 30px;
+	background-color: #eff4f7;
 	text-align: right;
 }
 
@@ -165,20 +163,20 @@
 	}
 
 	.reveal-modal-image .reveal-modal-left {
+		width: 100%;
 		height: 250px;
-	    width: 100%;
 	}
 
 	.reveal-modal-image .reveal-modal-right {
 		float: left;
+		width: 100%;
 		margin-top: 250px;
 		padding: 20px;
-		width: 100%;
 	}
 
 	.reveal-modal h1 {
-		font-size: 20px;
 		margin-bottom: 10px;
+		font-size: 20px;
 	}
 
 	.reveal-modal-right h1 {
@@ -190,13 +188,13 @@
 	}
 
 	.close-reveal-modal {
-		background-color: #252b37;
 		color: #fcfcfc;
+		background-color: #252b37;
 	}
 
 	.close-reveal-modal:hover {
-		background-color: #fcfcfc;
 		color: #252b37;
+		background-color: #fcfcfc;
 	}
 
 	.reveal-modal-footer {
@@ -212,11 +210,13 @@
 	.reveal-modal-image .reveal-modal-right {
 		margin-top: 200px;
 	}
+
 	.reveal-modal-footer {
 		text-align: center;
 	}
+
 	.reveal-modal-footer .close-modal {
+		width: 80%;
 		margin: 5px 10%;
-		width: 80%
 	}
 }
