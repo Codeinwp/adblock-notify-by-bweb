@@ -34,7 +34,6 @@ before_script:
     - phpcs --config-set installed_paths $WP_DEVELOP_DIR/wordpress-coding-standards
     - phpenv rehash
     - cd $plugin_dir
-    - npm install -g grunt-cli
     - npm install
 script:
      grunt travis
