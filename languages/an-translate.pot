@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Adblock Notify 1.9.2\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2016-10-19 15:16:07+00:00\n"
+"POT-Creation-Date: 2016-10-20 13:25:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -408,8 +408,8 @@ msgstr ""
 msgid "Custom CSS"
 msgstr ""
 
-#: adblock-notify-options.php:282 adblock-notify-options.php:420
-msgid "Advance users"
+#: adblock-notify-options.php:282
+msgid "Advanced users"
 msgstr ""
 
 #: adblock-notify-options.php:285
@@ -625,6 +625,10 @@ msgstr ""
 msgid "CSS Reference | w3schools.com"
 msgstr ""
 
+#: adblock-notify-options.php:420
+msgid "Advance users"
+msgstr ""
+
 #: adblock-notify-options.php:423
 msgid "Put your custom CSS rules here. The new Element class is .an-alternative"
 msgstr ""
@@ -738,11 +742,11 @@ msgid ""
 "footer'>Titan Framework</a></em>"
 msgstr ""
 
-#: vendor/titan-framework/lib/class-admin-page.php:356
+#: vendor/titan-framework/lib/class-admin-page.php:339
 msgid "Settings saved."
 msgstr ""
 
-#: vendor/titan-framework/lib/class-admin-page.php:358
+#: vendor/titan-framework/lib/class-admin-page.php:341
 msgid "Settings reset to default."
 msgstr ""
 

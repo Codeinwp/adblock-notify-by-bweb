@@ -10,6 +10,19 @@
  */
 jQuery(document).ready(function ($) {
 
+    $('.adblock-notify-options input[name="adblocker_notify_an_option_modal_template"]').each(function(i){
+        var th = jQuery(this);
+        if(i > 0){
+            th.attr('disabled','disabled').parent().addClass('template-disabled');
+            th.parent().append('<a href="#" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
+        }
+        th.parent().css('display', 'inline-block');
+    });
+
+    $('#advanced-options').append('<a href="#" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
+
+    $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').attr('disabled','disabled').show();
+
     if ($('.an-stats-table').length > 0) {
 
         //Widget

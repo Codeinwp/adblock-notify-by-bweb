@@ -301,8 +301,9 @@ class TitanFrameworkAdminPage {
 		}*/
 		?>
 
+	 <div class="wrap">
 
-		<div class='titan-framework-panel-wrap'>
+		<div class='adblock-notify-options titan-framework-panel-wrap'>
 		<?php
 
 		do_action( 'tf_admin_page_start' );

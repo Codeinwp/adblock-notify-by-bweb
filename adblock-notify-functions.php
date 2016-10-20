@@ -472,13 +472,19 @@ function an_add_header_panel() {
 
 			<a target="_blank" href="https://wordpress.org/support/plugin/adblock-notify-by-bweb/reviews/" class="leave-a-review"><span></span> Leave A Review</a>
 
+			<a target="_blank" href="#" class="buy-now"><span></span>Buy now</a>
+
+
+
 			<?php
 			$pro = apply_filters( 'an_pro_activated','' );
 			if ( ! $pro ) {
 				?>
-				<a href="http://themeisle.com/plugins/adblock-notify/?utm_source=topadmin&utm_medium=announce&utm_campaign=top" title="Buy Now">Buy Now</a>
+				<a target="_blank" href="#" class="buy-now"><span></span> Buy now</a>
 			<?php } ?>
+			<div class="features">Multi-Site Support</div>
 		</div>
+		<div class="clear"></div>
 	</div>
 	<?php
 }

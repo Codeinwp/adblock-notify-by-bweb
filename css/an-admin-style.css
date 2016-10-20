@@ -110,24 +110,24 @@ div.error.warning {
 	display: block;
 	position: relative;
 	width: 100%;
-	height: 100px;
-	margin-bottom: 20px;
-	background: url(../img/icon-bweb.svg);
+	height: 60px;
+	margin-bottom: 5px;
+	background: url(../img/logo-adblock-notify.png) no-repeat left center;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 	content: "";
 }
 
 .titan-framework-panel-wrap .tf-heading th h3 {
-	padding-left: 30px;
+	padding-left: 20px;
 }
 
 .titan-framework-panel-wrap .tf-heading th h3:before {
 	position: absolute;
-	width: 16px;
-	height: 16px;
-	margin: 3px 0 0 -20px;
-	background-image: url(../img/icon-bweb.png);
+	width: 24px;
+	height: 24px;
+	margin: -2px 0 0 -30px;
+	background-image: url(../img/icon-adblock-notify.png);
 	background-size: cover;
 	content: "";
 }
@@ -283,7 +283,7 @@ div.error.warning {
 
 .adblock-notify-top .logo {
 	display: inline-block;
-	margin-left: 5px;
+	margin: 0 0 0 5px;
 	padding: 0 0 0 55px;
 	color: #3c3c3c;
 	background: url(../img/logo-adblock-notify.png) no-repeat left center;
@@ -317,22 +317,28 @@ div.error.warning {
 	color: #ff6160;
 }
 
-.adblock-notify-top .adblock-notify-actions {
-	float: right;
+.adblock-notify-top .slogan a:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
-.adblock-notify-top .adblock-notify-actions .tweet-about-it {
-	display: block;
+.adblock-notify-top .adblock-notify-actions {
+	float: right;
+	text-align: right;
+}
+
+.adblock-notify-top .adblock-notify-actions .tweet-about-it,
+.adblock-notify-top .adblock-notify-actions .leave-a-review,
+.adblock-notify-top .adblock-notify-actions .buy-now {
 	display: inline-block;
 	height: 30px;
-	margin-top: 14px;
+	margin-top: 2px;
 	margin-right: 5px;
 	padding-right: 10px;
 	border-radius: 3px;
 	border-radius: 3px;
 	color: #fff;
-	background: #52c4ef;
-	text-shadow: 0 1px 0 #33a4ce;
 	font-family: "Open Sans", sans-serif;
 	font-weight: bold;
 	line-height: 2.3;
@@ -340,51 +346,207 @@ div.error.warning {
 	text-transform: uppercase;
 }
 
-.adblock-notify-top .adblock-notify-actions .tweet-about-it span {
-	display: block;
-	float: left;
-	width: 30px;
-	height: 30px;
-	margin-right: 10px;
-	border-radius: 3px 0 0 3px;
-	background: url(../img/twitter_icon.png) no-repeat center center, #3eaed8;
+.adblock-notify-top .adblock-notify-actions .tweet-about-it:focus,
+.adblock-notify-top .adblock-notify-actions .leave-a-review:focus,
+.adblock-notify-top .adblock-notify-actions .buy-now:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .adblock-notify-top .adblock-notify-actions .leave-a-review {
-	display: block;
-	display: inline-block;
-	height: 30px;
-	margin-top: 14px;
-	margin-right: 5px;
-	padding-right: 10px;
-	border-radius: 3px;
-	border-radius: 3px;
-	color: #fff;
 	background: #f9866b;
 	text-shadow: 0 1px 0 #e46b3d;
-	font-family: "Open Sans", sans-serif;
-	font-weight: bold;
-	line-height: 2.3;
-	text-decoration: none;
-	text-transform: uppercase;
 }
 
-.adblock-notify-top .adblock-notify-actions .leave-a-review span {
+.adblock-notify-top .adblock-notify-actions .buy-now {
+	background: #e33b3f;
+	text-shadow: 0 1px 0 #ce1d22;
+}
+
+.adblock-notify-top .adblock-notify-actions .tweet-about-it span,
+.adblock-notify-top .adblock-notify-actions .leave-a-review span,
+.adblock-notify-top .adblock-notify-actions .buy-now span {
 	display: block;
 	float: left;
 	width: 30px;
 	height: 30px;
 	margin-right: 10px;
 	border-radius: 3px 0 0 3px;
+}
+
+.adblock-notify-top .adblock-notify-actions .tweet-about-it {
+	background: #52c4ef;
+	text-shadow: 0 1px 0 #33a4ce;
+}
+
+.adblock-notify-top .adblock-notify-actions .tweet-about-it span {
+	background: url(../img/twitter_icon.png) no-repeat center center, #3eaed8;
+}
+
+.adblock-notify-top .adblock-notify-actions .leave-a-review span {
 	background: url(../img/review_icon.png) no-repeat center center, #f16848;
 }
 
-#an_option_modal_template label img {
-	opacity: 1;
-	-webkit-transition: all 0.250s ease-in-out;
-	transition: all 0.250s ease-in-out;
+.adblock-notify-top .adblock-notify-actions .buy-now span {
+	background: url(../img/buy_now_icon.png) no-repeat center center, #ce1d22;
 }
 
-#an_option_modal_template label:hover img {
+.adblock-notify-top .adblock-notify-actions .features {
+	margin: 10px 5px 0 0;
+	color: #858585;
+	font-size: 20px;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.adblock-notify-options .row-1 .second label {
+	display: none;
+}
+
+.adblock-notify-options .row-1 label img {
+	-webkit-transition: 0.250s ease-in-out;
+	transition: 0.250s ease-in-out;
+}
+
+.adblock-notify-options .row-1 .template-disabled img,
+.adblock-notify-options .row-1 label:hover img {
 	opacity: 0.5;
+
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+.adblock-notify-options .row-1 .template-disabled {
+	overflow: hidden;
+	position: relative;
+	cursor: not-allowed;
+}
+
+.adblock-notify-options .row-1 .template-disabled .pro-badge {
+	display: none;
+	visibility: visible !important;
+	position: absolute;
+	right: 1px;
+	bottom: 1px;
+	padding: 5px 7px;
+	outline: none;
+	color: #000;
+	background-color: #ffd311;
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	-webkit-animation-name: slideUp;
+	animation-name: slideUp;
+	-webkit-animation-duration: 0.25s;
+	animation-duration: 0.25s;
+	-webkit-animation-timing-function: ease;
+	animation-timing-function: ease;
+}
+
+.adblock-notify-options .row-1 .template-disabled:hover .pro-badge {
+	display: inline-block;
+}
+
+.adblock-notify-options .row-1 .template-disabled .pro-badge:focus {
+	outline: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.adblock-notify-options .tf-image-preview {
+	overflow: hidden;
+}
+
+.adblock-notify-options .tf-image-preview img {
+	max-height: none !important;
+	margin: 0 !important;
+}
+
+.adblock-notify-options #advanced-options .pro-badge {
+	margin-left: 10px;
+	padding: 5px 7px;
+	border-radius: 3px;
+	color: #000;
+	background-color: #ffd311;
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#adblocker_notify_an_option_modal_after_pages,
+#adblocker_notify_an_option_modal_width {
+	display: none;
+}
+
+/* Animations */
+@keyframes slideUp {
+	0% {
+		-webkit-transform: translateY(100%);
+		transform: translateY(100%);
+	}
+
+	75% {
+		-webkit-transform: translateY(-20%);
+	}
+
+	100% {
+		-webkit-transform: translateY(0%);
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slideUp {
+	0% {
+		-webkit-transform: translateY(100%);
+	}
+
+	75% {
+		-webkit-transform: translateY(-20%);
+	}
+
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
+
+/* Responsive */
+@media all and (max-width:1100px) {
+	.adblock-notify-top .slogan {
+		display: none;
+	}
+}
+
+@media (max-width: 780px) {
+	.adblock-notify-top {
+		text-align: center;
+	}
+
+	.adblock-notify-top .logo {
+		margin-bottom: 15px;
+	}
+
+	.adblock-notify-top .adblock-notify-actions {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.adblock-notify-options .row-1 .second label {
+		margin: 10px 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.adblock-notify-top .adblock-notify-actions .tweet-about-it,
+	.adblock-notify-top .adblock-notify-actions .leave-a-review,
+	.adblock-notify-top .adblock-notify-actions .buy-now {
+		width: 80%;
+		margin: 5px 10%;
+	}
 }

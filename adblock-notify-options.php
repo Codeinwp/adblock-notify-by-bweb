@@ -279,7 +279,7 @@ function an_create_options() {
 		'default' => '',
 	) );
 	$modalTab->createOption( array(
-		'name' => __( 'Custom CSS', 'an-translate' ) . ' <br /><i>( ' . __( 'Advance users', 'an-translate' ) . ' )<i>',
+		'name' => __( 'Custom CSS', 'an-translate' ) . ' <br /><i>( ' . __( 'Advanced users', 'an-translate' ) . ' )<i>',
 		'id' => 'an_option_modal_custom_css',
 		'type' => 'code',
 		'desc' => __(
