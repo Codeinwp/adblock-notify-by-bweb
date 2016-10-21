@@ -14,7 +14,7 @@
  ***************************************************************/
 function an_template_heading_style() {
 	$class = an_get_template_class();
-	$instance = call_user_func(array($class,'instance'));
+	$instance = call_user_func( array( $class, 'instance' ) );
 
 	echo $instance->heading_style;
 }
@@ -25,7 +25,7 @@ function an_template_heading_style() {
  ***************************************************************/
 function an_template_title() {
 	$class = an_get_template_class();
-	$instance = call_user_func(array($class,'instance'));
+	$instance = call_user_func( array( $class, 'instance' ) );
 
 	echo $instance->title;
 }
@@ -37,7 +37,7 @@ function an_template_title() {
 function an_template_content() {
 
 	$class = an_get_template_class();
-	$instance = call_user_func(array($class,'instance'));
+	$instance = call_user_func( array( $class, 'instance' ) );
 	echo $instance->content;
 }
 
@@ -48,7 +48,7 @@ function an_template_content() {
 function an_template_footer() {
 
 	$class = an_get_template_class();
-	$instance = call_user_func(array($class,'instance'));
+	$instance = call_user_func( array( $class, 'instance' ) );
 	echo $instance->footer;
 }
 
@@ -58,7 +58,7 @@ function an_template_footer() {
  ***************************************************************/
 function an_template_extra() {
 	$class = an_get_template_class();
-	$instance = call_user_func(array($class,'instance'));
+	$instance = call_user_func( array( $class, 'instance' ) );
 	echo $instance->extra;
 }
 /**
