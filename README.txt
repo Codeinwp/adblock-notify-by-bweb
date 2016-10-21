@@ -1,9 +1,8 @@
-=== Adblock Notify ===
+=== Adblock Notify Lite ===
 Contributors: themeisle
 Tags:  adblock, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, adBlocker, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
-Tested up to: 4.5
-Stable tag: 1.9.2
+Tested up to: 4.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,6 +18,14 @@ Detect Adblock and nofity users. Simple plugin with get around options and a lot
 
 Detect Adblock and notify users. Whether you are running a personal blog or a magazine website, Adblock Notify will help you block adblockers (eg: Adblock Plus) and increase your ad revenue.
 Adblock Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
+
+> **Time-saving features available in the Pro version:**
+>
+> * Supoort for multisite ( Setup in one place and use it across all network sites )
+> * Advance templating system for modal and easy to customize inside the themes
+> * Advance control for modal behaviour
+>
+> **[Learn more about Adblock Notify ](http://themeisle.com/plugins/adblock-notify/)**
 
 **Can I stop adblocker users?**
 
@@ -121,10 +128,15 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
-= 1.9 = 
-* Tested on WP 4.5 with success! 
-* The temp folder has now a randomly generated name since Adblock softwares just blacklisted it. 
-* themeisle added as plugin author 
+= 2.0.0 =
+* Tested on WP 4.6.1 with success!
+* Added compatibility with pro plugin
+* Added support for popup templates inside the theme used
+
+= 1.9 =
+* Tested on WP 4.5 with success!
+* The temp folder has now a randomly generated name since Adblock softwares just blacklisted it.
+* themeisle added as plugin author
 
 = 1.8.3 =
 * Fix a warning with PHP 7

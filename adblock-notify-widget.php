@@ -20,7 +20,7 @@ function an_dashboard_widgets() {
 	if ( isset( $an_option ) && $an_option->getOption( 'an_option_stats' ) != 2 ) {
 		wp_add_dashboard_widget( 'an_dashboard_widgets', '<img src="' . AN_URL . 'img/icon-bweb.svg" class="bweb-logo" alt="addblock-notify" style="display:none"/>&nbsp;&nbsp;' . __( 'Adblock Notify Stats', 'an-translate' ), 'an_get_counters' );
 		// Chart JS
-		wp_enqueue_script( 'an_chart_js', AN_URL . 'lib/chart-js/Chart.min.js', array( 'jquery' ), null );
+		wp_enqueue_script( 'an_chart_js', AN_URL . 'vendor/chart-js/Chart.min.js', array( 'jquery' ), null );
 		// CSS & JS
 		add_action( 'admin_enqueue_scripts', 'an_register_admin_scripts' );
 	}
@@ -38,13 +38,12 @@ function an_adblock_counter() {
 		return; }
 
 	$an_states = $_POST['an_state'];
-	$anCount = get_option( 'adblocker_notify_counter' );
-
+	$anCount = an_get_option( 'adblocker_notify_counter' );
 	foreach ( $an_states as $an_state ) {
 
 		if ( empty( $anCount ) ) {
 			$anCount = array( 'total' => 0, 'blocked' => 0, 'deactivated' => 0, 'history' => array() );
-			add_option( 'adblocker_notify_counter', $anCount );
+			an_update_option( 'adblocker_notify_counter', $anCount );
 		}
 
 		// update option with new values
@@ -55,8 +54,7 @@ function an_adblock_counter() {
 	}
 
 	// update db
-	update_option( 'adblocker_notify_counter', $anCount );
-
+	an_update_option( 'adblocker_notify_counter', $anCount );
 	exit;
 }
 add_action( 'wp_ajax_call_an_adblock_counter', 'an_adblock_counter' );
@@ -146,8 +144,7 @@ function an_widget_data_histoty( $anCount, $val = null ) {
  * Display the Dashboard Widget
  ***************************************************************/
 function an_get_counters() {
-	$anCount = get_option( 'adblocker_notify_counter' );
-
+	$anCount = an_get_option( 'adblocker_notify_counter' );
 	if ( empty( $anCount ) ) {
 		echo '<p>No data</p>';
 		return;
@@ -164,8 +161,7 @@ function an_get_counters() {
 		}
 
 		// update db
-		update_option( 'adblocker_notify_counter', $anCount );
-
+		an_update_option( 'adblocker_notify_counter', $anCount );
 	}
 
 	if ( empty( $anCount['total'] ) ) {
@@ -251,7 +247,7 @@ function an_get_counters() {
 				'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
 				'anDataHistotyTotal' => an_widget_data_histoty( $anCount, 'total' ),
 				'anDataHistotyBlocked' => an_widget_data_histoty( $anCount, 'blocked' ),
-	) );
+			) );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
 

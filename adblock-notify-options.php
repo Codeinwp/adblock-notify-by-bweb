@@ -32,7 +32,7 @@ function an_create_options() {
 		'name' => AN_NAME,
 		'icon' => 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FscXVlXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iODUwLjM5cHgiIGhlaWdodD0iODUwLjM5cHgiIHZpZXdCb3g9IjAgMCA4NTAuMzkgODUwLjM5IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4NTAuMzkgODUwLjM5IiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjREMzNjNCIiBkPSJNNDI0Ljc4LDAuNTg5QzE5MC40NDcsMC41ODksMC40ODIsMTkwLjU1NCwwLjQ4Miw0MjQuODg3YzAsMjM0LjMzMywxODkuOTY1LDQyNC4yOTgsNDI0LjI5OCw0MjQuMjk4YzIzNC4zMzMsMCw0MjQuMjk3LTE4OS45NjUsNDI0LjI5Ny00MjQuMjk4Qzg0OS4wNzgsMTkwLjU1NCw2NTkuMTEzLDAuNTg5LDQyNC43OCwwLjU4OXogTTcwMi43ODUsMzE4LjI3NWMtMTEuMjQsOS43MjktMzQuMTMxLDIxLjUwOC02OC42NSwzNS4zMjJjLTIzLjkxOCw5LjUzMy0zOC42NjYsMTcuMjI0LTQ0LjI0MiwyMy4wNzZjLTUuNTc0LDUuODQxLTguMjc3LDE2LjI2My04LjEwNCwzMS4yNzFjMC45OSwyMS45MjEsOC4zMTgsNTEuMzYsMjIuMDA2LDg4LjMxYzEzLjY4OCwzNi45MzQsMjIuNTMzLDY0LjYwNCwyNi41NDEsODIuOTg0YzEuNjU2LDguMDAyLDAuNjM1LDE1LjkzOC0zLjA2OCwyMy44MDdjLTMuNjk5LDcuODU3LTkuNTU1LDE0LjA4Mi0xNy41OTYsMTguNjdjLTEwLjU0MSw2LjU2NC0yMy44NDYsNi44NTQtMzkuOTAyLDAuODg1Yy0xNi4wNjEtNS45NzctNDIuNjY2LTIxLjA5Ni03OS44MzItNDUuMzU1Yy0yLjEzOS0xLjI0LTUuMDE0LTMuMDM3LTguNjM1LTUuNDE4Yy0xMS40NDUtNy44NzUtMTkuNjQ1LTEzLjQ4Ni0yNC42MTktMTYuODRjLTQuOTc3LTMuMzY1LTExLjc3MS03LjE3OC0yMC4zNzUtMTEuNDQ3Yy04LjYwNy00LjI3OS0xNC4yNzktNy4yMzItMTcuMDItOC44NTVjLTIuNzMxLTEuNjM1LTcuNTYtMi43NzEtMTQuNDgzLTMuNDI2Yy02LjkyLTAuNjYtMTEuNDU3LTAuODc3LTEzLjU5OS0wLjYzM2MtMi4xNDEsMC4yMjMtNi42NzUsMi4wNTEtMTMuNTksNS40NjljLTYuOTIsMy40MDYtMTEuNzU5LDYuNDk0LTE0LjUyNyw5LjI2MmMtMi43NjgsMi43NTYtOC4zMzgsNy44ODEtMTYuNzE0LDE1LjM1N2MtOC4zNzIsNy40NjctMTQuOTg2LDEzLjgzOC0xOS44NDksMTkuMTI5Yy00Ljg1OCw1LjI3Ny0xMi44NjQsMTMuNzctMjQuMDIsMjUuNDc5Yy0zLjc0NSw0LjEwOS02LjU1Miw3LjE5Ny04LjQyMyw5LjI1OGMtMTAuNDM3LDExLjEyOS0xOC4zODUsMTkuMTM3LTIzLjg0NiwyNC4wMjVjLTUuNDYyLDQuODc5LTEwLjc5Niw5LjM4My0xNi4wMDMsMTMuNDg4Yy01LjIwMyw0LjA5Ni0xMC4wNjMsNS44NzctMTQuNTUzLDUuMzU0Yy00LjQ5Mi0wLjUzNy04LjkzNC0xLjU1NS0xMy4zMTMtMy4wNDNjLTQuMzc1LTEuNTA0LTEwLjczNC00LjIwMS0xOS4wNi04LjEyMWMtMTYuMjEyLTguNzYyLTI2LjA4NC0xNi4xMTUtMjkuNjEzLTIyLjA2M2MtMy41MjEtNS45NTktMy41NjMtMTUuMjQ0LTAuMTE1LTI3Ljg1MmMxLjkxNy03LjkyLDguMDI0LTE4LjI2MiwxOC4zMjktMzEuMDMxYzEwLjMwNS0xMi43ODcsMjEuMzgzLTIzLjgzNCwzMy4yMzEtMzMuMTc0YzM0LjgzOS0yNy40NTEsNTIuNzEtNDcuNzk1LDUzLjYyOS02MS4wMjljMC45MTMtMTMuMjQ4LTE0LjMzLTI0LjY1OC00NS43NTEtMzQuMjM4Yy0yMC43MzEtNi4zNjMtMzUuMjE4LTEyLjU2LTQzLjQ1NS0xOC41NzljLTguMjQxLTYuMDMxLTEyLjg5NS0xNC4xNDgtMTMuOTU4LTI0LjM2NGMtMi40Mi0yMC43OTUsMy4yMDctMzYuMDA2LDE2Ljg4NC00NS42MDdjMTMuNjc1LTkuNjE4LDMyLjIyOS0xMS43MjksNTUuNjg0LTYuMzRjMTIuMzM1LDMuMDgxLDI0LjQ0Niw0LjYsMzYuMzMyLDQuNTUzYzExLjg4Ny0wLjA2NSwxOS45MDMtMS43MTYsMjQuMDI3LTQuOTY2YzQuMTMyLTMuMjU1LDEyLjkzNy0xNi40NTUsMjYuNDI0LTM5LjU5NGMxMy40OS0yMy4xNTMsMjcuNjYtNDkuMjk5LDQyLjUxMS03OC40NjRjMjAuODY5LTQxLjQ4MywzNi44ODktNjkuNTMxLDQ4LjA2Ny04NC4xNTNjMTEuMTcyLTE0LjYzLDIxLjYxNS0yMS43LDMxLjMyLTIxLjE5YzEzLjYzOSwwLjMwNSwyNi4zNzksNi4xMzQsMzguMjE5LDE3LjQ3MmMxMS44NCwxMS4zMjEsMTcuMDcyLDIyLjc3OCwxNS43MDUsMzQuMzM2Yy0xLjQyOCw5LjI2OSwzLjU5NCwzMC4wNDYsMTUuMDcsNjIuMzM3YzEwLjM2MywyNy45MiwyMi4wODYsNDMuNzEzLDM1LjE2LDQ3LjM4NmMxMy4wNzYsMy42NjQsMzUuMTk3LTIuNDIsNjYuMzc3LTE4LjI1N2MyMS4xMzktMTAuODQ1LDM4LjcxNS0xNC4yMTYsNTIuNzE1LTEwLjEwN2MxNC4wMDYsNC4wOTMsMjMuODI4LDE1LjI3NywyOS40NzksMzMuNTI5QzcxNy42MzIsMjk3LjQwNiw3MTQuMDMzLDMwOC41MzksNzAyLjc4NSwzMTguMjc1eiIvPjwvc3ZnPg==',
 		'id' => AN_ID,
-			) );
+	) );
 
 	/**
 	*************************************************************
@@ -40,22 +40,24 @@ function an_create_options() {
 	 */
 	$generalTab = $an_panel->createTab( array(
 		'name' => __( 'Adblock Notify Options', 'an-translate' ),
-			) );
+	) );
 	$modalTab = $an_panel->createTab( array(
 		'name' => __( 'Modal Visual Options', 'an-translate' ),
-			) );
+	) );
 	$redirectTab = $an_panel->createTab( array(
 		'name' => __( 'Redirection Options', 'an-translate' ),
-			) );
+	) );
 	$alternativeTab = $an_panel->createTab( array(
 		'name' => __( 'Alternative Message', 'an-translate' ),
-			) );
+	) );
 
 	/**
 	*************************************************************
 	 * Create tab's options
 	 */
 	// Adblock Notify Options
+	do_action( 'an_pro_add_tab_options_top', $generalTab, $modalTab, $redirectTab, $alternativeTab );
+
 	$generalTab->createOption( array(
 		'name' => '<h3 class="home">' . __( 'Welcome to Adblock Notify Plugin', 'an-translate' ) . '</h3>',
 		'desc' => '
@@ -277,11 +279,11 @@ function an_create_options() {
 		'default' => '',
 	) );
 	$modalTab->createOption( array(
-		'name' => __( 'Custom CSS', 'an-translate' ) . ' <br /><i>( ' . __( 'Advance users', 'an-translate' ) . ' )<i>',
+		'name' => __( 'Custom CSS', 'an-translate' ) . ' <br /><i>( ' . __( 'Advanced users', 'an-translate' ) . ' )<i>',
 		'id' => 'an_option_modal_custom_css',
 		'type' => 'code',
 		'desc' => __(
-				'Put your custom CSS rules here. Modal Box ID is', 'an-translate' ) . ' <strong class="an-red">#an-Modal</strong>
+		'Put your custom CSS rules here. Modal Box ID is', 'an-translate' ) . ' <strong class="an-red">#an-Modal</strong>
                 <br /><br /><strong class="an-red">' . __( 'This selector will be changed during settings update by a random new one to prevent adblock to hide this element. All the CSS and JS files are parsed to be updated with this new selectors. That is why you have to add your custom style in the above field and not in you theme stylesheet.', 'an-translate' ) . '</strong>',
 		'lang' => 'css',
 	) );
@@ -427,6 +429,8 @@ function an_create_options() {
 		'lang' => 'css',
 	) );
 
+	do_action( 'an_pro_add_tab_options', $generalTab, $modalTab, $redirectTab, $alternativeTab );
+
 	/**
 	*************************************************************
 	 * Launch options framework instance
@@ -454,4 +458,87 @@ function an_create_options() {
 		'save' => __( 'Save Changes', 'an-translate' ),
 		'reset' => __( 'Reset to Defaults', 'an-translate' ),
 	) );
-}//end an_create_options()
+
+}
+
+/**
+ * Pro options in READ mode
+ */
+
+add_filter( 'an_get_all_templates','an_add_free_template' );
+/**
+ * Alter the templates in the options panel
+ *
+ * @param array $array Templates to load.
+ *
+ * @return mixed Templates available
+ */
+function an_add_free_template( $array ) {
+	$array['an-default'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-default.png';
+	$array['an-ok'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-ok.png';
+	$array['an-image'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-image.png';
+	return $array;
+}
+
+/**
+ * ************************************************************
+ * Add additional features in the tabs but as the first items
+ ***************************************************************/
+function an_pro_add_tab_options_top( $generalTab, $modalTab, $redirectTab, $alternativeTab ) {
+	$templates  = apply_filters( 'an_get_all_templates', array() );
+	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
+	$selected_template  = isset( $an_option['an_option_modal_template'] ) ? $an_option['an_option_modal_template'] : 'an-default';
+
+	if ( isset( $_GET['an_option_modal_template'] ) ) {
+		$selected_template  = $_GET['an_option_modal_template'];
+	}
+
+	$modalTab->createOption( array(
+		'name' => __( 'Modal Box Template', 'an-translate' ),
+		'type' => 'heading',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Choose Template', 'an-translate' ),
+		'id' => 'an_option_modal_template',
+		'options' => $templates,
+		'type' => 'radio-image',
+		'default' => $selected_template,
+	) );
+
+	apply_filters( 'an_show_template_options', $modalTab, $selected_template );
+}
+
+/**
+
+ * ************************************************************
+ * Add additional features in the tabs but as the last items
+ ***************************************************************/
+function an_pro_add_tab_options( $generalTab, $modalTab, $redirectTab, $alternativeTab ) {
+	$modalTab->createOption( array(
+		'name' => __( 'Advanced Options', 'an-translate' ),
+		'type' => 'heading',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Show modal after pages viewed', 'an-translate' ),
+		'id' => 'an_option_modal_after_pages',
+		'type' => 'number',
+		'desc' => __( 'After how many unique pages should the modal be shown? - Default: 0 (every page)', 'an-translate' ),
+		'default' => '0',
+		'min' => '0',
+		'max' => '100',
+		'step' => '1',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Modal width', 'an-translate' ),
+		'id' => 'an_option_modal_width',
+		'type' => 'number',
+		'desc' => __( 'Maxium width of the modal window in pixels', 'an-translate' ),
+		'default' => '720',
+		'min' => '200',
+		'max' => '1000',
+		'step' => '1',
+	) );
+}
+
+add_action( 'an_pro_add_tab_options_top',  'an_pro_add_tab_options_top' , 10, 4 );
+add_action( 'an_pro_add_tab_options',   'an_pro_add_tab_options' , 10, 4 );

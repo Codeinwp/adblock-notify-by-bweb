@@ -6,6 +6,7 @@ class TitanFrameworkOptionRadioImage extends TitanFrameworkOption {
 
 	public $defaultSecondarySettings = array(
 		'options' => array(),
+		'default' => null,
 	);
 
 	function __construct( $settings, $owner ) {
@@ -27,6 +28,9 @@ class TitanFrameworkOptionRadioImage extends TitanFrameworkOption {
 
 		// Get the correct value, since we are accepting indices in the default setting
 		$value = $this->getValue();
+        if ($this->settings['default']) {
+            $value = $this->settings['default'];
+        }
 
 		// print the images
 		foreach ( $this->settings['options'] as $key => $imageURL ) {
@@ -92,6 +96,7 @@ add_action( 'customize_register', 'registerTitanFrameworkOptionRadioImageControl
 function registerTitanFrameworkOptionRadioImageControl() {
 	class TitanFrameworkOptionRadioImageControl extends WP_Customize_Control {
 		public $description;
+		public $default;
 
 		public function render_content() {
 
@@ -103,6 +108,9 @@ if ( ! empty( $this->description ) ) {
 
 			// print the images
 			$value = $this->value();
+            if ($this->default) {
+                $value = $this->default;
+            }
 foreach ( $this->choices as $key => $imageURL ) {
 	// Get the correct value, we might get a blank if index / value is 0
 	if ( $value == '' ) {

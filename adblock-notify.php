@@ -4,10 +4,10 @@
  *
  * @package adblock-notify
  *
- * Plugin Name: Adblock Notify
- * Plugin URI: http://themeisle.com/plugins/adblock-notify/
+ * Plugin Name: Adblock Notify Lite
+ * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 1.9.2
+ * Version: 2.0.0
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -47,7 +47,16 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '1.9.2' );
+	define( 'AN_VERSION', '2.0.0' );
+}
+if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
+	define( 'AN_TEMP_DEVELOPMENT', false );
+}
+if ( ! defined( 'AN_TEMPLATES_DIRECTORY' ) ) {
+	define( 'AN_TEMPLATES_DIRECTORY', 'an-templates/' );
+}
+if ( ! defined( 'AN_PRO_URL' ) ) {
+	define( 'AN_PRO_URL','http://themeisle.com/plugins/adblock-notify/' );
 }
 
 
@@ -69,11 +78,12 @@ add_action( 'plugins_loaded', 'an_translate_load_textdomain', 1 );
 *************************************************************
  * Load plugin files
  */
-require_once( AN_PATH . 'lib/titan-framework/titan-framework-embedder.php' );
+require_once( AN_PATH . 'vendor/titan-framework/titan-framework-embedder.php' );
 
-$anFiles = array( 'options', 'functions', 'widget', 'files' );
+$anFiles = array( 'adblock-notify-options', 'adblock-notify-functions', 'adblock-notify-widget', 'adblock-notify-files','inc/template-functions' );
+$anFiles = apply_filters( 'an_files_include',$anFiles );
 foreach ( $anFiles as $anFile ) {
-	require_once( AN_PATH . 'adblock-notify-' . $anFile . '.php' );
+	require_once( AN_PATH . $anFile . '.php' );
 }
 
 
@@ -85,21 +95,21 @@ foreach ( $anFiles as $anFile ) {
 function an_enqueue_an_sripts() {
 	if ( ! is_admin() ) {
 		$anVersion = AN_VERSION;
-		$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+		$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 		$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 
 		// Disabled due to too many bug repports
 		// wp_enqueue_script( 'an_fuckadblock', AN_URL . 'js/an-detect.min.js', array( 'jquery' ), NULL, true );
 		if ( $an_option->getOption( 'an_option_selectors' ) == false ) {
 
-			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts.min.js', array( 'jquery' ),  $anVersion, true );
-			wp_register_style( 'an_style', AN_URL . 'css/an-style.min.css', array(),  $anVersion, null );
+			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts.js', array( 'jquery' ),  $anVersion, true );
+			wp_register_style( 'an_style', AN_URL . 'css/an-style.css', array(),  $anVersion, null );
 
 		} elseif ( $anScripts['temp-path'] != false ) {
 
 			// check if server is SSL
 			if ( is_ssl() ) {
-			$anScripts['temp-url'] = preg_replace( '/^http:/i', 'https:', $anScripts['temp-url'] ); }
+				$anScripts['temp-url'] = preg_replace( '/^http:/i', 'https:', $anScripts['temp-url'] ); }
 
 			wp_register_script( 'an_scripts', $anScripts['temp-url'] . $anScripts['files']['js'], array( 'jquery' ), $anVersion, true );
 			wp_register_style( 'an_style', $anScripts['temp-url'] . $anScripts['files']['css'], array(),  $anVersion, null );
@@ -124,7 +134,7 @@ function an_enqueue_an_sripts() {
 		if ( $an_option->getOption( 'an_option_selectors' ) == true ) {
 			wp_dequeue_style( 'tf-compiled-options-adblocker_notify' );
 		}
-}
+	}
 }
 add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
 
@@ -137,6 +147,8 @@ add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
 function an_register_admin_scripts() {
 	// JS
 	wp_enqueue_script( 'an_admin_scripts', AN_URL . 'js/an-admin-scripts.js', array( 'jquery' ), '1.4.5', true );
+
+	wp_localize_script( 'an_admin_scripts', 'an_admin', array( 'pro_url' => AN_PRO_URL, 'pro' => (an_is_pro()) ? 'yes': 'no' ) );
 	// CSS
 	wp_enqueue_style( 'an_admin_style', AN_URL . 'css/an-admin-style.css', array(),  '1.4.5', null );
 }
@@ -145,8 +157,10 @@ function an_register_admin_scripts() {
  * Enqueue admin scripts
  */
 function an_enqueue_admin_scripts() {
+	$prefix = an_is_bussiness() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID ) {
+	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return; }
 
 	an_register_admin_scripts();
@@ -160,12 +174,27 @@ add_action( 'admin_enqueue_scripts', 'an_enqueue_admin_scripts' );
  * ************************************************************
  * Add settings link on plugin list page
  ***************************************************************/
+function an_settings_link_init() {
+	if ( an_is_bussiness() ) {
+		add_filter( 'network_admin_plugin_action_links_' . AN_BASE, 'an_settings_link' );
+	} else {
+		add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
+	}
+}
+
+/**
+
+ * ************************************************************
+ * Add settings link on plugin list page
+ ***************************************************************/
 function an_settings_link( $links ) {
-	$links[] = '<a href="options-general.php?page=' . AN_ID . '">' . __( 'Settings', 'an-translate' ) . '</a>';
+	$url    = an_is_bussiness() ? network_admin_url( 'admin.php' ) : admin_url( 'options-general.php' );
+	$links[] = '<a href="' . $url . '?page=' . AN_ID . '">' . __( 'Settings', 'an-translate' ) . '</a>';
 	return $links;
 }
 
-add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
+add_action( 'plugins_loaded', 'an_settings_link_init' );
+
 
 
 /**
@@ -189,9 +218,12 @@ add_filter( 'plugin_row_meta', 'an_meta_links', 10, 2 );
  * Admin Panel Favico
  ***************************************************************/
 function an_add_favicon() {
+	$prefix = an_is_bussiness() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID ) {
-		return; }
+	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+		return;
+	}
 
 	$favicon_url = AN_URL . 'img/icon-bweb.svg';
 	echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
@@ -250,7 +282,7 @@ function an_delete_temp_folder( $dirPath ) {
  */
 function adblocker_notify_uninstall() {
 	// Remove temp files
-	$anTempDir = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	$anTempDir = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 	if ( isset( $anTempDir['temp-path'] ) ) {
 		an_delete_temp_folder( $anTempDir['temp-path'] );
 	}
@@ -263,7 +295,7 @@ function adblocker_notify_uninstall() {
 		unlink( $TfCssFile ); }
 
 	// Remove option from DB
-	delete_option( 'adblocker_notify_options' );
-	delete_option( 'adblocker_notify_counter' );
-	delete_option( 'adblocker_notify_selectors' );
+	an_delete_option( 'adblocker_notify_options' );
+	an_delete_option( 'adblocker_notify_counter' );
+	an_delete_option( 'adblocker_notify_selectors' );
 }

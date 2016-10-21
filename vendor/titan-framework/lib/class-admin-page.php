@@ -71,7 +71,11 @@ class TitanFrameworkAdminPage {
 			$priority = intval( $this->settings['position'] );
 		}
 
-		add_action( 'admin_menu', array( $this, 'register' ), $priority );
+        if (an_is_bussiness()) {
+            add_action( 'network_admin_menu', array( $this, 'register' ), $priority );
+        } else {
+    		add_action( 'admin_menu', array( $this, 'register' ), $priority );
+        }
 	}
 
 	public function createAdminPanel( $settings ) {
@@ -244,8 +248,10 @@ class TitanFrameworkAdminPage {
 			return false;
 		}
 
+        $prefix = an_is_bussiness() ? "-network" : "";
+
 		$screen = get_current_screen();
-		if ( $screen->id != $this->panelID ) {
+		if ( $screen->id != $this->panelID . $prefix ) {
 			return false;
 		}
 
@@ -287,17 +293,17 @@ class TitanFrameworkAdminPage {
 	public function createAdminPage() {
 		do_action( 'tf_admin_page_before' );
 		do_action( 'tf_admin_page_before_' . $this->getOptionNamespace() );
-
 		?>
-		<div class="wrap">
-		<h2><?php echo $this->settings['title'] ?></h2>
+		<!--h2><?php //echo $this->settings['title'] ?></h2-->
 		<?php
-		if ( ! empty( $this->settings['desc'] ) ) {
+		/*if ( ! empty( $this->settings['desc'] ) ) {
 			?><p class='description'><?php echo $this->settings['desc'] ?></p><?php
-		}
+		}*/
 		?>
 
-		<div class='titan-framework-panel-wrap'>
+	 <div class="wrap">
+
+		<div class='adblock-notify-options titan-framework-panel-wrap'>
 		<?php
 
 		do_action( 'tf_admin_page_start' );

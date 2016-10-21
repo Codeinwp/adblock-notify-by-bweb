@@ -28,7 +28,7 @@ jQuery(document).ready(function ($) {
             }
 
             //launch SECOND test (jQuery) - based on defined adverts selectors
-            if ($an_state == null && anOptions.anOptionAdsSelectors !== '') {
+            if ($an_state === null && anOptions.anOptionAdsSelectors !== '') {
                 var substr = anOptions.anOptionAdsSelectors.split(',');
                 $.each(substr, function (i) {
                     if (($(substr[i]).length > 0 && $(substr[i]).outerHeight() === 0 )) {
@@ -66,23 +66,59 @@ jQuery(document).ready(function ($) {
     /*  Do action
      /* ------------------------------------ */
 
+    function an_count_unique_pages_b4_showing(){
+        if(parseInt(anOptions.anOptionModalShowAfter) === 0){
+            return true;
+        }
+
+        var hasStorage          = typeof(window.localStorage) !== 'undefined';
+        var uniqPagesCrossed    = false;
+        var uniqArrAsStr        = '';
+        var itemName            = 'an_uniqpgs' + anOptions.anSiteID;
+
+        if(hasStorage){
+            uniqArrAsStr        = window.localStorage.getItem(itemName);
+        }else{
+            uniqArrAsStr        = getCookie(itemName);
+        }
+
+        var arr                 = JSON.parse(uniqArrAsStr);
+        if(!arr){
+            arr                 = [];
+        }
+        
+        uniqPagesCrossed        = arr.length > anOptions.anOptionModalShowAfter;
+
+        if(!uniqPagesCrossed){
+            var bAdd            = true;
+            for(var i = 0; i < arr.length; i++){
+                if(arr[i] === anOptions.anPageMD5){
+                    bAdd        = false;
+                    break;
+                }
+            }
+            if(bAdd){
+                arr[arr.length]     = anOptions.anPageMD5;
+                uniqArrAsStr        = JSON.stringify(arr);
+                if(hasStorage){
+                    window.localStorage.setItem(itemName, uniqArrAsStr);
+                }else{
+                    setCookie(itemName, uniqArrAsStr, 365, '/');
+                }
+            }
+            uniqPagesCrossed        = arr.length > anOptions.anOptionModalShowAfter;
+        }
+
+        return uniqPagesCrossed;
+    }
+
     function an_message_display($an_state) {
         if ($an_state === true) {
 
             //IF MODAL BOX IS ACTIVATED
-            if ((anOptions.anOptionChoice === 2 && anOptions.anOptionCookie === 1 && getCookie('anCookie') !== 'true') || (anOptions.anOptionChoice === 2 && anOptions.anOptionCookie === 2)) {
-                var headingColor = '';
-                if (anOptions.anOptionModalBxtitle !== '') {
-                    headingColor = 'style="color:' + anOptions.anOptionModalBxtitle + '"';
-                }
 
-                //Closing cross
-                var closingCross = '';
-                if (anOptions.anOptionModalCross === 2) {
-                    closingCross = '<a class="close-reveal-modal">&#215;</a>';
-                }
-
-                $('#an-Modal').prepend('<h1 ' + headingColor + '>' + anOptions.anModalTitle + '</h1>' + anOptions.anModalText + closingCross);
+            if ((parseInt(anOptions.anOptionChoice) === 2 && parseInt(anOptions.anOptionCookie) === 1 && getCookie('anCookie') !== 'true') || (parseInt(anOptions.anOptionChoice) === 2 && parseInt(anOptions.anOptionCookie) === 2) && an_count_unique_pages_b4_showing()) {
+                $('#an-Modal').prepend(anOptions.modalHTML);
 
                 $('#an-Modal').bind('reveal:open', function () {                    	//on modale box open
                     $('.reveal-modal-bg').css({                                     	//apply custom style
@@ -100,7 +136,7 @@ jQuery(document).ready(function ($) {
                     animation: anOptions.anOptionModalEffect,                       	//fade, fadeAndPop, none
                     animationspeed: anOptions.anOptionModalspeed,                  	 	//how fast animtions are
                     closeonbackgroundclick: anOptions.anOptionModalclose,           	//if you click background will modal close?
-                    dismissmodalclass: 'close-reveal-modal'                         	//the class of a button or element that will close an open modal
+                    dismissmodalclass: 'close-modal'                         	//the class of a button or element that will close an open modal
                 }).trigger('reveal:open');
 
                 $('#an-Modal').bind('reveal:close', function () {                   	//on modale box close
@@ -112,7 +148,7 @@ jQuery(document).ready(function ($) {
                 });
 
                 //IF PAGE REDIRECT IS ACTIVATED
-            } else if (anOptions.anOptionChoice === 3 && anOptions.anPermalink !== 'undefined' && getCookie('anCookie') !== 'true') {
+            } else if (parseInt(anOptions.anOptionChoice) === 3 && anOptions.anPermalink !== 'undefined' && getCookie('anCookie') !== 'true') {
                 setCookie('anCookie', 'true', anOptions.anOptionCookieLife, '/');      	//set cookie to true
                 window.location.replace(anOptions.anPermalink);                     	//redirect to user page
             }
@@ -134,7 +170,7 @@ jQuery(document).ready(function ($) {
                                 newElement = $(newElement);
                         }
                         var copiedStyles;
-                        if (anOptions.anAlternativeClone === 1 && anOptions.anAlternativeProperties !== '') {
+                        if (parseInt(anOptions.anAlternativeClone) === 1 && anOptions.anAlternativeProperties !== '') {
 
                             copiedStyles = getStyleObjectCss($element);
                             if (typeof (copiedStyles) === 'undefined') {
@@ -160,14 +196,14 @@ jQuery(document).ready(function ($) {
                             anKeepCSS = anKeepCSS.join('');
                             newElement.removeAttr('style').attr('style', anKeepCSS);
 
-                        } else if (anOptions.anAlternativeClone === 2) {
+                        } else if (parseInt(anOptions.anAlternativeClone) === 2) {
 
                             copiedStyles = getStyleObjectCss($element);
                             if (typeof (copiedStyles) === 'undefined') {
                                 copiedStyles = $element.getStyleObject();
                             }
                             newElement.css(copiedStyles).css(anExcludeRules);
-                        } else if (anOptions.anAlternativeClone === 3) {
+                        } else if (parseInt(anOptions.anAlternativeClone) === 3) {
 
                             copiedStyles = $element.getStyleObject();
                             newElement.css(copiedStyles).css(anExcludeRules);
@@ -578,7 +614,7 @@ jQuery(document).ready(function ($) {
             animation: 'fadeAndPop',                                            //fade, fadeAndPop, none
             animationspeed: 350,                                                //how fast animtions are
             closeonbackgroundclick: true,                                       //if you click background will modal close?
-            dismissmodalclass: 'close-reveal-modal'                             //the class of a button or element that will close an open modal
+            dismissmodalclass: 'close-modal'                             //the class of a button or element that will close an open modal
         };
 
         //Extend dem' options

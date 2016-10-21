@@ -465,8 +465,8 @@ if ( class_exists( 'TitanFrameworkOption' ) ) {
 	 		$themes = json_decode( $r['body']['themes'] );
 
 	 		// Remove the active parent and child themes from the check
-	 		$parent = get_option( 'template' );
-	 		$child = get_option( 'stylesheet' );
+	 		$parent = get_site_option( 'template' );
+	 		$child = get_site_option( 'stylesheet' );
 	 		unset( $themes->themes->$parent );
 	 		unset( $themes->themes->$child );
 

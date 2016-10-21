@@ -100,8 +100,8 @@ function an_save_setting_random_selectors() {
 		setcookie( AN_COOKIE, null, -1, '/' );
 	}
 
-	$an_option = unserialize( get_option( 'adblocker_notify_options' ) );
-	$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
+	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 
 	if ( true == $an_option['an_option_selectors'] ) {
 
@@ -140,26 +140,26 @@ function an_save_setting_random_selectors() {
 		// Generate new css and js files
 		$titanCssContent = an_update_titan_css_selectors( $an_option );
 		$newCSS = an_change_files_css_selectors(
-					$flush,
-					$tempFolderPath,
-					$tempFolderURL,
-					AN_URL . 'css/an-style.min.css',
-					$anScripts['files']['css'],
-					an_random_slug(),
-					$anScripts['selectors'],
-					$newSelectors,
-					$titanCssContent
-				);
+			$flush,
+			$tempFolderPath,
+			$tempFolderURL,
+			AN_URL . 'css/an-style.css',
+			$anScripts['files']['css'],
+			an_random_slug(),
+			$anScripts['selectors'],
+			$newSelectors,
+			$titanCssContent
+		);
 		$newJS = an_change_files_css_selectors(
-					$flush,
-					$tempFolderPath,
-					$tempFolderURL,
-					AN_URL . 'js/an-scripts.min.js',
-					$anScripts['files']['js'],
-					an_random_slug(),
-					$anScripts['selectors'],
-					$newSelectors
-				);
+			$flush,
+			$tempFolderPath,
+			$tempFolderURL,
+			AN_URL . 'js/an-scripts.js',
+			$anScripts['files']['js'],
+			an_random_slug(),
+			$anScripts['selectors'],
+			$newSelectors
+		);
 
 		// Upload dir and temp dir are not writable
 		if ( false == $newCSS  || false == $newJS ) {
@@ -177,19 +177,17 @@ function an_save_setting_random_selectors() {
 			'selectors' => $newSelectors,
 		);
 
-		update_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
-
+		an_update_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
 		// remove option flush
 		$an_option['an_option_flush'] = false;
-		update_option( 'adblocker_notify_options', serialize( $an_option ) );
-
+		an_update_option( 'adblocker_notify_options', serialize( $an_option ) );
 	} else {
 
 		// Remove temp files
 		if ( isset( $anScripts['temp-path'] ) ) {
 			an_delete_temp_folder( $anScripts['temp-path'] );
 		}
-}
+	}
 }
 add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_selectors', 99 );
 
@@ -200,11 +198,13 @@ add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_s
  * Admin Panel notice if wrong CHMOD on "wp-content/uploads"
  ***************************************************************/
 function an_error_admin_notices() {
+	$prefix = an_is_pro() && is_multisite() ? '-network' : '';
+
 	$screen = get_current_screen();
-	if ( 'toplevel_page_' . AN_ID != $screen->id ) {
+	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {
 		return; }
 
-	$anScripts = unserialize( get_option( 'adblocker_notify_selectors' ) );
+	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 
 	if ( ! empty( $anScripts ) &&  false == $anScripts['temp-path'] ) {
 		echo '
@@ -257,8 +257,8 @@ function an_update_titan_css_selectors( $an_option ) {
 function an_print_change_files_css_selectors( $an_option, $anScripts ) {
 
 	// Get AN style and script
-	$anCSS = AN_URL . 'css/an-style.min.css';
-	$anJS = AN_URL . 'js/an-scripts.min.js';
+	$anCSS = AN_URL . 'css/an-style.css';
+	$anJS = AN_URL . 'js/an-scripts.js';
 
 	$newSelectors = $anScripts['selectors'];
 	$defaultSelectors = array( 'an-Modal', 'reveal-modal', 'an-alternative' );
