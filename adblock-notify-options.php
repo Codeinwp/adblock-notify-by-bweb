@@ -459,4 +459,86 @@ function an_create_options() {
 		'reset' => __( 'Reset to Defaults', 'an-translate' ),
 	) );
 
-}//end an_create_options()
+}
+
+/**
+ * Pro options in READ mode
+ */
+
+add_filter( 'an_get_all_templates','an_add_free_template' );
+/**
+ * Alter the templates in the options panel
+ *
+ * @param array $array Templates to load.
+ *
+ * @return mixed Templates available
+ */
+function an_add_free_template( $array ) {
+	$array['an-default'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-default.png';
+	$array['an-ok'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-ok.png';
+	$array['an-image'] = AN_URL . AN_TEMPLATES_DIRECTORY . 'screenshots/' . 'an-image.png';
+	return $array;
+}
+
+/**
+ * ************************************************************
+ * Add additional features in the tabs but as the first items
+ ***************************************************************/
+function an_pro_add_tab_options_top( $generalTab, $modalTab, $redirectTab, $alternativeTab ) {
+	$templates  = apply_filters( 'an_get_all_templates', array() );
+	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
+	$selected_template  = isset( $an_option['an_option_modal_template'] ) ? $an_option['an_option_modal_template'] : 'an-default';
+
+	if ( isset( $_GET['an_option_modal_template'] ) ) {
+		$selected_template  = $_GET['an_option_modal_template'];
+	}
+
+	$modalTab->createOption( array(
+		'name' => __( 'Modal Box Template', 'an-translate' ),
+		'type' => 'heading',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Choose Template', 'an-translate' ),
+		'id' => 'an_option_modal_template',
+		'options' => $templates,
+		'type' => 'radio-image',
+		'default' => $selected_template,
+	) );
+
+	apply_filters( 'an_show_template_options', $modalTab, $selected_template );
+}
+
+/**
+
+ * ************************************************************
+ * Add additional features in the tabs but as the last items
+ ***************************************************************/
+function an_pro_add_tab_options( $generalTab, $modalTab, $redirectTab, $alternativeTab ) {
+	$modalTab->createOption( array(
+		'name' => __( 'Advanced Options', 'an-translate' ),
+		'type' => 'heading',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Show modal after pages viewed', 'an-translate' ),
+		'id' => 'an_option_modal_after_pages',
+		'type' => 'number',
+		'desc' => __( 'After how many unique pages should the modal be shown? - Default: 0 (every page)', 'an-translate' ),
+		'default' => '0',
+		'min' => '0',
+		'max' => '100',
+		'step' => '1',
+	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Modal width', 'an-translate' ),
+		'id' => 'an_option_modal_width',
+		'type' => 'number',
+		'desc' => __( 'Maxium width of the modal window in pixels', 'an-translate' ),
+		'default' => '720',
+		'min' => '200',
+		'max' => '1000',
+		'step' => '1',
+	) );
+}
+
+add_action( 'an_pro_add_tab_options_top',  'an_pro_add_tab_options_top' , 10, 4 );
+add_action( 'an_pro_add_tab_options',   'an_pro_add_tab_options' , 10, 4 );

@@ -4,10 +4,10 @@
  *
  * @package adblock-notify
  *
- * Plugin Name: Adblock Notify
- * Plugin URI: http://themeisle.com/plugins/adblock-notify/
+ * Plugin Name: Adblock Notify Lite
+ * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 1.9.2
+ * Version: 2.0.0
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -47,10 +47,16 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '1.9.2' );
+	define( 'AN_VERSION', '2.0.0' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
-	define( 'AN_TEMP_DEVELOPMENT', true );
+	define( 'AN_TEMP_DEVELOPMENT', false );
+}
+if ( ! defined( 'AN_TEMPLATES_DIRECTORY' ) ) {
+	define( 'AN_TEMPLATES_DIRECTORY', 'an-templates/' );
+}
+if ( ! defined( 'AN_PRO_URL' ) ) {
+	define( 'AN_PRO_URL','http://themeisle.com/plugins/adblock-notify/' );
 }
 
 
@@ -74,9 +80,10 @@ add_action( 'plugins_loaded', 'an_translate_load_textdomain', 1 );
  */
 require_once( AN_PATH . 'vendor/titan-framework/titan-framework-embedder.php' );
 
-$anFiles = array( 'options', 'functions', 'widget', 'files' );
+$anFiles = array( 'adblock-notify-options', 'adblock-notify-functions', 'adblock-notify-widget', 'adblock-notify-files','inc/template-functions' );
+$anFiles = apply_filters( 'an_files_include',$anFiles );
 foreach ( $anFiles as $anFile ) {
-	require_once( AN_PATH . 'adblock-notify-' . $anFile . '.php' );
+	require_once( AN_PATH . $anFile . '.php' );
 }
 
 
@@ -95,8 +102,8 @@ function an_enqueue_an_sripts() {
 		// wp_enqueue_script( 'an_fuckadblock', AN_URL . 'js/an-detect.min.js', array( 'jquery' ), NULL, true );
 		if ( $an_option->getOption( 'an_option_selectors' ) == false ) {
 
-			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts' . (AN_TEMP_DEVELOPMENT ? '' : '.min') . '.js', array( 'jquery' ),  $anVersion, true );
-			wp_register_style( 'an_style', AN_URL . 'css/an-style' . (AN_TEMP_DEVELOPMENT ? '' : '.min') . '.css', array(),  $anVersion, null );
+			wp_register_script( 'an_scripts', AN_URL . 'js/an-scripts.js', array( 'jquery' ),  $anVersion, true );
+			wp_register_style( 'an_style', AN_URL . 'css/an-style.css', array(),  $anVersion, null );
 
 		} elseif ( $anScripts['temp-path'] != false ) {
 
@@ -140,6 +147,8 @@ add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
 function an_register_admin_scripts() {
 	// JS
 	wp_enqueue_script( 'an_admin_scripts', AN_URL . 'js/an-admin-scripts.js', array( 'jquery' ), '1.4.5', true );
+
+	wp_localize_script( 'an_admin_scripts', 'an_admin', array( 'pro_url' => AN_PRO_URL, 'pro' => (an_is_pro()) ? 'yes': 'no' ) );
 	// CSS
 	wp_enqueue_style( 'an_admin_style', AN_URL . 'css/an-admin-style.css', array(),  '1.4.5', null );
 }

@@ -143,7 +143,7 @@ function an_save_setting_random_selectors() {
 			$flush,
 			$tempFolderPath,
 			$tempFolderURL,
-			AN_URL . 'css/an-style.min.css',
+			AN_URL . 'css/an-style.css',
 			$anScripts['files']['css'],
 			an_random_slug(),
 			$anScripts['selectors'],
@@ -154,7 +154,7 @@ function an_save_setting_random_selectors() {
 			$flush,
 			$tempFolderPath,
 			$tempFolderURL,
-			AN_URL . 'js/an-scripts.min.js',
+			AN_URL . 'js/an-scripts.js',
 			$anScripts['files']['js'],
 			an_random_slug(),
 			$anScripts['selectors'],
@@ -257,8 +257,8 @@ function an_update_titan_css_selectors( $an_option ) {
 function an_print_change_files_css_selectors( $an_option, $anScripts ) {
 
 	// Get AN style and script
-	$anCSS = AN_URL . 'css/an-style.min.css';
-	$anJS = AN_URL . 'js/an-scripts.min.js';
+	$anCSS = AN_URL . 'css/an-style.css';
+	$anJS = AN_URL . 'js/an-scripts.js';
 
 	$newSelectors = $anScripts['selectors'];
 	$defaultSelectors = array( 'an-Modal', 'reveal-modal', 'an-alternative' );

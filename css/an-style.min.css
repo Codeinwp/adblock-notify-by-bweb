@@ -1,6 +1,0 @@
-/*
-	an_style.css
-	AdBlock Notify
-	Copyright: (c) 2016 Themeisle, themeisle.com
-*/
-.reveal-modal-bg{background:#000;background:rgba(0,0,0,.75);display:none;height:100%;left:0;position:fixed;top:0;width:100%;z-index:100}.reveal-modal{background:#eee;border-radius:5px;-webkit-border-radius:5px;box-shadow:0 0 10px rgba(0,0,0,.4);-moz-box-shadow:0 0 10px rgba(0,0,0,.4);-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);left:0;margin-left:auto;margin-right:auto;max-width:520px;padding:30px 40px 34px;position:fixed;right:0;top:100px;visibility:hidden;z-index:101}.reveal-modal.small{width:200px;margin-left:-140px}.reveal-modal.medium{width:400px;margin-left:-240px}.reveal-modal.large{width:600px;margin-left:-340px}.reveal-modal.xlarge{width:800px;margin-left:-440px}.close-reveal-modal{position:absolute;top:8px;right:11px;color:#aaa;text-shadow:0 -1px 1px rbga(0,0,0,.6);font-size:22px;font-weight:700;line-height:.5;cursor:pointer;display:inline-block}@media only screen and (max-width:560px){.reveal-modal{right:5%;left:5%;max-width:90%}}

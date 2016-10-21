@@ -550,3 +550,9 @@ div.error.warning {
 		margin: 5px 10%;
 	}
 }
+
+.adblock-notify-actions sup {
+	color: #e33b3f;
+	font-size: 10px;
+	font-weight: bold;
+}
