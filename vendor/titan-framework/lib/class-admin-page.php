@@ -71,7 +71,7 @@ class TitanFrameworkAdminPage {
 			$priority = intval( $this->settings['position'] );
 		}
 
-        if (apply_filters('an_pro_activated', false) && is_multisite()) {
+        if (an_is_bussiness()) {
             add_action( 'network_admin_menu', array( $this, 'register' ), $priority );
         } else {
     		add_action( 'admin_menu', array( $this, 'register' ), $priority );
@@ -248,7 +248,7 @@ class TitanFrameworkAdminPage {
 			return false;
 		}
 
-        $prefix = apply_filters('an_pro_activated', false) && is_multisite() ? "-network" : "";
+        $prefix = an_is_bussiness() ? "-network" : "";
 
 		$screen = get_current_screen();
 		if ( $screen->id != $this->panelID . $prefix ) {

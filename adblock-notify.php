@@ -157,7 +157,7 @@ function an_register_admin_scripts() {
  * Enqueue admin scripts
  */
 function an_enqueue_admin_scripts() {
-	$prefix = an_is_pro() && is_multisite() ? '-network' : '';
+	$prefix = an_is_bussiness() ? '-network' : '';
 
 	$screen = get_current_screen();
 	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
@@ -175,7 +175,7 @@ add_action( 'admin_enqueue_scripts', 'an_enqueue_admin_scripts' );
  * Add settings link on plugin list page
  ***************************************************************/
 function an_settings_link_init() {
-	if ( an_is_pro() && is_multisite() ) {
+	if ( an_is_bussiness() ) {
 		add_filter( 'network_admin_plugin_action_links_' . AN_BASE, 'an_settings_link' );
 	} else {
 		add_filter( 'plugin_action_links_' . AN_BASE, 'an_settings_link' );
@@ -188,7 +188,7 @@ function an_settings_link_init() {
  * Add settings link on plugin list page
  ***************************************************************/
 function an_settings_link( $links ) {
-	$url    = an_is_pro() && is_multisite() ? network_admin_url( 'admin.php' ) : admin_url( 'options-general.php' );
+	$url    = an_is_bussiness() ? network_admin_url( 'admin.php' ) : admin_url( 'options-general.php' );
 	$links[] = '<a href="' . $url . '?page=' . AN_ID . '">' . __( 'Settings', 'an-translate' ) . '</a>';
 	return $links;
 }
@@ -218,7 +218,7 @@ add_filter( 'plugin_row_meta', 'an_meta_links', 10, 2 );
  * Admin Panel Favico
  ***************************************************************/
 function an_add_favicon() {
-	$prefix = an_is_pro() && is_multisite() ? '-network' : '';
+	$prefix = an_is_bussiness() ? '-network' : '';
 
 	$screen = get_current_screen();
 	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {

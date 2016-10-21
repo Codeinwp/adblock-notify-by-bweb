@@ -387,6 +387,14 @@ function an_is_pro() {
 	return apply_filters( 'an_pro_activated', false );
 }
 
+/**
+ * Check if last plan is active
+ */
+function an_is_bussiness() {
+	$plan = apply_filters( 'an_pro_current_plan',1 );
+	return ($plan == 3) && is_multisite() && an_is_pro();
+}
+
 add_filter( 'an_get_modal_html', 'an_get_modal_html', 10, 2 );
 /**
  * Create the modal html
