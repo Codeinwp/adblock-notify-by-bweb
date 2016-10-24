@@ -128,6 +128,9 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.0.1 =
+* Fixed comptibility issues for users on upgrade
+
 = 2.0.0 =
 * Tested on WP 4.6.1 with success!
 * Added compatibility with pro plugin

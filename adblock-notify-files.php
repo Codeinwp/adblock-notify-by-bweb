@@ -50,7 +50,7 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
 		$fileContent = str_replace( $defaultSelectors, $oldSelectors, $fileContent );
 
 	}
-
+	require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	// Load WP_Filesystem API
 	WP_Filesystem();
 	global $wp_filesystem;
@@ -93,7 +93,7 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
  * ************************************************************
  * Save scripts and styles with new random selectors after saving Titan Options
  ***************************************************************/
-function an_save_setting_random_selectors() {
+function an_save_setting_random_selectors( $force = false ) {
 
 	// Restart cookie on every options save.
 	if ( isset( $_COOKIE[ AN_COOKIE ] ) ) {
@@ -103,7 +103,7 @@ function an_save_setting_random_selectors() {
 	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
 	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 
-	if ( true == $an_option['an_option_selectors'] ) {
+	if ( true == $an_option['an_option_selectors'] || $force ) {
 
 		// Define new temp path
 		$uploadDir = wp_upload_dir();
