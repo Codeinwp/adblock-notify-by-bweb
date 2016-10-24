@@ -128,6 +128,9 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.0.2 =
+* Added tweak for Adblock in admin area
+
 = 2.0.1 =
 * Fixed comptibility issues for users on upgrade
 
