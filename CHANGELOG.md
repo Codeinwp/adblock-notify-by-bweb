@@ -1,4 +1,8 @@
 
+### 2.0.2 - 24/10/2016
+**Changes:** 
+- Added tweak for AdBlock in admin area
+
 ### 2.0.1 - 24/10/2016
 **Changes:** 
 - Fixed issue with updates for old users
