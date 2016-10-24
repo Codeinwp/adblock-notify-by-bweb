@@ -24,8 +24,9 @@ jQuery(document).ready(function ($) {
         th.parent().css('display', 'inline-block');
     });
     if (an_admin.pro !== 'yes') {
-        $('#advanced-options').append('<a href="' + an_admin.pro_url + '" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
-
+        if($('#an-only-pro-area').length === 0){
+          $('#advanced-options').append('<a id="an-only-pro-area" href="' + an_admin.pro_url + '" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
+        }
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().find('.number-slider').off();
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().css({'cursor': 'not-allowed'});
     }

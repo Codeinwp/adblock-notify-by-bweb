@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Adblock Notify Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Adblock Notify Lite 2.0.0\n"
+"Project-Id-Version: Adblock Notify Lite 2.0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2016-10-24 12:43:37+00:00\n"
+"POT-Creation-Date: 2016-10-24 14:33:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -678,33 +678,33 @@ msgstr ""
 msgid "Reset to Defaults"
 msgstr ""
 
-#: adblock-notify-options.php:497
+#: adblock-notify-options.php:500
 msgid "Modal Box Template"
 msgstr ""
 
-#: adblock-notify-options.php:501
+#: adblock-notify-options.php:504
 msgid "Choose Template"
 msgstr ""
 
-#: adblock-notify-options.php:518
+#: adblock-notify-options.php:521
 msgid "Advanced Options"
 msgstr ""
 
-#: adblock-notify-options.php:522
+#: adblock-notify-options.php:525
 msgid "Show modal after pages viewed"
 msgstr ""
 
-#: adblock-notify-options.php:525
+#: adblock-notify-options.php:528
 msgid ""
 "After how many unique pages should the modal be shown? - Default: 0 (every "
 "page)"
 msgstr ""
 
-#: adblock-notify-options.php:532
+#: adblock-notify-options.php:535
 msgid "Modal width"
 msgstr ""
 
-#: adblock-notify-options.php:535
+#: adblock-notify-options.php:538
 msgid "Maxium width of the modal window in pixels"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 msgid "You may probably increase this number by improving your custom messages"
 msgstr ""
 
-#: adblock-notify-widget.php:231 adblock-notify.php:194
+#: adblock-notify-widget.php:231 adblock-notify.php:250
 msgid "Settings"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 msgid "Reset Stats"
 msgstr ""
 
-#: adblock-notify.php:209
+#: adblock-notify.php:265
 msgid "More Plugins"
 msgstr ""
 
