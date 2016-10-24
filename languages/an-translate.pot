@@ -1,11 +1,11 @@
 # Copyright (C) 2016 Themeisle
-# This file is distributed under the same license as the Adblock Notify package.
+# This file is distributed under the same license as the Adblock Notify Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Adblock Notify 1.9.2\n"
+"Project-Id-Version: Adblock Notify Lite 2.0.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2016-10-21 15:02:38+00:00\n"
+"POT-Creation-Date: 2016-10-24 12:43:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,19 +39,19 @@ msgid ""
 "change your uploads directory CHMOD."
 msgstr ""
 
-#: adblock-notify-functions.php:414
+#: adblock-notify-functions.php:423
 msgid "Show your love"
 msgstr ""
 
-#: adblock-notify-functions.php:417
+#: adblock-notify-functions.php:426
 msgid "Leave A Review"
 msgstr ""
 
-#: adblock-notify-functions.php:423
+#: adblock-notify-functions.php:432
 msgid "Buy now"
 msgstr ""
 
-#: adblock-notify-functions.php:426
+#: adblock-notify-functions.php:435
 msgid "Multi-Site Support"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "You can easily switch between them without losing your options."
 msgstr ""
 
-#. Plugin Name of the plugin/theme
+#: adblock-notify-options.php:79
 msgid "Adblock Notify"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 msgid "You may probably increase this number by improving your custom messages"
 msgstr ""
 
-#: adblock-notify-widget.php:231 adblock-notify.php:192
+#: adblock-notify-widget.php:231 adblock-notify.php:194
 msgid "Settings"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 msgid "Reset Stats"
 msgstr ""
 
-#: adblock-notify.php:207
+#: adblock-notify.php:209
 msgid "More Plugins"
 msgstr ""
 
@@ -1015,6 +1015,10 @@ msgstr ""
 
 #: vendor/titan-framework/titan-framework.php:190
 msgid "Issue Tracker"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Adblock Notify Lite"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

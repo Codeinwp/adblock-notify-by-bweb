@@ -7,7 +7,7 @@
  * Plugin Name: Adblock Notify Lite
  * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -47,7 +47,7 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '2.0.0' );
+	define( 'AN_VERSION', '2.0.1' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
 	define( 'AN_TEMP_DEVELOPMENT', false );
@@ -68,6 +68,8 @@ if ( ! defined( 'AN_PRO_URL' ) ) {
 function an_translate_load_textdomain() {
 	$path = basename( dirname( __FILE__ ) ) . '/languages/';
 	load_plugin_textdomain( 'an-translate', false, $path );
+
+	do_action( 'an_upgrade_routine' );
 }
 
 add_action( 'plugins_loaded', 'an_translate_load_textdomain', 1 );
@@ -225,7 +227,7 @@ function an_add_favicon() {
 		return;
 	}
 
-	$favicon_url = AN_URL . 'img/icon-bweb.svg';
+	$favicon_url = AN_URL . 'img/icon-adblock-notify.png';
 	echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
 }
 
