@@ -1,4 +1,8 @@
 
+### 2.0.3 - 27/10/2016
+**Changes:** 
+- Fixed issue with widget now showing in admin dashboard
+
 ### 2.0.2 - 24/10/2016
 **Changes:** 
 - Added tweak for AdBlock in admin area
