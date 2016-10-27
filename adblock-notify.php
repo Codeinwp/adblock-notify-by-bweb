@@ -7,7 +7,7 @@
  * Plugin Name: Adblock Notify Lite
  * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -47,7 +47,7 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '2.0.2' );
+	define( 'AN_VERSION', '2.0.3' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
 	define( 'AN_TEMP_DEVELOPMENT', false );
@@ -144,24 +144,17 @@ add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
 /**
 
  * ************************************************************
- * Back-End Scripts & Styles enqueueing
+ * Back-End Styles enqueueing
  ***************************************************************/
-function an_register_admin_scripts() {
+function an_register_admin_styles() {
 	// JS
 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	// Load WP_Filesystem API
 	WP_Filesystem();
 	global $wp_filesystem;
-	$content_script = $wp_filesystem->get_contents( AN_PATH . 'js/an-admin-scripts.js' );
 	$content_style = $wp_filesystem->get_contents( AN_PATH . 'css/an-admin-style.css' );
 
 	$ttfcss = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/css/admin-styles.css' );
-	$ttfjs1 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
-	$ttfjs2 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
-	$ttfjs3 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
-	$ttfjs4 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
-	$ttfjs5 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
-	$ttfjs6 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
 	?>
 	<style type="text/css">
 		<?php
@@ -171,43 +164,73 @@ function an_register_admin_scripts() {
 		 echo $ttfcss ;
 		?>
 	</style>
+
+	<?php
+}
+
+/**
+
+ * ************************************************************
+ * Back-End Scripts enqueueing
+ ***************************************************************/
+function an_register_admin_scripts() {
+	// JS
+	require_once( ABSPATH . 'wp-admin/includes/file.php' );
+	// Load WP_Filesystem API
+	WP_Filesystem();
+	global $wp_filesystem;
+	$content_script = $wp_filesystem->get_contents( AN_PATH . 'js/an-admin-scripts.js' );
+
+	$ttfjs1 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
+	$ttfjs2 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
+	$ttfjs3 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
+	$ttfjs4 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
+	$ttfjs5 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
+	$ttfjs6 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
+	?>
 	<script type="text/javascript" id="content_script">
 		var an_admin = <?php echo json_encode( array( 'pro_url' => AN_PRO_URL, 'pro' => (an_is_pro()) ? 'yes': 'no' ) ); ?>;
 		<?php
-			echo $content_script;
+		echo $content_script;
 		?>
 	</script>
 
 	<script type="text/javascript" id="ttfjs1">
 		<?php
-			echo $ttfjs1;
+		echo $ttfjs1;
 		?>
 	</script>
 	<script type="text/javascript" id="ttfjs2">
 		<?php
-			echo $ttfjs2;
+		echo $ttfjs2;
 		?>
 	</script>
 	<script type="text/javascript" id="ttfjs3">
+		try {
 		<?php
 			echo $ttfjs3;
+
 		?>
+		}catch(e){
+
+		}
 	</script>
 	<script type="text/javascript" id="ttfjs4">
 		<?php
-			echo $ttfjs4;
+		echo $ttfjs4;
 		?>
 	</script>
 	<script type="text/javascript" id="ttfjs5">
 		<?php
-			echo $ttfjs5;
+		echo $ttfjs5;
 		?>
 	</script>
 	<script type="text/javascript" id="ttfjs6">
 		<?php
-			echo $ttfjs6;
+		echo $ttfjs6;
 		?>
 	</script>
+
 	<?php
 }
 
@@ -224,7 +247,21 @@ function an_enqueue_admin_scripts() {
 	an_register_admin_scripts();
 }
 
-add_action( 'admin_head', 'an_enqueue_admin_scripts' );
+/**
+ * Enqueue admin scripts
+ */
+function an_enqueue_admin_syles() {
+	$prefix = an_is_bussiness() ? '-network' : '';
+
+	$screen = get_current_screen();
+	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+		return; }
+
+	an_register_admin_styles();
+}
+
+add_action( 'admin_head', 'an_enqueue_admin_syles' );
+add_action( 'admin_footer', 'an_enqueue_admin_scripts' );
 
 
 /**

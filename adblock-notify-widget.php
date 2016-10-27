@@ -22,7 +22,7 @@ function an_dashboard_widgets() {
 		// Chart JS
 		wp_enqueue_script( 'an_chart_js', AN_URL . 'vendor/chart-js/Chart.min.js', array( 'jquery' ), null );
 		// CSS & JS
-		add_action( 'admin_enqueue_scripts', 'an_register_admin_scripts' );
+		add_action( 'admin_footer', 'an_register_admin_scripts' );
 	}
 }
 add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
