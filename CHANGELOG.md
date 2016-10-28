@@ -1,4 +1,8 @@
 
+### 2.0.5 - 28/10/2016
+**Changes:** 
+- Fixed tracking link
+
 ### 2.0.4 - 28/10/2016
 **Changes:** 
 - Fixed style for dashboard widgets.
