@@ -191,7 +191,15 @@ function an_get_counters() {
 		$averageToday = round( ( $anCount['history'][0]['blocked'] / $anCount['history'][0]['total'] ) * 100, 2 );
 	}
 
-	$output = '
+	require_once( ABSPATH . 'wp-admin/includes/file.php' );
+	// Load WP_Filesystem API
+	WP_Filesystem();
+	global $wp_filesystem;
+
+	$css = $wp_filesystem->get_contents( AN_PATH . 'css/an-dashboard-widget.css' );
+
+	$output = "<style type='text/css'>" . $css . '</style>';
+	$output .= '
         <table class="an-stats-table">
             <tr class="an-top">
 			  <td><span class="antooltip" data-antooltip="' . __( 'Admins are excluded from this statistics.', 'an-translate' ) . '"><span class="dashicons dashicons-info"></span></span></td>
