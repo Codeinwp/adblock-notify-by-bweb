@@ -56,7 +56,7 @@ if ( ! defined( 'AN_TEMPLATES_DIRECTORY' ) ) {
 	define( 'AN_TEMPLATES_DIRECTORY', 'an-templates/' );
 }
 if ( ! defined( 'AN_PRO_URL' ) ) {
-	define( 'AN_PRO_URL','http://bit.ly/2fb0Dre/' );
+	define( 'AN_PRO_URL','http://bit.ly/2fb0Dre' );
 }
 
 
