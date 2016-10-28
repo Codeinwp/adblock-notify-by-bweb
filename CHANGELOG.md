@@ -1,4 +1,8 @@
 
+### 2.0.4 - 28/10/2016
+**Changes:** 
+- Fixed style for dashboard widgets.
+
 ### 2.0.3 - 27/10/2016
 **Changes:** 
 - Fixed issue with widget now showing in admin dashboard
