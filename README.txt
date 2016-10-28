@@ -128,6 +128,9 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.0.4 =
+* Fixed style issue for dashboard widgets
+
 = 2.0.3 =
 * Fixed issue with widget not showing in admin
 

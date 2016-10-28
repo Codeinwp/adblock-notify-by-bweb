@@ -484,6 +484,7 @@ function an_build_selected_template() {
 
 
 add_action( 'an_upgrade_routine','an_upgrade_routine_200' );
+
 /**
  * Upgrade routine from version <= 2.0.1
  */
