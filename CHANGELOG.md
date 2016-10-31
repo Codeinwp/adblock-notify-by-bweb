@@ -1,4 +1,9 @@
 
+### 2.0.6 - 31/10/2016
+**Changes:** 
+- Fixed issue with popup location
+- Fixed issue with upgrade routines
+
 ### 2.0.5 - 28/10/2016
 **Changes:** 
 - Fixed tracking link
