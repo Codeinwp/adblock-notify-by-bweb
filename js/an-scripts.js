@@ -627,8 +627,7 @@ jQuery(document).ready(function ($) {
              Global Variables
              ----------------------------*/
             var modal = $(this),
-                topMeasure = parseInt(modal.css('top')),
-                topOffset = modal.height() + topMeasure,
+                topMeasure = 100, 
                 locked = false,
                 modalBG = $('.reveal-modal-bg');
 
@@ -636,7 +635,7 @@ jQuery(document).ready(function ($) {
              Create Modal BG
              ----------------------------*/
             if (modalBG.length === 0) {
-                modalBG = $('<div class="reveal-modal-bg" />').insertAfter(modal);
+                modalBG = $('<div class="reveal-modal-bg" style="z-index:999999" />').insertAfter(modal);
             }
 
             /*---------------------------
@@ -649,22 +648,22 @@ jQuery(document).ready(function ($) {
                 if (!locked) {
                     lockModal();
                     if (options.animation === 'fadeAndPop') {
-                        modal.css({'top': $(document).scrollTop() - topOffset, 'opacity': 0, 'visibility': 'visible'});
+                        modal.css({   'opacity': 0, 'visibility': 'visible'});
                         modalBG.fadeIn(options.animationspeed / 2);
                         modal.delay(options.animationspeed / 2).animate({
-                            'top': $(document).scrollTop() + topMeasure + 'px',
+
                             'opacity': 1
                         }, options.animationspeed, unlockModal());
                     }
                     if (options.animation === 'fade') {
-                        modal.css({'opacity': 0, 'visibility': 'visible', 'top': $(document).scrollTop() + topMeasure});
+                        modal.css({'opacity': 0, 'visibility': 'visible'});
                         modalBG.fadeIn(options.animationspeed / 2);
                         modal.delay(options.animationspeed / 2).animate({
                             'opacity': 1
                         }, options.animationspeed, unlockModal());
                     }
                     if (options.animation === 'none') {
-                        modal.css({'visibility': 'visible', 'top': $(document).scrollTop() + topMeasure});
+                        modal.css({'visibility': 'visible' });
                         modalBG.css({'display': 'block'});
                         unlockModal();
                     }
@@ -679,7 +678,6 @@ jQuery(document).ready(function ($) {
                     if (options.animation === 'fadeAndPop') {
                         modalBG.delay(options.animationspeed).fadeOut(options.animationspeed);
                         modal.animate({
-                            'top': $(document).scrollTop() - topOffset + 'px',
                             'opacity': 0
                         }, options.animationspeed / 2, function () {
                             modal.css({'top': topMeasure, 'opacity': 1, 'visibility': 'hidden'});
