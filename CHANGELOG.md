@@ -1,4 +1,8 @@
 
+### 2.0.7 - 31/10/2016
+**Changes:** 
+- remove redundant files
+
 ### 2.0.6 - 31/10/2016
 **Changes:** 
 - Fixed issue with popup location
