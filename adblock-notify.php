@@ -399,3 +399,35 @@ function adblocker_notify_uninstall() {
 	an_delete_option( 'adblocker_notify_counter' );
 	an_delete_option( 'adblocker_notify_selectors' );
 }
+
+/**
+ *  Added Freemius support
+ *
+ * @return Freemius
+ */
+function anbb_fs() {
+	global $anbb_fs;
+
+	if ( ! isset( $anbb_fs ) ) {
+		// Include Freemius SDK.
+		require_once AN_PATH . 'vendor/freemius/start.php';
+
+		$anbb_fs = fs_dynamic_init( array(
+			'id'                => '503',
+			'slug'              => 'adblock-notify-by-bweb',
+			'type'              => 'plugin',
+			'public_key'        => 'pk_80661c61db7cdcbedd0f6461d6a1b',
+			'is_premium'        => false,
+			'has_addons'        => false,
+			'has_paid_plans'    => false,
+			'menu'              => array(
+				'slug'       => 'adblock-notify',
+			),
+		) );
+	}
+
+	return $anbb_fs;
+}
+
+// Init Freemius.
+anbb_fs();

@@ -311,7 +311,7 @@ class TitanFrameworkAdminPage {
 
 		if ( count( $this->tabs ) ) :
 			?>
-			<h2 class="nav-tab-wrapper">
+			<h3 class="nav-tab-wrapper">
 			<?php
 
 			do_action( 'tf_admin_page_tab_start' );
@@ -325,7 +325,7 @@ class TitanFrameworkAdminPage {
 			do_action( 'tf_admin_page_tab_end_' . $this->getOptionNamespace() );
 
 			?>
-			</h2>
+			</h3>
 			<?php
 		endif;
 

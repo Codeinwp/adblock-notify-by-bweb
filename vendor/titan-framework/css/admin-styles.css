@@ -65,7 +65,8 @@
 }
 
 /* Tabs */
-.titan-framework-panel-wrap .nav-tab-wrapper { margin-bottom: 20px; }
+.titan-framework-panel-wrap .nav-tab-wrapper { margin-bottom: 20px;   }
+.titan-framework-panel-wrap .nav-tab-wrapper a { font-size:18px;   padding:14px; }
 
 /* option tables */
 .titan-framework-panel-wrap .form-table th,
