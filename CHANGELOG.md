@@ -1,4 +1,8 @@
 
+### 2.0.8 - 01/11/2016
+**Changes:** 
+- Added freemius support
+
 ### 2.0.7 - 31/10/2016
 **Changes:** 
 - remove redundant files
