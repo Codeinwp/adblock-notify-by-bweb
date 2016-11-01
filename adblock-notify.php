@@ -7,7 +7,7 @@
  * Plugin Name: Adblock Notify Lite
  * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
  * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 2.0.7
+ * Version: 2.0.8
  * Author: Themeisle
  * Author URI: http://themeisle.com
  * Text Domain: an-translate
@@ -47,7 +47,7 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '2.0.7' );
+	define( 'AN_VERSION', '2.0.8' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
 	define( 'AN_TEMP_DEVELOPMENT', false );
@@ -399,3 +399,35 @@ function adblocker_notify_uninstall() {
 	an_delete_option( 'adblocker_notify_counter' );
 	an_delete_option( 'adblocker_notify_selectors' );
 }
+
+/**
+ *  Added Freemius support
+ *
+ * @return Freemius
+ */
+function anbb_fs() {
+	global $anbb_fs;
+
+	if ( ! isset( $anbb_fs ) ) {
+		// Include Freemius SDK.
+		require_once AN_PATH . 'vendor/freemius/start.php';
+
+		$anbb_fs = fs_dynamic_init( array(
+			'id'                => '503',
+			'slug'              => 'adblock-notify-by-bweb',
+			'type'              => 'plugin',
+			'public_key'        => 'pk_80661c61db7cdcbedd0f6461d6a1b',
+			'is_premium'        => false,
+			'has_addons'        => false,
+			'has_paid_plans'    => false,
+			'menu'              => array(
+				'slug'       => 'adblock-notify',
+			),
+		) );
+	}
+
+	return $anbb_fs;
+}
+
+// Init Freemius.
+anbb_fs();

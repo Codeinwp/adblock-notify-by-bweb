@@ -128,6 +128,10 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.0.8 =
+* Added freemius support
+* Fixed notification issues
+
 = 2.0.6 =
 * Fixed modal position issues.
 * Fixed cookies upgrade routines
