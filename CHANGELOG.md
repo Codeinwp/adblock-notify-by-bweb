@@ -1,4 +1,8 @@
 
+### 2.0.9 - 07/11/2016
+**Changes:** 
+- Fixed css issue with popup at the end of the page.
+
 ### 2.0.8 - 01/11/2016
 **Changes:** 
 - Added freemius support
