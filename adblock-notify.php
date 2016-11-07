@@ -100,6 +100,11 @@ function an_enqueue_an_sripts() {
 		$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
 		$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 
+		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		// Load WP_Filesystem API
+		WP_Filesystem();
+		global $wp_filesystem;
+		$content_style = '';
 		// Disabled due to too many bug repports
 		// wp_enqueue_script( 'an_fuckadblock', AN_URL . 'js/an-detect.min.js', array( 'jquery' ), NULL, true );
 		if ( $an_option->getOption( 'an_option_selectors' ) == false ) {
@@ -116,6 +121,7 @@ function an_enqueue_an_sripts() {
 			wp_register_script( 'an_scripts', $anScripts['temp-url'] . $anScripts['files']['js'], array( 'jquery' ), $anVersion, true );
 			wp_register_style( 'an_style', $anScripts['temp-url'] . $anScripts['files']['css'], array(),  $anVersion, null );
 
+			$content_style = $wp_filesystem->get_contents( $anScripts['temp-path'] . $anScripts['files']['css'] );
 		}
 
 		if ( $anScripts['temp-path'] == false && $an_option->getOption( 'an_option_selectors' ) == true ) {
@@ -127,7 +133,9 @@ function an_enqueue_an_sripts() {
 		}
 
 		wp_enqueue_script( 'an_scripts' );
-		wp_enqueue_style( 'an_style' );
+	    wp_enqueue_style( 'an_style' );
+		$content_style = str_replace( array( "\r\n", "\r", "\n" ), '', $content_style );
+		wp_add_inline_style( 'an_style',$content_style );
 
 		// AJAX
 		wp_localize_script( 'an_scripts', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
