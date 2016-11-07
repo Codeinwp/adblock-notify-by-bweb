@@ -35,8 +35,8 @@ add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
  ***************************************************************/
 function an_adblock_counter() {
 	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] ) ) {
-		return; }
-
+		return;
+	}
 	$an_states = $_POST['an_state'];
 	$anCount = an_get_option( 'adblocker_notify_counter' );
 	foreach ( $an_states as $an_state ) {

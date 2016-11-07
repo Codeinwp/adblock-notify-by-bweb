@@ -128,6 +128,10 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.0.9 =
+
+* Fixed issue with popup at the end of the page
+
 = 2.0.8 =
 * Added freemius support
 * Fixed notification issues
