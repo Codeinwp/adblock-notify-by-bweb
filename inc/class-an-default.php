@@ -41,11 +41,9 @@ class AnDefault extends AnTemplate {
 		Build template-specific features
 	 */
 	public function setup_constants() {
-
 		$an_option         = TitanFramework::getInstance( 'adblocker_notify' );
 		$this->title        = $an_option->getOption( 'an_modal_title' );
 		$this->content      = do_shortcode( $an_option->getOption( 'an_modal_text' ) );
-		$anOptionModalCross = $an_option->getOption( 'an_option_modal_cross' );
 		$anOptionModalBxtitle = $an_option->getOption( 'an_option_modal_bxtitle' );
 
 		$headingStyle       = array();
@@ -55,12 +53,7 @@ class AnDefault extends AnTemplate {
 
 		$this->heading_style = implode( ';', $headingStyle );
 
-		// Closing cross
-		$this->extra        = '';
-		if ( intval( $anOptionModalCross ) === 2 ) {
-			$this->extra    = '<a class="close-modal close-' . an_get_random_selector( 'reveal-modal' ) . '">&#215;</a>';
-		}
-
 		$this->footer       = '';
+		$this->extra        = $this->get_extra();
 	}
 }

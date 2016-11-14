@@ -62,6 +62,10 @@ function an_prepare() {
 	$anOptionModalEffect = an_modal_parameter( $anOptionModalEffect );
 	// Modal box close
 	$anOptionModalClose = an_modal_close( $anOptionModalClose );
+    $undismissable      = $an_option->getOption( 'an_option_modal_dismiss' );
+    if (an_is_pro() && $undismissable) {
+        $anOptionModalClose = false;
+    }
 	// Style construct
 	// Overlay RGA color
 	$anOptionModalOverlay = an_hex2rgba( $anOptionModalBgcolor, $anOptionModalBgopacity / 100 );
