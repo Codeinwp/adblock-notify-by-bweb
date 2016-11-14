@@ -41,14 +41,14 @@ abstract class AnTemplate {
 	/**
 		Add the extras
 	 */
-    protected function get_extra() {
+	protected function get_extra() {
 		$an_option         = TitanFramework::getInstance( 'adblocker_notify' );
 		// Closing cross
 		$anOptionModalCross = $an_option->getOption( 'an_option_modal_cross' );
 		$undismissable      = $an_option->getOption( 'an_option_modal_dismiss' );
-		if ( intval( $anOptionModalCross ) === 2 && (!an_is_pro() || (an_is_pro() && !$undismissable))) {
+		if ( intval( $anOptionModalCross ) === 2 && ( ! an_is_pro() || (an_is_pro() && ! $undismissable)) ) {
 			return '<a class="close-modal close-' . an_get_random_selector( 'reveal-modal' ) . '">&#215;</a>';
 		}
-        return "";
-    }
+		return '';
+	}
 }
