@@ -200,9 +200,9 @@ class TitanFramework {
 		// Only enqueue scripts if we're on a Titan options page.
 		if ( in_array( $hook, $panel_ids ) || ! empty( $this->mainContainers['meta-box'] ) ) {
 			wp_enqueue_media();
-			#wp_enqueue_script( 'tf-serialize', TitanFramework::getURL( '../js/min/serialize-min.js', __FILE__ ) );
-			#wp_enqueue_script( 'tf-styling', TitanFramework::getURL( '../js/admin-styling.js', __FILE__ ) );
-			#wp_enqueue_style( 'tf-admin-styles', TitanFramework::getURL( '../css/admin-styles.css', __FILE__ ) );
+			wp_enqueue_script( 'tf-serialize', TitanFramework::getURL( '../js/min/serialize-min.js', __FILE__ ) );
+			wp_enqueue_script( 'tf-styling', TitanFramework::getURL( '../js/admin-styling.js', __FILE__ ) );
+			wp_enqueue_style( 'tf-admin-styles', TitanFramework::getURL( '../css/admin-styles.css', __FILE__ ) );
 		}
 	}
 
