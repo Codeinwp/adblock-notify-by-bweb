@@ -541,6 +541,13 @@ function an_pro_add_tab_options( $generalTab, $modalTab, $redirectTab, $alternat
 		'max' => '1000',
 		'step' => '1',
 	) );
+	$modalTab->createOption( array(
+		'name' => __( 'Undismissable popup', 'an-translate' ),
+		'id' => 'an_option_modal_dismiss',
+		'type' => 'checkbox',
+		'desc' => __( 'Prevent user from dismissing modal ', 'an-translate' ),
+		'default' => false,
+	) );
 }
 
 add_action( 'an_pro_add_tab_options_top',  'an_pro_add_tab_options_top' , 10, 4 );

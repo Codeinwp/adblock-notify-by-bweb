@@ -62,6 +62,10 @@ function an_prepare() {
 	$anOptionModalEffect = an_modal_parameter( $anOptionModalEffect );
 	// Modal box close
 	$anOptionModalClose = an_modal_close( $anOptionModalClose );
+	$undismissable      = $an_option->getOption( 'an_option_modal_dismiss' );
+	if ( an_is_pro() && $undismissable ) {
+		$anOptionModalClose = false;
+	}
 	// Style construct
 	// Overlay RGA color
 	$anOptionModalOverlay = an_hex2rgba( $anOptionModalBgcolor, $anOptionModalBgopacity / 100 );
@@ -515,6 +519,23 @@ function an_upgrade_routine_205() {
 			an_delete_temp_folder( $anTempDir['temp-path'] );
 			an_save_setting_random_selectors( true );
 			an_update_option( 'adblocker_upgrade_205','yes' );
+		}
+	}
+}
+
+add_action( 'an_upgrade_routine','an_upgrade_routine_210' );
+
+/**
+ * Upgrade routine from version <= 2.0.10
+ */
+function an_upgrade_routine_210() {
+	$upgrade = an_get_option( 'an_upgrade_routine_210','no' );
+	if ( $upgrade != 'yes' ) {
+		$anTempDir = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
+		if ( isset( $anTempDir['temp-path'] ) ) {
+			an_delete_temp_folder( $anTempDir['temp-path'] );
+			an_save_setting_random_selectors( true );
+			an_update_option( 'an_upgrade_routine_210','yes' );
 		}
 	}
 }
