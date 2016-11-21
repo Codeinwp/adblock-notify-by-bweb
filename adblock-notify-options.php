@@ -542,10 +542,10 @@ function an_pro_add_tab_options( $generalTab, $modalTab, $redirectTab, $alternat
 		'step' => '1',
 	) );
 	$modalTab->createOption( array(
-		'name' => __( 'Disable ability to dismiss modal', 'an-translate' ),
+		'name' => __( 'Undismissable popup', 'an-translate' ),
 		'id' => 'an_option_modal_dismiss',
 		'type' => 'checkbox',
-		'desc' => __( 'Prevent user from dismissing modal using the mouse or keyboard', 'an-translate' ),
+		'desc' => __( 'Prevent user from dismissing modal ', 'an-translate' ),
 		'default' => false,
 	) );
 }
