@@ -29,7 +29,8 @@ jQuery(document).ready(function ($) {
         }
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().find('.number-slider').off();
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').css({'cursor': 'not-allowed', 'pointer-events': 'none'});
-        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').parent().css({'cursor': 'not-allowed', 'pointer-events': 'none'});
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').parent().css({'cursor': 'not-allowed', 'pointer-events': 'none'}) ;
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').attr('disabled','disabled') ;
     }
     $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').show();
     if ($('.an-stats-table').length > 0) {
