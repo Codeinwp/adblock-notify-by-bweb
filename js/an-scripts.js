@@ -136,6 +136,7 @@ jQuery(document).ready(function ($) {
                     animation: anOptions.anOptionModalEffect,                       	//fade, fadeAndPop, none
                     animationspeed: anOptions.anOptionModalspeed,                  	 	//how fast animtions are
                     closeonbackgroundclick: anOptions.anOptionModalclose,           	//if you click background will modal close?
+                    closeonescape: anOptions.anOptionModalclose,           	//if you click escape will modal close?
                     dismissmodalclass: 'close-modal'                         	//the class of a button or element that will close an open modal
                 }).trigger('reveal:open');
 
@@ -614,6 +615,7 @@ jQuery(document).ready(function ($) {
             animation: 'fadeAndPop',                                            //fade, fadeAndPop, none
             animationspeed: 350,                                                //how fast animtions are
             closeonbackgroundclick: true,                                       //if you click background will modal close?
+            closeonescape: true,                                       //if you click escape will modal close?
             dismissmodalclass: 'close-modal'                             //the class of a button or element that will close an open modal
         };
 
@@ -718,11 +720,13 @@ jQuery(document).ready(function ($) {
                     modal.trigger('reveal:close');
                 });
             }
-            $('body').keyup(function (e) {
-                if (e.which === 27) {
-                    modal.trigger('reveal:close');
-                } // 27 is the keycode for the Escape key
-            });
+            if (options.closeonescape) {
+                $('body').keyup(function (e) {
+                    if (e.which === 27) {
+                        modal.trigger('reveal:close');
+                    } // 27 is the keycode for the Escape key
+                });
+            }
 
 
             /*---------------------------

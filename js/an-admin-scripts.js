@@ -28,7 +28,8 @@ jQuery(document).ready(function ($) {
           $('#advanced-options').append('<a id="an-only-pro-area" href="' + an_admin.pro_url + '" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
         }
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().find('.number-slider').off();
-        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().css({'cursor': 'not-allowed'});
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').css({'cursor': 'not-allowed', 'pointer-events': 'none'});
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').parent().css({'cursor': 'not-allowed', 'pointer-events': 'none'});
     }
     $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').show();
     if ($('.an-stats-table').length > 0) {
