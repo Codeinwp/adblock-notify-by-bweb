@@ -1,4 +1,9 @@
 
+### 2.0.10 - 21/11/2016
+**Changes:** 
+- Added option to block popup dismiss
+- Fixed bug with admin dashboard design
+
 ### 2.0.9 - 07/11/2016
 **Changes:** 
 - Fixed css issue with popup at the end of the page.
