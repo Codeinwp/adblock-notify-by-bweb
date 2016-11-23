@@ -1,4 +1,9 @@
 
+### 2.0.11 - 23/11/2016
+**Changes:** 
+- adblock-notify-by-bweb Fixed upgrade issue which was recreating js and css files
+- adblock-notify-by-bweb Fixed issue with modal options on https websites
+
 ### 2.0.10 - 21/11/2016
 **Changes:** 
 - Added option to block popup dismiss
