@@ -524,12 +524,12 @@ function an_upgrade_routine_205() {
 	}
 }
 
-add_action( 'an_upgrade_routine','an_upgrade_routine_210' );
+add_action( 'an_upgrade_routine','an_upgrade_routine_2010' );
 
 /**
  * Upgrade routine from version <= 2.0.10
  */
-function an_upgrade_routine_210() {
+function an_upgrade_routine_2010() {
 	$upgrade = an_get_option( 'adblocker_upgrade_2010','no' );
 	if ( $upgrade != 'yes' ) {
 		$anTempDir = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
