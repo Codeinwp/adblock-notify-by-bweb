@@ -383,6 +383,7 @@ function an_check_key( $key ) {
 		'adblocker_upgrade_200',
 		'adblocker_upgrade_205',
 		'adblocker_upgrade_2010',
+		'adblocker_upgrade_2012',
 	);
 
 	return in_array( $key, $all_keys );
@@ -537,6 +538,23 @@ function an_upgrade_routine_2010() {
 			an_delete_temp_folder( $anTempDir['temp-path'] );
 			an_save_setting_random_selectors( true );
 			an_update_option( 'adblocker_upgrade_2010','yes' );
+		}
+	}
+}
+
+add_action( 'an_upgrade_routine','an_upgrade_routine_2012' );
+
+/**
+ * Upgrade routine from version <= 2.0.12
+ */
+function an_upgrade_routine_2012() {
+	$upgrade = an_get_option( 'adblocker_upgrade_2012','no' );
+	if ( $upgrade != 'yes' ) {
+		$anTempDir = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
+		if ( isset( $anTempDir['temp-path'] ) ) {
+			an_delete_temp_folder( $anTempDir['temp-path'] );
+			an_save_setting_random_selectors( true );
+			an_update_option( 'adblocker_upgrade_2012','yes' );
 		}
 	}
 }
