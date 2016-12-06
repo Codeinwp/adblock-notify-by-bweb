@@ -1,4 +1,8 @@
 
+### 2.0.12 - 06/12/2016
+**Changes:** 
+- Fixed issue with popup showing on the footer
+
 ### 2.0.11 - 23/11/2016
 **Changes:** 
 - adblock-notify-by-bweb Fixed upgrade issue which was recreating js and css files
