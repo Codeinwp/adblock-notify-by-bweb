@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Generate random selector or file name
  ***************************************************************/
 function an_random_slug() {
-	$alphabet    = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789';
+	$alphabet    = 'abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ';
 	$prefix      = array();
 	$alphaLength = strlen( $alphabet ) - 1;
 	for ( $i = 0; $i < 12; $i ++ ) {
