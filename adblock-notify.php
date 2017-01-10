@@ -154,6 +154,22 @@ add_action( 'wp_enqueue_scripts', 'an_enqueue_an_sripts', 100 );
  * ************************************************************
  * Back-End Styles enqueueing
  ***************************************************************/
+function an_register_global_styles() {
+    ?>
+
+	<style type="text/css">
+    #toplevel_page_adblock-notify img{
+    padding:6px 0px !Important;
+    }
+    </style>
+    <?php
+
+}
+/**
+
+ * ************************************************************
+ * Back-End Styles enqueueing
+ ***************************************************************/
 function an_register_admin_styles() {
 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	// Load WP_Filesystem API
@@ -258,6 +274,8 @@ function an_enqueue_admin_scripts() {
  * Enqueue admin scripts
  */
 function an_enqueue_admin_syles() {
+
+	an_register_global_styles();
 	$prefix = an_is_bussiness() ? '-network' : '';
 
 	$screen = get_current_screen();
