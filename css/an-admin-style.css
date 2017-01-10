@@ -464,3 +464,21 @@ div.error.warning {
 	font-size: 10px;
 	font-weight: bold;
 }
+#row-advanced-settings h3::before{
+	background-image:none;
+}
+#row-advanced-settings th{
+	background:#008ec2;
+}
+#row-advanced-settings h3{
+	text-align: center;
+	color:#fff;
+	text-transform: uppercase;
+}
+#row-advanced-settings {
+	cursor: pointer;
+
+}
+#row-advanced-settings ~ tr{
+	display:none;
+}

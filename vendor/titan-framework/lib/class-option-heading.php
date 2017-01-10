@@ -33,7 +33,7 @@ class TitanFrameworkOptionHeading extends TitanFrameworkOption {
 	public function display() {
 		$headingID = str_replace( ' ', '-', strtolower( $this->settings['name'] ) );
 		?>
-		<tr valign="top" class="even first tf-heading">
+		<tr valign="top" class="even first tf-heading" id="row-<?php echo $headingID; ?>">
 			<th scope="row" class="first last" colspan="2">
 				<h3 id="<?php echo esc_attr( $headingID ) ?>"><?php echo $this->settings['name'] ?></h3>
 				<?php
