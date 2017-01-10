@@ -128,6 +128,10 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 == Changelog ==
 
+= 2.1.0 =
+
+* Fixed reset stats issue.
+
 = 2.0.12 =
 
 * Fixed issue with modal showing on the footer

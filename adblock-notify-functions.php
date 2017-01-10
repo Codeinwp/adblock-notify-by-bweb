@@ -309,7 +309,7 @@ function an_reset_stats() {
 		return;
 	}
 	if ( isset( $_GET['an-reset'] ) && 'true' == $_GET['an-reset'] ) {
-		an_an_delete_option( 'adblocker_notify_counter' );
+		an_delete_option( 'adblocker_notify_counter' );
 		add_action( 'admin_notices', 'an_stats_notice' );
 	}
 }
