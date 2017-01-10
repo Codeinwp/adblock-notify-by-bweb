@@ -210,6 +210,7 @@ function an_register_admin_scripts() {
 	$ttfjs4 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
 	$ttfjs5 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
 	$ttfjs6 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
+	$ttfjs7 = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
 	?>
 	<script type="text/javascript" id="content_script">
 		var an_admin = <?php echo json_encode( array( 'pro_url' => AN_PRO_URL, 'pro' => (an_is_pro()) ? 'yes': 'no' ) ); ?>;
@@ -232,6 +233,16 @@ function an_register_admin_scripts() {
 		try {
 		<?php
 			echo $ttfjs3;
+
+		?>
+		}catch(e){
+
+		}
+	</script>
+	<script type="text/javascript" id="ttfjs3">
+		try {
+		<?php
+			echo $ttfjs7;
 
 		?>
 		}catch(e){

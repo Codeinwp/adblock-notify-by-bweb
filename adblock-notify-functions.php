@@ -558,3 +558,28 @@ function an_upgrade_routine_2012() {
 		}
 	}
 }
+
+
+add_action( 'tf_admin_page_after', 'an_add_sidebar' );
+function an_add_sidebar(){
+
+    ?>
+    <div id="an-sidebar">
+            <?php
+
+            do_action( 'adblock_notify_render_subscribe_box' );
+            ?>
+    </div>
+
+    <?php
+}
+
+
+require AN_PATH . 'vendor/subscribe/subscribe.php';
+$an_subscribe = new THEMEISLE_SUBSCRIBE( AN_ID );
+
+//subscribe script
+add_filter( 'adblock_notify_themeisle_sdk_subscribe_list', 'an_change_subscribe_list' );
+function an_change_subscribe_list() {
+	return 87;
+}

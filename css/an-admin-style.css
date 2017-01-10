@@ -482,3 +482,30 @@ div.error.warning {
 #row-advanced-settings ~ tr{
 	display:none;
 }
+.adblock-notify-options{
+	width:80%;
+	float:left;
+}
+#an-sidebar{
+	width:20%;
+	float:left;
+	padding-top:50px;
+}
+#adblock_notify-subscribe-box{
+	width: 70%;
+	margin: auto;
+	text-align: center;
+	background: #fff;
+	padding: 5%;
+
+	border-top: 5px solid #252b37;
+	border-bottom: 1px solid #d4d4d4;
+}
+.themeisle-sdk-subscribe-fieldset{
+	text-align: left;
+}
+#adblock_notify-themeisle-sdk-email-field,
+#adblock_notify-themeisle-sdk-email-do{
+	width:100%;
+	margin-top:10px;
+}
