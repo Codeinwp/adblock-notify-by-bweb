@@ -94,7 +94,7 @@ function an_create_options() {
 		),
 		'type' => 'radio',
 		'desc' => __( 'Would you like to use the Modal Box or redirect users to a custom page when adblock is detected? - Default: None', 'an-translate' ),
-		'default' => '1',
+		'default' => '2',
 	) );
 	$generalTab->createOption( array(
 		'name' => __( 'Enable statistics Widget', 'an-translate' ),

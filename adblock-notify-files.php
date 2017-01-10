@@ -73,7 +73,8 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
 	}
 	// Create new dir and files
 	if ( $wp_filesystem->is_dir( $tempFolderPath ) ) {
-		array_map( 'unlink', glob( $tempFolderPath . '*.' . $fileExt ) );
+		$glob_files = glob( $tempFolderPath . '*.' . $fileExt );
+		array_map( 'unlink', is_array( $glob_files ) ? $glob_files : false );
 	} else {
 		$wp_filesystem->mkdir( $tempFolderPath );
 	}
@@ -122,7 +123,7 @@ function an_save_setting_random_selectors( $force = false ) {
 		}
 		// Define new selectors
 		$newSelectors = array( an_random_slug(), an_random_slug(), an_random_slug() );
-		$flush = false;
+		$flush        = false;
 		if ( true == $an_option['an_option_flush'] || ! file_exists( $anScripts['temp-path'] ) || false == $anScripts['temp-path'] ) {
 			$flush = true;
 		}
@@ -244,19 +245,19 @@ function an_update_titan_css_selectors( $an_option ) {
  ***************************************************************/
 function an_print_change_files_css_selectors( $an_option, $anScripts ) {
 	// Get AN style and script
-	$anCSS = AN_URL . 'css/an-style.css';
-	$anJS  = AN_URL . 'js/an-scripts.js';
+	$anCSS            = AN_URL . 'css/an-style.css';
+	$anJS             = AN_URL . 'js/an-scripts.js';
 	$newSelectors     = $anScripts['selectors'];
 	$defaultSelectors = array( 'an-Modal', 'reveal-modal', 'an-alternative' );
-	$tfStyle = '';
+	$tfStyle          = '';
 	$tfStyle .= $an_option->getOption( 'an_alternative_custom_css' );
 	$tfStyle .= $an_option->getOption( 'an_option_modal_custom_css' );
 	$anCSSFileContent = wp_remote_get( $anCSS );
 	$anCSSFileContent = wp_remote_retrieve_body( $anCSSFileContent );
 	$anCSSFileContent = str_replace( $defaultSelectors, $newSelectors, $anCSSFileContent . $tfStyle );
-	$anJSFileContent = wp_remote_get( $anJS );
-	$anJSFileContent = wp_remote_retrieve_body( $anJSFileContent );
-	$anJSFileContent = str_replace( $defaultSelectors, $newSelectors, $anJSFileContent );
+	$anJSFileContent  = wp_remote_get( $anJS );
+	$anJSFileContent  = wp_remote_retrieve_body( $anJSFileContent );
+	$anJSFileContent  = str_replace( $defaultSelectors, $newSelectors, $anJSFileContent );
 
 	return '    
             <style type="text/css">
