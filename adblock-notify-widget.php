@@ -228,7 +228,11 @@ function an_get_counters() {
 				<a href="options-general.php?page=' . AN_ID . '&an-reset=true"  
 				onclick="javascript:if(!confirm(\'' . __( 'Are you sure you want to delete permanently your datas?', 'an-translate' ) . '\' )) return false;" 
 				>' . __( 'Reset Stats', 'an-translate' ) . '</a>
-            </li>
+            </li>';
+	if( an_is_new() ){
+		$output .= ' <li  style="color:#23282d;" class="an-global-stats" ><strong>'.( an_get_limit() - an_get_current_views()).' views left this month. </strong></li>';
+	}
+	$output .='
 		</ul>';
 	$output .= '<script type="text/javascript">';
 	$output .= '/* <![CDATA[ */';

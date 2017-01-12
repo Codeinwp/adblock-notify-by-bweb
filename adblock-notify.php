@@ -336,6 +336,7 @@ add_action( 'admin_head', 'an_add_favicon' );
  * Create random selectors and files on plugin activation
  ***************************************************************/
 function adblocker_notify_activate() {
+    an_flag_user();
 	add_action( 'tf_create_options', 'an_create_options' );
 	an_save_setting_random_selectors();
 }
