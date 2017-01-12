@@ -464,3 +464,220 @@ div.error.warning {
 	font-size: 10px;
 	font-weight: bold;
 }
+
+#row-advanced-settings h3::before {
+	background-image: none;
+}
+
+#row-advanced-settings th {
+	background: #008ec2;
+}
+
+#row-advanced-settings h3 {
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#row-advanced-settings {
+	cursor: pointer;
+}
+
+#row-advanced-settings ~ tr {
+	display: none;
+}
+
+.adblock-notify-options {
+	float: left;
+	width: 80%;
+}
+
+#an-sidebar {
+	float: left;
+	width: 20%;
+	padding-top: 50px;
+}
+
+@media (max-width: 1300px) {
+	#an-sidebar {
+		width: 30%;
+	}
+
+	.adblock-notify-options {
+		width: 70%;
+	}
+}
+
+#adblock_notify-subscribe-box {
+	width: 70%;
+	margin: auto;
+	padding: 5%;
+	border-top: 5px solid #252b37;
+	border-bottom: 1px solid #d4d4d4;
+	background: #fff;
+	text-align: center;
+}
+
+@media (max-width: 800px) {
+	#an-sidebar {
+		width: 100%;
+	}
+
+	.adblock-notify-options {
+		width: 100%;
+	}
+}
+
+.themeisle-sdk-subscribe-fieldset {
+	text-align: left;
+}
+
+#adblock_notify-themeisle-sdk-email-field,
+#adblock_notify-themeisle-sdk-email-do {
+	width: 100%;
+	margin-top: 10px;
+}
+
+#an_sidebar_pro {
+	width: 70%;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 5%;
+	border-top: 5px solid #0e90d2;
+	border-bottom: 1px solid #52c4ef;
+	background: #e6f3f7;
+}
+
+#an_sidebar_pro ul {
+	margin: 10px 20px 15px;
+	list-style-type: disc;
+}
+
+#an_sidebar_pro h3 {
+	margin: 10px 0 0;
+	color: #0085ba;
+	font-weight: 700;
+	text-align: center;
+}
+
+#an_sidebar_pro .btn:hover {
+	background: #3eaed8;
+}
+
+#an_sidebar_pro .btn {
+	display: block;
+	padding: 10px;
+	border-radius: 3px;
+	color: #fff;
+	background: #0085ba;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	-webkit-transition: 0.3s ease;
+	transition: 0.3s ease;
+}
+
+#an_sidebar_pro .views-available {
+	display: block;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #bbb;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.an-left {
+	float: right;
+}
+
+.an-left,
+.an-current {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.container {
+	width: 100%;
+}
+
+.progress {
+	overflow: hidden;
+	height: 18px;
+	border-radius: 0;
+	background-color: #f7f7f7;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
+	background-image: -webkit-linear-gradient(top, #f5f5f5, #f9f9f9);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f9f9f9));
+	background-image: -webkit-gradient( linear, left bottom, left top, from(#f5f5f5), to(#f9f9f9));
+	background-image: -webkit-linear-gradient( bottom, #f5f5f5, #f9f9f9);
+	background-image: linear-gradient( to top, #f5f5f5, #f9f9f9);
+	background-repeat: repeat-x;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress .bar {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 18px;
+	background-color: #0085ba;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0085ba));
+	background-image: -webkit-linear-gradient(top, #149bdf, #0085ba);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#149bdf), to(#0085ba));
+	background-image: -webkit-gradient(linear, left bottom, left top, from(#149bdf), to(#0085ba));
+	background-image: -webkit-linear-gradient(bottom, #149bdf, #0085ba);
+	background-image: linear-gradient(to top, #149bdf, #0085ba);
+	background-repeat: repeat-x;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-transition: width 0.6s ease;
+	transition: width 0.6s ease;
+}
+
+.an-sidebar-label {
+	margin-top: 2px;
+	font-weight: 500;
+	text-align: center;
+}
+
+#an-testimonial .testimonial-author {
+	float: right;
+	width: 70px;
+	height: 70px;
+	margin: 7px;
+	border-radius: 70px;
+}
+
+#an-testimonial .review {
+	float: right;
+	margin-top: 15px;
+}
+
+#an-testimonial span {
+	display: inline-block;
+	float: right;
+	width: 100px;
+	margin-top: 5px;
+	text-align: right;
+}
+
+#an-testimonial p {
+	font-style: italic;
+	text-align: justify;
+}
+
+#an-testimonial h3 {
+	text-align: center;
+}
+
+#an-testimonial {
+	width: 74%;
+	margin: auto;
+	margin-top: 5px;
+	padding: 3%;
+	border-top: 5px solid #252b37;
+	border-bottom: 1px solid #d4d4d4;
+	background: #fff;
+}

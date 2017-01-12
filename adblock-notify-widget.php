@@ -8,14 +8,14 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct acces not allowed!' );
 }
-
-
 /**
-
  * ************************************************************
  * Register the Dashboard Widget display function
  ***************************************************************/
 function an_dashboard_widgets() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return false;
+	}
 	$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 	if ( isset( $an_option ) && $an_option->getOption( 'an_option_stats' ) != 2 ) {
 		wp_add_dashboard_widget( 'an_dashboard_widgets', '<img src="' . AN_URL . 'img/icon-adblock-notify.png" class="bweb-logo" alt="addblock-notify" style="display:none"/>&nbsp;&nbsp;' . __( 'Adblock Notify Stats', 'an-translate' ), 'an_get_counters' );
@@ -25,57 +25,55 @@ function an_dashboard_widgets() {
 		add_action( 'admin_footer', 'an_register_admin_scripts' );
 	}
 }
+
 add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
-
-
 /**
-
  * ************************************************************
  * Page views & page blocked counter
  ***************************************************************/
 function an_adblock_counter() {
-	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] ) ) {
+	if (  current_user_can( 'manage_options' ) || empty( $_POST['an_state'] )  || an_check_views() ) {
 		return;
 	}
-	$an_states = $_POST['an_state'];
-	$anCount = an_get_option( 'adblocker_notify_counter' );
+	$an_states = $_POST['an_state'] ;
+	$anCount   = an_get_option( 'adblocker_notify_counter' );
 	foreach ( $an_states as $an_state ) {
-
+		$an_state = sanitize_text_field( $an_state );
 		if ( empty( $anCount ) ) {
 			$anCount = array( 'total' => 0, 'blocked' => 0, 'deactivated' => 0, 'history' => array() );
 			an_update_option( 'adblocker_notify_counter', $anCount );
 		}
-
+		if ( $an_state === 'blocked' ) {
+			$views_counter = an_get_option( 'adblock_notify_global_counter' );
+			$views_counter = intval( $views_counter );
+			$views_counter ++ ;
+			an_update_option( 'adblock_notify_global_counter',$views_counter );
+		}
 		// update option with new values
 		$anCount[ $an_state ] ++;
-
 		// then update history
 		$anCount = an_history_counter( $anCount, $an_state );
 	}
-
 	// update db
 	an_update_option( 'adblocker_notify_counter', $anCount );
 	exit;
 }
+
 add_action( 'wp_ajax_call_an_adblock_counter', 'an_adblock_counter' );
 add_action( 'wp_ajax_nopriv_call_an_adblock_counter', 'an_adblock_counter' );
-
-
 /**
-
  * ************************************************************
  * Calcul date diff
  ***************************************************************/
 function an_date_diff( $toDay, $toCheck ) {
-	$todayObj = new DateTime( $toDay );
+	$todayObj   = new DateTime( $toDay );
 	$expiredObj = new DateTime( $toCheck );
-	$dateDiff = $todayObj->diff( $expiredObj );
+	$dateDiff   = $todayObj->diff( $expiredObj );
+
 	return $dateDiff->days;
 }
 
-
 /**
-
  * ************************************************************
  * Page history counter
  ***************************************************************/
@@ -83,34 +81,32 @@ function an_history_counter( $anCount, $val = null ) {
 	$anToday = date( 'Y-m-d', current_time( 'timestamp', 0 ) );
 	// $anToday = date( 'Y-m-d', strtotime( '1 day', strtotime( date( 'Y-m-d', current_time( 'timestamp', 0 ) ) ) ) );
 	if ( empty( $anCount['history'][0] ) ) {
-
-		$anCount['history'][0] = array( 'date' => $anToday, 'total' => $anCount['total'], 'blocked' => $anCount['blocked'] );
+		$anCount['history'][0] = array(
+			'date'    => $anToday,
+			'total'   => $anCount['total'],
+			'blocked' => $anCount['blocked'],
+		);
 	} else {
-
 		$anDate = $anCount['history'][0]['date'];
 		$anDiff = an_date_diff( $anToday, $anDate );
-
 		if ( $anDate == $anToday ) {
-
 			// increase current date
-			if (  'total' == $val  ) {
+			if ( 'total' == $val ) {
 				$anCount['history'][0]['total'] = $anCount['history'][0]['total'] + 1;
 			} elseif ( 'blocked' == $val ) {
 				$anCount['history'][0]['blocked'] = $anCount['history'][0]['blocked'] + 1;
 			}
 		} elseif ( $anDiff > 0 ) {
-
 			// remove last + add new one
-			if (  'total' == $val ) {
+			if ( 'total' == $val ) {
 				$anNew = array( 'date' => $anToday, 'total' => 1, 'blocked' => 0 );
-			} elseif ( 'blocked' == $val    ) {
+			} elseif ( 'blocked' == $val ) {
 				$anNew = array( 'date' => $anToday, 'total' => 1, 'blocked' => 1 );
 			}
 			$anCount['history'] = array_merge( array( $anNew ), $anCount['history'] );
-
-			if (  8 == count( $anCount['history'] ) ) {
+			if ( 8 == count( $anCount['history'] ) ) {
 				$anOld = an_date_diff( $anToday, $anCount['history'][7]['date'] );
-				if (  7 == $anOld && 8 == count( $anCount['history'] ) ) {
+				if ( 7 == $anOld && 8 == count( $anCount['history'] ) ) {
 					// remove last + add new one ($anRemove is a rubbish var)
 					array_pop( $anCount['history'] );
 				}
@@ -121,25 +117,22 @@ function an_history_counter( $anCount, $val = null ) {
 	return $anCount;
 }
 
-
 /**
-
  * ************************************************************
  * Data history extraction & order revert for chart
  ***************************************************************/
 function an_widget_data_histoty( $anCount, $val = null ) {
 	if ( empty( $anCount['history'][0] ) ) {
-		return; }
-
+		return;
+	}
 	foreach ( $anCount['history'] as $row ) {
 		$anOutput[] = $row[ $val ];
 	}
+
 	return $anOutput;
 }
 
-
 /**
-
  * ************************************************************
  * Display the Dashboard Widget
  ***************************************************************/
@@ -147,57 +140,50 @@ function an_get_counters() {
 	$anCount = an_get_option( 'adblocker_notify_counter' );
 	if ( empty( $anCount ) ) {
 		echo '<p>No data</p>';
+
 		return;
 	}
-
 	// prevent plugin's counter to be higher than the page counter if page is refreshed during the ajax call or if wordpress caching systeme in not badly configured
-	if ( ( $anCount['blocked'] > $anCount['total']) || ($anCount['history'][0]['blocked'] > $anCount['history'][0]['total'] ) ) {
-
+	if ( ( $anCount['blocked'] > $anCount['total'] ) || ( $anCount['history'][0]['blocked'] > $anCount['history'][0]['total'] ) ) {
 		if ( $anCount['blocked'] > $anCount['total'] ) {
 			$anCount['total'] = $anCount['blocked'];
 		}
 		if ( $anCount['history'][0]['blocked'] > $anCount['history'][0]['total'] ) {
 			$anCount['history'][0]['total'] = $anCount['history'][0]['blocked'];
 		}
-
 		// update db
 		an_update_option( 'adblocker_notify_counter', $anCount );
 	}
-
 	if ( empty( $anCount['total'] ) ) {
-		$anCount['total'] = 0; }
-
+		$anCount['total'] = 0;
+	}
 	if ( empty( $anCount['history'][0]['total'] ) ) {
-		$anCount['history'][0]['total'] = 0; }
-
+		$anCount['history'][0]['total'] = 0;
+	}
 	if ( empty( $anCount['blocked'] ) ) {
-		$anCount['blocked'] = 0; }
-
+		$anCount['blocked'] = 0;
+	}
 	if ( empty( $anCount['history'][0]['blocked'] ) ) {
-		$anCount['history'][0]['blocked'] = 0; }
-
+		$anCount['history'][0]['blocked'] = 0;
+	}
 	if ( empty( $anCount['deactivated'] ) ) {
-		$anCount['deactivated'] = 0; }
-
+		$anCount['deactivated'] = 0;
+	}
 	$totalNoBlocker = $anCount['total'] - $anCount['blocked'];
-	$average = 0;
+	$average        = 0;
 	if ( $anCount['total'] != 0 ) {
 		$average = round( ( $anCount['blocked'] / $anCount['total'] ) * 100, 2 );
 	}
-
 	$totalNoBlockerToday = $anCount['history'][0]['total'] - $anCount['history'][0]['blocked'];
-	$averageToday = 0;
+	$averageToday        = 0;
 	if ( $anCount['total'] != 0 ) {
 		$averageToday = round( ( $anCount['history'][0]['blocked'] / $anCount['history'][0]['total'] ) * 100, 2 );
 	}
-
 	require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	// Load WP_Filesystem API
 	WP_Filesystem();
 	global $wp_filesystem;
-
-	$css = $wp_filesystem->get_contents( AN_PATH . 'css/an-dashboard-widget.css' );
-
+	$css    = $wp_filesystem->get_contents( AN_PATH . 'css/an-dashboard-widget.css' );
 	$output = "<style type='text/css'>" . $css . '</style>';
 	$output .= '
         <table class="an-stats-table">
@@ -242,22 +228,24 @@ function an_get_counters() {
 				<a href="options-general.php?page=' . AN_ID . '&an-reset=true"  
 				onclick="javascript:if(!confirm(\'' . __( 'Are you sure you want to delete permanently your datas?', 'an-translate' ) . '\' )) return false;" 
 				>' . __( 'Reset Stats', 'an-translate' ) . '</a>
-            </li>
+            </li>';
+	if ( an_is_new() ) {
+		$output .= ' <li  style="color:#23282d;" class="an-global-stats" ><strong>' . ( an_get_limit() - an_get_current_views()) . ' AdBlock views left this month. </strong></li>';
+	}
+	$output .= '
 		</ul>';
-
 	$output .= '<script type="text/javascript">';
 	$output .= '/* <![CDATA[ */';
 	$output .= 'var anWidgetOptions =' .
-			json_encode( array(
-				'totalNoBlocker' => $totalNoBlocker,
-				'anCountBlocked' => $anCount['blocked'],
-				'totalNoBlockerToday' => $totalNoBlockerToday,
-				'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
-				'anDataHistotyTotal' => an_widget_data_histoty( $anCount, 'total' ),
-				'anDataHistotyBlocked' => an_widget_data_histoty( $anCount, 'blocked' ),
-			) );
+	           json_encode( array(
+		           'totalNoBlocker'        => $totalNoBlocker,
+		           'anCountBlocked'        => $anCount['blocked'],
+		           'totalNoBlockerToday'   => $totalNoBlockerToday,
+		           'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
+		           'anDataHistotyTotal'    => an_widget_data_histoty( $anCount, 'total' ),
+		           'anDataHistotyBlocked'  => an_widget_data_histoty( $anCount, 'blocked' ),
+	           ) );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
-
 	echo $output;
 }
