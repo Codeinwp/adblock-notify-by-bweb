@@ -230,7 +230,7 @@ function an_get_counters() {
 				>' . __( 'Reset Stats', 'an-translate' ) . '</a>
             </li>';
 	if( an_is_new() ){
-		$output .= ' <li  style="color:#23282d;" class="an-global-stats" ><strong>'.( an_get_limit() - an_get_current_views()).' views left this month. </strong></li>';
+		$output .= ' <li  style="color:#23282d;" class="an-global-stats" ><strong>'.( an_get_limit() - an_get_current_views()).' AdBlock views left this month. </strong></li>';
 	}
 	$output .='
 		</ul>';
