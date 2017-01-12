@@ -22,7 +22,7 @@ Adblock Notify is a very easy to use plugin with get around options and a lot of
 > **Time-saving features available in the Pro version:**
 >
 > * Up to 250k page views blocked by our plugin
-> * Supoort for multisite ( Setup in one place and use it across all network sites )
+> * Support for multisite ( Setup in one place and use it across all network sites )
 > * Advance templating system for modal and easy to customize inside the themes
 > * Advance control for modal behaviour
 >
