@@ -50,6 +50,9 @@ function an_create_options() {
 	$alternativeTab = $an_panel->createTab( array(
 		'name' => __( 'Alternative Message', 'an-translate' ),
 	) );
+	$advancedSettings = $an_panel->createTab( array(
+		'name' => __( 'Advanced Settings', 'an-translate' ),
+	) );
 
 	/**
 	*************************************************************
@@ -59,8 +62,8 @@ function an_create_options() {
 	do_action( 'an_pro_add_tab_options_top', $generalTab, $modalTab, $redirectTab, $alternativeTab );
 
 	$generalTab->createOption( array(
-		'name' => '<h3 class="home">' . __( 'Welcome to Adblock Notify Plugin', 'an-translate' ) . '</h3>',
-		'desc' => '
+		'name' => '',
+		'desc' => '<h3 class=" ">' . __( 'Welcome to Adblock Notify Plugin', 'an-translate' ) . '</h3>' . '
                     <div style="color:black; font-style: normal;">
                         <p>
                             ' . __( 'You can notify users with an activated Adblocker software by one of THREE ways !', 'an-translate' ) . '
@@ -75,11 +78,7 @@ function an_create_options() {
                             <br />
                             ' . __( 'You can easily switch between them without losing your options.', 'an-translate' ) . '
                         </p>
-                        <p>
-                            <strong>' . __( 'Adblock Notify', 'an-translate' ) . '</strong> ' . __( 'nativally uses cookies for a better user experience and a less intrusive browsing of your site. It means visitors will see the Modal Box only once or be redirected to your custom page once.', 'an-translate' ) . '
-                            <br />
-                            ' . __( 'You can deactivate them, however if your visitor has an activated adblocker software they will see a modal box or get a redirection on every visited page.', 'an-translate' ) . '
-                        </p>
+                         
                     </div>
 		',
 		'type' => 'note',
@@ -97,15 +96,11 @@ function an_create_options() {
 		'default' => '1',
 	) );
 
-	$generalTab->createOption( array(
-		'name' => __( 'Advanced settings', 'an-translate' ),
-		'type' => 'heading',
-	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Dashboard', 'an-translate' ),
 		'type' => 'heading',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Enable statistics Widget', 'an-translate' ),
 		'id' => 'an_option_stats',
 		'type' => 'select',
@@ -117,11 +112,11 @@ function an_create_options() {
 		'default' => '1',
 	) );
 
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Improve detection (optional)', 'an-translate' ),
 		'type' => 'heading',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Adverts selectors', 'an-translate' ) . ' <i>( ' . __( 'Comma separated', 'an-translate' ) . ' )</i>',
 		'id' => 'an_option_ads_selectors',
 		'type' => 'text',
@@ -130,11 +125,11 @@ function an_create_options() {
             <br /><strong> Eg: #google-ads, .promo .adsense, .sponsored</strong> 
 			<br />( ' . __( 'Read', 'an-translate' ) . ' <a href="http://api.jquery.com/category/selectors/" target="_blank">' . __( 'Selectors | jQuery API Documentation', 'an-translate' ) . '</a> ' . __( 'for more details', 'an-translate' ) . ' )',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Cookies Options', 'an-translate' ),
 		'type' => 'heading',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Cookies activation', 'an-translate' ),
 		'id' => 'an_option_cookie',
 		'type' => 'select',
@@ -145,7 +140,7 @@ function an_create_options() {
 		),
 		'default' => '1',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Cookies Lifetime', 'an-translate' ) . ' <i>( ' . __( 'Days', 'an-translate' ) . ' )</i>',
 		'id' => 'an_option_cookie_life',
 		'type' => 'number',
@@ -155,18 +150,18 @@ function an_create_options() {
 		'max' => '360',
 		'step' => '1',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Random selectors and files', 'an-translate' ),
 		'type' => 'heading',
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Use random selectors and files', 'an-translate' ),
 		'id' => 'an_option_selectors',
 		'type' => 'checkbox',
 		'desc' => __( 'Random selectors and files name to prevent adblock to block the plugin. Temp files with new selectors will be generated and stored in a temp folder in your /uploads directory  - Default: Checked', 'an-translate' ),
 		'default' => true,
 	) );
-	$generalTab->createOption( array(
+	$advancedSettings->createOption( array(
 		'name' => __( 'Flush files', 'an-translate' ),
 		'id' => 'an_option_flush',
 		'type' => 'checkbox',
@@ -446,6 +441,11 @@ function an_create_options() {
 	 * Launch options framework instance
 	 */
 	$generalTab->createOption( array(
+		'type' => 'save',
+		'save' => __( 'Save Changes', 'an-translate' ),
+		'reset' => __( 'Reset to Defaults', 'an-translate' ),
+	) );
+	$advancedSettings->createOption( array(
 		'type' => 'save',
 		'save' => __( 'Save Changes', 'an-translate' ),
 		'reset' => __( 'Reset to Defaults', 'an-translate' ),

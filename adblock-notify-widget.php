@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Register the Dashboard Widget display function
  ***************************************************************/
 function an_dashboard_widgets() {
-	if ( ! current_user_can( 'manage_options' ) ){
+	if ( ! current_user_can( 'manage_options' ) ) {
 		return false;
 	}
 	$an_option = TitanFramework::getInstance( 'adblocker_notify' );
@@ -32,15 +32,22 @@ add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
  * Page views & page blocked counter
  ***************************************************************/
 function an_adblock_counter() {
-	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] ) ) {
+	if (  current_user_can( 'manage_options' ) || empty( $_POST['an_state'] )  || an_check_views() ) {
 		return;
 	}
-	$an_states = $_POST['an_state'];
+	$an_states = $_POST['an_state'] ;
 	$anCount   = an_get_option( 'adblocker_notify_counter' );
 	foreach ( $an_states as $an_state ) {
+		$an_state = sanitize_text_field( $an_state );
 		if ( empty( $anCount ) ) {
 			$anCount = array( 'total' => 0, 'blocked' => 0, 'deactivated' => 0, 'history' => array() );
 			an_update_option( 'adblocker_notify_counter', $anCount );
+		}
+		if ( $an_state === 'blocked' ) {
+			$views_counter = an_get_option( 'adblock_notify_global_counter' );
+			$views_counter = intval( $views_counter );
+			$views_counter ++ ;
+			an_update_option( 'adblock_notify_global_counter',$views_counter );
 		}
 		// update option with new values
 		$anCount[ $an_state ] ++;
@@ -77,7 +84,7 @@ function an_history_counter( $anCount, $val = null ) {
 		$anCount['history'][0] = array(
 			'date'    => $anToday,
 			'total'   => $anCount['total'],
-			'blocked' => $anCount['blocked']
+			'blocked' => $anCount['blocked'],
 		);
 	} else {
 		$anDate = $anCount['history'][0]['date'];

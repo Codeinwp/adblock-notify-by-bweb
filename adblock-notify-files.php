@@ -186,7 +186,7 @@ function an_save_setting_random_selectors( $force = false ) {
 		if ( isset( $anScripts['temp-path'] ) ) {
 			an_delete_temp_folder( $anScripts['temp-path'] );
 		}
-	}
+	}// End if().
 }
 
 add_action( 'tf_admin_options_saved_adblocker_notify', 'an_save_setting_random_selectors', 99 );
