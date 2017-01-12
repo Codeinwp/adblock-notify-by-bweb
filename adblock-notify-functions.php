@@ -753,7 +753,7 @@ function an_get_current_views() {
  * @return int The current limit.
  */
 function an_get_limit() {
-	$limit = '20';
+	$limit = '5000';
 	if ( an_is_personal() ) {
 		$limit = '30000';
 	}
