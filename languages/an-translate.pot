@@ -2,10 +2,10 @@
 # This file is distributed under the same license as the Adblock Notify Lite package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Adblock Notify Lite 2.0.12\n"
+"Project-Id-Version: Adblock Notify Lite 2.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2017-01-12 16:12:47+00:00\n"
+"POT-Creation-Date: 2017-01-12 17:24:19+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,45 +25,45 @@ msgstr ""
 "X-Poedit-Bookmarks: \n"
 "X-Textdomain-Support: yes\n"
 
-#: adblock-notify-files.php:208
+#: adblock-notify-files.php:215
 msgid ""
 "WARNING: There was an error creating Adblock Notify CSS and JS files. "
 "Upload directory is not writable. Please CHMOD \"wp-content/uploads\" to "
 "0664 and verify your server settings"
 msgstr ""
 
-#: adblock-notify-files.php:212
+#: adblock-notify-files.php:219
 msgid ""
 "Don't worry, we thought about it. Adblock Notify will print the scripts "
 "directly in your DOM, but for performance purpose it is recommended to "
 "change your uploads directory CHMOD."
 msgstr ""
 
-#: adblock-notify-functions.php:435
+#: adblock-notify-functions.php:436
 msgid "Show your love"
 msgstr ""
 
-#: adblock-notify-functions.php:438
+#: adblock-notify-functions.php:439
 msgid "Leave A Review"
 msgstr ""
 
-#: adblock-notify-functions.php:444
+#: adblock-notify-functions.php:445
 msgid "Buy now"
 msgstr ""
 
-#: adblock-notify-functions.php:447
+#: adblock-notify-functions.php:448
 msgid "Multi-Site Support"
 msgstr ""
 
-#: adblock-notify-functions.php:646
+#: adblock-notify-functions.php:647
 msgid " Subscribe for 20% coupon"
 msgstr ""
 
-#: adblock-notify-functions.php:657
+#: adblock-notify-functions.php:658
 msgid "You can now check your email for the discount code."
 msgstr ""
 
-#: adblock-notify-functions.php:667
+#: adblock-notify-functions.php:668
 msgid ""
 "Get a sweet 20% discount coupon right on your email for upgrading to the "
 "FULL version. "

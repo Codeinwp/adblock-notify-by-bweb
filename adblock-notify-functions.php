@@ -779,17 +779,17 @@ function an_check_views() {
 	}
 	$limit   = an_get_limit();
 	$current = an_get_current_views();
-	if ( $current === 0 ){
-	    an_update_option('adblock_notify_month_reset',time() );
+	if ( $current === 0 ) {
+	    an_update_option( 'adblock_notify_month_reset',time() );
 
-    }else{
-	    $reset_time = an_get_option('adblock_notify_month_reset');
-	    if(  ( time() - $reset_time ) > ( 31 * 24 * 3600 ) ){
+	} else {
+	    $reset_time = an_get_option( 'adblock_notify_month_reset' );
+	    if (  ( time() - $reset_time ) > ( 31 * 24 * 3600 ) ) {
 	        $current = 0;
-	        an_update_option('adblock_notify_global_counter', '0');
-		    an_update_option('adblock_notify_month_reset',time() );
-        }
-    }
+	        an_update_option( 'adblock_notify_global_counter', '0' );
+		    an_update_option( 'adblock_notify_month_reset',time() );
+		}
+	}
 	if ( $limit <= $current ) {
 		return true;
 	}

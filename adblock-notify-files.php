@@ -102,9 +102,9 @@ function an_save_setting_random_selectors( $force = false ) {
 	}
 	$an_option = unserialize( an_get_option( 'adblocker_notify_options' ) );
 	$anScripts = unserialize( an_get_option( 'adblocker_notify_selectors' ) );
-	$selectors_option = isset ( $an_option['an_option_selectors'] ) ? $an_option['an_option_selectors'] : true;
+	$selectors_option = isset( $an_option['an_option_selectors'] ) ? $an_option['an_option_selectors'] : true;
 	if ( true == $selectors_option || $force ) {
-		if( ! isset( $an_option['an_option_flush'] ) ) {
+		if ( ! isset( $an_option['an_option_flush'] ) ) {
 			$an_option['an_option_flush'] = false;
 		}
 		// Define new temp path
@@ -183,7 +183,7 @@ function an_save_setting_random_selectors( $force = false ) {
 		);
 		an_update_option( 'adblocker_notify_selectors', serialize( $newFiles ) );
 		// remove option flush
-		if( ! isset( $an_option['an_option_flush'] ) ) {
+		if ( ! isset( $an_option['an_option_flush'] ) ) {
 			$an_option['an_option_flush'] = false;
 		}
 		$an_option['an_option_flush'] = false;
