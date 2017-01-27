@@ -149,9 +149,12 @@ jQuery(document).ready(function ($) {
                 });
 
                 //IF PAGE REDIRECT IS ACTIVATED
-            } else if (parseInt(anOptions.anOptionChoice) === 3 && anOptions.anPermalink !== 'undefined' && getCookie('anCookie') !== 'true') {
-                setCookie('anCookie', 'true', anOptions.anOptionCookieLife, '/');      	//set cookie to true
-                window.location.replace(anOptions.anPermalink);                     	//redirect to user page
+            } else if (parseInt(anOptions.anOptionChoice) === 3 && anOptions.anPermalink !== 'undefined'){
+                if(getCookie('anCookie') !== 'true') {
+                    setCookie('anCookie', 'true', anOptions.anOptionCookieLife, '/');      	//set cookie to true
+                    setLinkBeforeRedirect(window.location.href);
+                    window.location.replace(anOptions.anPermalink);                     	//redirect to user page
+                }
             }
 
             //IF AD PLACEHOLDER IS ACTIVATED
@@ -233,7 +236,9 @@ jQuery(document).ready(function ($) {
             } else {
                 an_blocker_counter(['total']);									//no adblocker	
             }
-
+            if (parseInt(anOptions.anOptionChoice) === 3){
+                redirectToOrigLinkIfValid();
+            }
         }
 
     }
@@ -364,6 +369,33 @@ jQuery(document).ready(function ($) {
             }
         }
         return '';
+    }
+
+    function setLinkBeforeRedirect(href) {
+        if (typeof(window.sessionStorage) !== 'undefined') {
+            window.sessionStorage.setItem('anPrevLink', href);
+        } else {
+            setCookie('anPrevLink', href, 0, '/');
+        }
+    }
+
+    function getLinkBeforeRedirect() {
+        var url     = '';
+        if (typeof(window.sessionStorage) !== 'undefined') {
+            url = window.sessionStorage.getItem('anPrevLink');
+            window.sessionStorage.removeItem('anPrevLink');
+        } else {
+            url = getCookie('anPrevLink');
+            setCookie('anPrevLink', '', -1, '/');
+        }
+        return url;
+    }
+
+    function redirectToOrigLinkIfValid() {
+        var url         = getLinkBeforeRedirect();
+        if (url){
+            window.location.replace(url);
+        }
     }
 
     //All CSS rules to exclude
