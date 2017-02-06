@@ -270,7 +270,7 @@ function an_enqueue_admin_syles() {
 	an_register_global_styles();
 	$prefix = an_is_bussiness() ? '-network' : '';
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+	if ( $screen && $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return;
 	}
 	an_register_admin_styles();
@@ -322,7 +322,7 @@ add_filter( 'plugin_row_meta', 'an_meta_links', 10, 2 );
 function an_add_favicon() {
 	$prefix = an_is_bussiness() ? '-network' : '';
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+	if ( $screen && $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return;
 	}
 	$favicon_url = AN_URL . 'img/icon-adblock-notify.png';
