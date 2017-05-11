@@ -1,23 +1,23 @@
-=== Adblock Notify Lite ===
+=== Ad Blocker Notify Lite ===
 Contributors: themeisle
-Tags:  adblock, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, adBlocker, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
+Tags:  Ad Blocker, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, Ad Blockerer, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
 Tested up to: 4.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Detect Adblock and nofity users. Simple plugin with get around options and a lot of settings. Dashboard widget with counter & statistics included!
+Detect Ad Blocker and nofity users. Simple plugin with get around options and a lot of settings. Dashboard widget with counter & statistics included!
 
 == Description ==
 
 <blockquote>
 
-<a href="http://themeisle.com/plugins/adblock-notify" rel="friend" target="_blank">Adblock Notify</a> has been blacklisted by adblocker softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your adblocker to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
+<a href="http://themeisle.com/plugins/Ad Blocker-notify" rel="friend" target="_blank">Ad Blocker Notify</a> has been blacklisted by Ad Blockerer softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your Ad Blockerer to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
 
 </blockquote>
 
-Detect Adblock and notify users. Whether you are running a personal blog or a magazine website, Adblock Notify will help you block adblockers (eg: Adblock Plus) and increase your ad revenue.
-Adblock Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
+Detect Ad Blocker and notify users. Whether you are running a personal blog or a magazine website, Ad Blocker Notify will help you block Ad Blockerers (eg: Ad Blocker Plus) and increase your ad revenue.
+Ad Blocker Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
 
 > **Time-saving features available in the Pro version:**
 >
@@ -26,20 +26,20 @@ Adblock Notify is a very easy to use plugin with get around options and a lot of
 > * Advance templating system for modal and easy to customize inside the themes
 > * Advance control for modal behaviour
 >
-> **[Learn more about Adblock Notify ](http://themeisle.com/plugins/adblock-notify/)**
+> **[Learn more about Ad Blocker Notify ](http://themeisle.com/plugins/Ad Blocker-notify/)**
 
-**Can I stop adblocker users?**
+**Can I stop Ad Blockerer users?**
 
-NO! This plugin does not completly block adblocker users, it only uses a passive approach, and it will always be that way.
+NO! This plugin does not completly block Ad Blockerer users, it only uses a passive approach, and it will always be that way.
 
 Note: Plugin originally developed by Brice CAPOBIANCO, b-website.com
 
-Documentation link: http://docs.themeisle.com/article/274-adblock-notify-documentation
+Documentation link: http://docs.themeisle.com/article/274-Ad Blocker-notify-documentation
 
 = Plugin Capabilities =
 
-* Detect adBlocker (eg Adblock Plus)
-* Random selectors and files name to prevent adblock to block the plugin
+* Detect Ad Blockerer (eg Ad Blocker Plus)
+* Random selectors and files name to prevent Ad Blocker to block the plugin
 * Custom notification message with jQuery Popup ([Reveal by ZURB](http://zurb.com/playground/reveal-modal-plugin)) or Javascript redirect
 * Replace blocked ads by custom message
 * 3 available options to notify your users
@@ -71,7 +71,7 @@ Documentation link: http://docs.themeisle.com/article/274-adblock-notify-documen
 * Should works with SSL certificate (https), but not tryed (need feedback!)
 
 = How to use it =
-You can notify users with an activated Adblocker software by one of THREE ways !
+You can notify users with an activated Ad Blockerer software by one of THREE ways !
 
 * A pretty cool and lightweight Modal Box with a custom content : **the COMPLIANT solution**
 * A simple redirection to the page of your choice : **the AGRESSIVE solution**
@@ -101,16 +101,16 @@ Become a translator and send us your translation!
 
 == Installation ==
 1. Upload and activate the plugin (or install it through the WP admin console)
-2. Click on the "Adblock Notify" menu
+2. Click on the "Ad Blocker Notify" menu
 3. Follow instructions, every option is documented ;)	
 
 == Frequently Asked Questions ==
 
-= Can I stop adblocker users? =
-NO! This plugin does not completly block adblocker users, it only uses a passive approach, and it will always be that way.
+= Can I stop Ad Blockerer users? =
+NO! This plugin does not completly block Ad Blockerer users, it only uses a passive approach, and it will always be that way.
 
 = Is it working with Google Adsense Ads? =
-Yes, and probably with all kinf of content hidden by an adblocker software.
+Yes, and probably with all kinf of content hidden by an Ad Blockerer software.
 
 = Is it compatible with caching systeme =
 Yes it is. Depend on parameters...
@@ -128,6 +128,11 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 3. Statistics on the WordPress Dashboard
 
 == Changelog ==
+
+= 2.2.0 =
+
+* Removed AdBlock name due to copyright notice.
+* Added new deployment stack.
 
 = 2.1.0 =
 
@@ -168,7 +173,7 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 * Fixed issue with widget not showing in admin
 
 = 2.0.2 =
-* Added tweak for Adblock in admin area
+* Added tweak for Ad Blocker in admin area
 
 = 2.0.1 =
 * Fixed comptibility issues for users on upgrade
@@ -180,7 +185,7 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 
 = 1.9 =
 * Tested on WP 4.5 with success!
-* The temp folder has now a randomly generated name since Adblock softwares just blacklisted it.
+* The temp folder has now a randomly generated name since Ad Blocker softwares just blacklisted it.
 * themeisle added as plugin author
 
 = 1.8.3 =
@@ -188,7 +193,7 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 * Tested on WP 4.4.2 with success!
 
 = 1.8.2 =
-* Fix a PHP warning in the adblock-notify-functions.php on COOKIES
+* Fix a PHP warning in the Ad Blocker-notify-functions.php on COOKIES
 
 = 1.8.1 =
 * Simplified Chinese translation by [Changmeng Hu](http://www.wpdaxue.com "Changmeng Hu")
@@ -225,14 +230,14 @@ If you don't have any caching/minify plugin, it is mostly due to your theme whic
 * readme.txt update
 
 = 1.6.1 =
-* Disable fuckadblock.js because of to many bug repports
+* Disable fuckAd Blocker.js because of to many bug repports
 * Improve the way cookies are registered
 * readme.txt update
 
 = 1.6 =
 * Remove the too simple detection by blocking file
-* Add the cool fuckadblock.js detection script
-* Stronger adblocker detection
+* Add the cool fuckAd Blocker.js detection script
+* Stronger Ad Blockerer detection
 * readme.txt update
 
 = 1.5 =
