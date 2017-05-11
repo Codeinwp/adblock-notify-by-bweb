@@ -5,4 +5,4 @@ dist
 artifact
 vendor
 composer.lock
-*.sh
+bin
