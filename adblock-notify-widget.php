@@ -18,7 +18,7 @@ function an_dashboard_widgets() {
 	}
 	$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 	if ( isset( $an_option ) && $an_option->getOption( 'an_option_stats' ) != 2 ) {
-		wp_add_dashboard_widget( 'an_dashboard_widgets', '<img src="' . AN_URL . 'img/icon-adblock-notify.png" class="bweb-logo" alt="addblock-notify" style="display:none"/>&nbsp;&nbsp;' . __( 'Adblock Notify Stats', 'an-translate' ), 'an_get_counters' );
+		wp_add_dashboard_widget( 'an_dashboard_widgets', '<img src="' . AN_URL . 'img/icon-adblock-notify.png" class="bweb-logo" alt="addblock-notify" style="display:none"/>&nbsp;&nbsp;' . __( 'Ad Blocker Notify Stats', 'an-translate' ), 'an_get_counters' );
 		// Chart JS
 		wp_enqueue_script( 'an_chart_js', AN_URL . 'vendor/chart-js/Chart.min.js', array( 'jquery' ), null );
 		// CSS & JS

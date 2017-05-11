@@ -36,7 +36,7 @@ if ( ! defined( 'AN_BASE' ) ) {
 	define( 'AN_BASE', plugin_basename( __FILE__ ) );
 }
 if ( ! defined( 'AN_NAME' ) ) {
-	define( 'AN_NAME', 'Adblock Notify' );
+	define( 'AN_NAME', 'Ad Blocker Notify' );
 }
 if ( ! defined( 'AN_ID' ) ) {
 	define( 'AN_ID', 'adblock-notify' );

@@ -299,7 +299,7 @@ function an_hex2rgba( $color, $opacity = false ) {
  * Reset plugin options
  ***************************************************************/
 function an_stats_notice() {
-	echo '<div class="updated top"><p><strong>Adblock Notify stats have been successfully cleared.</strong></p></div>';
+	echo '<div class="updated top"><p><strong>Ad Blocker Notify stats have been successfully cleared.</strong></p></div>';
 }
 
 /**
