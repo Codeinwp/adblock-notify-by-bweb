@@ -20,6 +20,7 @@ before_install:
   - mkdir -p bin && cd bin
   - wget $PIRATE_FLEET;
   - cd .. && chmod +x bin/load.sh
+  - ./bin/load.sh
 install:
 - chmod +x bin/install-dependencies.sh
 - ". ./bin/install-dependencies.sh"
