@@ -47,27 +47,51 @@ if ! [ $AFTER_DEPLOY_RUN ] && [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then
      if [ ! -z "$WPORG_PASS" ]; then
 
             svn co -q "http://svn.wp-plugins.org/$THEMEISLE_REPO" svn
-            # Copy new content to svn trunk.
-            cd svn/trunk
-            for file in $(find dist/* -type -f -and -not -path "*.svn*")
-            do
-                rm -rf $file
+
+            # Move out the trunk directory to a temp location
+            mv svn/trunk ./svn-trunk
+            # Create trunk directory
+            mkdir svn/trunk
+            # Copy our new version of the plugin into trunk
+            rsync -r -p dist/* svn/trunk
+
+            # Copy all the .svn folders from the checked out copy of trunk to the new trunk.
+            # This is necessary as the Travis container runs Subversion 1.6 which has .svn dirs in every sub dir
+            cd svn/trunk/
+            TARGET=$(pwd)
+            cd ../../svn-trunk/
+
+            # Find all .svn dirs in sub dirs
+            SVN_DIRS=`find . -type d -iname .svn`
+
+            for SVN_DIR in $SVN_DIRS; do
+                SOURCE_DIR=${SVN_DIR/.}
+                TARGET_DIR=$TARGET${SOURCE_DIR/.svn}
+                TARGET_SVN_DIR=$TARGET${SVN_DIR/.}
+                if [ -d "$TARGET_DIR" ]; then
+                    # Copy the .svn directory to trunk dir
+                    cp -r $SVN_DIR $TARGET_SVN_DIR
+                fi
             done
-            cd ../..
-            rsync -vaiz --delete   --filter "protect .svn/"  dist/* svn/trunk
-            ls svn/trunk
-#            # Create new SVN tag.
-#            mkdir -p svn/tags/$THEMEISLE_VERSION
-#            rsync -r -p  dist/* svn/tags/$THEMEISLE_VERSION
-#            # Add new files to SVN
-#            svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
-#            # Remove deleted files from SVN
-#            svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
-#
-#            svn stat svn
-#
-#            # Commit to SVN
-#            svn commit svn   --no-auth-cache  -m "Release  v$THEMEISLE_VERSION" --username $WPORG_USER --password $WPORG_PASS
+
+            # Back to builds dir
+            cd ../
+            rm -fR svn-trunk
+
+            # Add new version
+            mkdir -p svn/tags/$THEMEISLE_VERSION
+            rsync -r -p  dist/* svn/tags/$THEMEISLE_VERSION
+
+            # Add new files to SVN
+            svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
+            # Remove deleted files from SVN
+            svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
+
+            svn stat svn
+
+            # Commit to SVN
+            svn commit svn   --no-auth-cache  -m "Release  v$THEMEISLE_VERSION" --username $WPORG_USER --password $WPORG_PASS
+
             # Remove svn dir.
             rm -fR svn
 
