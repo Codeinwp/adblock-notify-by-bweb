@@ -8,10 +8,10 @@
   "noarg": true,
   "nonbsp": true,
   "onevar": true,
-  "quotmark": "single",
   "trailing": true,
   "undef": true,
-  "unused": true,
+  "sub":true,
+  "unused": false,
   "browser": true,
   "globals": {
     "_": false,

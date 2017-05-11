@@ -4,14 +4,16 @@
  *
  * @package adblock-notify
  *
- * Plugin Name: Adblock Notify Lite
+ * Plugin Name: Ad Blocker Notify Lite
  * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
- * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
+ * Description: An ad blocker detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
  * Version: 2.1.0
  * Author: Themeisle
- * Author URI: http://themeisle.com
+ * Author URI: https://themeisle.com
  * Text Domain: an-translate
  * Domain Path: /languages
+ * WordPress Available:  yes
+ * Requires License:    no
  */
 /**
  * ************************************************************
@@ -80,6 +82,11 @@ $anFiles = array(
 $anFiles = apply_filters( 'an_files_include', $anFiles );
 foreach ( $anFiles as $anFile ) {
 	require_once( AN_PATH . $anFile . '.php' );
+}
+$vendor_file = AN_PATH . 'vendor/autoload_52.php';
+if ( is_readable( $vendor_file ) ) {
+	require_once $vendor_file;
+	ThemeIsle_SDK_Loader::init_product( AN_PATH . 'adblock-notify.php' );
 }
 /**
  * ************************************************************
@@ -159,7 +166,7 @@ function an_register_admin_styles() {
 	WP_Filesystem();
 	global $wp_filesystem;
 	$content_style = $wp_filesystem->get_contents( AN_PATH . 'css/an-admin-style.css' );
-	$ttfcss = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/css/admin-styles.css' );
+	$ttfcss        = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/css/admin-styles.css' );
 	?>
 	<style type="text/css">
 		<?php
@@ -184,16 +191,16 @@ function an_register_admin_scripts() {
 	WP_Filesystem();
 	global $wp_filesystem;
 	$content_script = $wp_filesystem->get_contents( AN_PATH . 'js/an-admin-scripts.js' );
-	$ttfjs1 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
-	$ttfjs2 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
-	$ttfjs3 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
-	$ttfjs4 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
-	$ttfjs5 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
-	$ttfjs6 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
-	$ttfjs7 = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
+	$ttfjs1         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
+	$ttfjs2         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
+	$ttfjs3         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
+	$ttfjs4         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
+	$ttfjs5         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
+	$ttfjs6         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
+	$ttfjs7         = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
 	?>
 	<script type="text/javascript" id="content_script">
-		var an_admin = <?php echo json_encode( array(
+        var an_admin = <?php echo json_encode( array(
 			'pro_url' => AN_PRO_URL,
 			'pro'     => ( an_is_pro() ) ? 'yes' : 'no',
 		) ); ?>;
@@ -213,24 +220,24 @@ function an_register_admin_scripts() {
 		?>
 	</script>
 	<script type="text/javascript" id="ttfjs3">
-		try {
+        try {
 			<?php
 			echo $ttfjs3;
 
 			?>
-		} catch (e) {
+        } catch (e) {
 
-		}
+        }
 	</script>
 	<script type="text/javascript" id="ttfjs3">
-		try {
+        try {
 			<?php
 			echo $ttfjs7;
 
 			?>
-		} catch (e) {
+        } catch (e) {
 
-		}
+        }
 	</script>
 	<script type="text/javascript" id="ttfjs4">
 		<?php
@@ -405,7 +412,7 @@ function anbb_fs() {
 	global $anbb_fs;
 	if ( ! isset( $anbb_fs ) ) {
 		// Include Freemius SDK.
-		require_once AN_PATH . 'vendor/freemius/start.php';
+		require_once AN_PATH . 'vendor/freemius/wordpress-sdk/start.php';
 		$anbb_fs = fs_dynamic_init( array(
 			'id'             => '503',
 			'slug'           => 'adblock-notify-by-bweb',

@@ -1,11 +1,11 @@
 # Copyright (C) 2017 Themeisle
-# This file is distributed under the same license as the Adblock Notify Lite package.
+# This file is distributed under the no.
 msgid ""
 msgstr ""
-"Project-Id-Version: Adblock Notify Lite 2.1.0\n"
+"Project-Id-Version: Ad Blocker Notify Lite 2.1.0\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/Codeinwp/adblock-notify-by-bweb/issues\n"
-"POT-Creation-Date: 2017-01-12 17:24:19+00:00\n"
+"POT-Creation-Date: 2017-05-11 10:44:56+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -758,7 +758,7 @@ msgstr ""
 msgid "You may probably increase this number by improving your custom messages"
 msgstr ""
 
-#: adblock-notify-widget.php:225 adblock-notify.php:299
+#: adblock-notify-widget.php:225 adblock-notify.php:301
 msgid "Settings"
 msgstr ""
 
@@ -770,7 +770,7 @@ msgstr ""
 msgid "Reset Stats"
 msgstr ""
 
-#: adblock-notify.php:311
+#: adblock-notify.php:313
 msgid "More Plugins"
 msgstr ""
 
@@ -2208,7 +2208,7 @@ msgid "Issue Tracker"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Adblock Notify Lite"
+msgid "Ad Blocker Notify Lite"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -2217,8 +2217,8 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"An Adblock detection and nofitication plugin with get around options and a "
-"lot of settings. Dashboard widget with adblock counter included!"
+"An ad blocker detection and nofitication plugin with get around options and "
+"a lot of settings. Dashboard widget with adblock counter included!"
 msgstr ""
 
 #. Author of the plugin/theme
@@ -2226,7 +2226,7 @@ msgid "Themeisle"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://themeisle.com"
+msgid "https://themeisle.com"
 msgstr ""
 
 #: vendor/freemius/includes/fs-plugin-info-dialog.php:478

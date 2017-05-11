@@ -32,7 +32,7 @@ add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
  * Page views & page blocked counter
  ***************************************************************/
 function an_adblock_counter() {
-	if (  current_user_can( 'manage_options' ) || empty( $_POST['an_state'] )  || an_check_views() ) {
+	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] )  || an_check_views() ) {
 		return;
 	}
 	$an_states = $_POST['an_state'] ;
