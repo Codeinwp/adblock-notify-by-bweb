@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Insert elements in the DOM : HTML & SCRIPT
  ***************************************************************/
 function an_prepare() {
-	if ( an_check_views() ) { return;
+	if ( an_check_views() ) {
+		return;
 	}
 	$an_option = TitanFramework::getInstance( 'adblocker_notify' );
 	$output    = '';
@@ -87,36 +88,36 @@ function an_prepare() {
 	if ( ! empty( $anOptionModalBxWidth ) ) {
 		$output .= 'max-width:' . $anOptionModalBxWidth . 'px;';
 	}
-	$output .= 'z-index:9999999; ';
+	$output    .= 'z-index:9999999; ';
 	$modalHTML = apply_filters( 'an_get_modal_html', null, $an_option );
-	$output .= '"></div>   ';
-	$output .= '<script type="text/javascript">';
-	$output .= '/* <![CDATA[ */';
-	$output .= 'var anOptions =' .
-	           json_encode( array(
-		           'anOptionChoice'          => $anOptionChoice,
-		           'anOptionStats'           => $anOptionStats,
-		           'anOptionAdsSelectors'    => preg_replace( '/\s+/', '', $anOptionAdsSelectors ),
-		           'anOptionCookie'          => $anOptionCookie,
-		           'anOptionCookieLife'      => $anOptionCookieLife,
-		           'anPageRedirect'          => $anPageRedirect,
-		           'anPermalink'             => $anPermalink,
-		           'anOptionModalEffect'     => $anOptionModalEffect,
-		           'anOptionModalspeed'      => $anOptionModalSpeed,
-		           'anOptionModalclose'      => $anOptionModalClose,
-		           'anOptionModalOverlay'    => $anOptionModalOverlay,
-		           'anAlternativeActivation' => $anAlternativeActivation,
-		           'anAlternativeElement'    => $anAlternativeElement,
-		           'anAlternativeText'       => do_shortcode( $anAlternativeText ),
-		           'anAlternativeClone'      => $anAlternativeClone,
-		           'anAlternativeProperties' => $anAlternativeProperties,
-		           'anOptionModalShowAfter'  => $anOptionModalShowAfter,
-		           'anPageMD5'               => $anPageMD5,
-		           'anSiteID'                => $anSiteID,
-		           'modalHTML'               => $modalHTML,
-	           ) );
-	$output .= '/* ]]> */';
-	$output .= '</script>';
+	$output    .= '"></div>   ';
+	$output    .= '<script type="text/javascript">';
+	$output    .= '/* <![CDATA[ */';
+	$output    .= 'var anOptions =' .
+	              json_encode( array(
+		              'anOptionChoice'          => $anOptionChoice,
+		              'anOptionStats'           => $anOptionStats,
+		              'anOptionAdsSelectors'    => preg_replace( '/\s+/', '', $anOptionAdsSelectors ),
+		              'anOptionCookie'          => $anOptionCookie,
+		              'anOptionCookieLife'      => $anOptionCookieLife,
+		              'anPageRedirect'          => $anPageRedirect,
+		              'anPermalink'             => $anPermalink,
+		              'anOptionModalEffect'     => $anOptionModalEffect,
+		              'anOptionModalspeed'      => $anOptionModalSpeed,
+		              'anOptionModalclose'      => $anOptionModalClose,
+		              'anOptionModalOverlay'    => $anOptionModalOverlay,
+		              'anAlternativeActivation' => $anAlternativeActivation,
+		              'anAlternativeElement'    => $anAlternativeElement,
+		              'anAlternativeText'       => do_shortcode( $anAlternativeText ),
+		              'anAlternativeClone'      => $anAlternativeClone,
+		              'anAlternativeProperties' => $anAlternativeProperties,
+		              'anOptionModalShowAfter'  => $anOptionModalShowAfter,
+		              'anPageMD5'               => $anPageMD5,
+		              'anSiteID'                => $anSiteID,
+		              'modalHTML'               => $modalHTML,
+	              ) );
+	$output    .= '/* ]]> */';
+	$output    .= '</script>';
 	// NO JS Redirect
 	if ( ! empty( $anPageNojsActivation ) && ! $_COOKIE[ AN_COOKIE ] ) {
 		// redirect URL with NO JS
@@ -578,7 +579,7 @@ function an_add_sidebar() {
 				<div class="container">
 					<div class="progress">
 						<div class="bar"
-							 style="width: <?php echo ceil( ( ( intval( $current ) / intval( $limit ) ) * 100 ) ) ?>%;"></div>
+						     style="width: <?php echo ceil( ( ( intval( $current ) / intval( $limit ) ) * 100 ) ) ?>%;"></div>
 					</div>
 				</div>
 				<p class="an-sidebar-label">Views per month available</p>
@@ -597,7 +598,19 @@ function an_add_sidebar() {
 			</div>
 			<?php
 		}
+		$logger = get_option( 'an_logger_flag', 'no' );
 		?>
+		<div id="an-logger">
+			<label class="an-switch">
+				<input type="checkbox" <?php echo ( $logger == 'yes' ) ? 'checked' : '' ?>>
+				<div class="an-slider an-round"></div>
+			</label><span>Enable Tracking<sup>*</sup></span>
+			<p>
+				<small><sup>*</sup>Allow Ad Blocker Notify to anonymously track how this plugin is used and help us make
+					the plugin better. No sensitive data is tracked.
+				</small>
+			</p>
+		</div>
 		<?php
 		do_action( 'adblock_notify_render_subscribe_box' );
 		?>
@@ -611,9 +624,9 @@ function an_add_sidebar() {
 			<p>
 				This plugin just does that for you. Quit blabbering non-sense and make use of this wonderful plugin!
 			</P><img class='testimonial-author'
-					 src="data:image/jpeg;base64,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">
+			         src="data:image/jpeg;base64,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">
 			<img class='review'
-				 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAUCAMAAABxjAnBAAAAflBMVEVMaXH+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg4pu5NeAAAAKXRSTlMAEfm6QqdF/ngBBd1mqVvcAk7TyIYzsaThHTCqwwQtjZBdXGhnrfyu+8txdKYAAACySURBVHjavYlHEsJAEAPXiV3nnAM57P8/iOUqsM0d6TAjdYtvbFtsQxNunrv4dJFqneKzRZJpnSVoZHHWcy5oXOHFgLGHzhPGQVl6iaUOhiCJIPT1Ln4YCIawTf0T0xbI30Uk90xGAiEItYdKIBRx2rLjgjjCdVbmuCAscV3hbQEsUaywwKaJeoU1Nk0My5Y4AzZNNDOpyrKacYPNEuNLPjuU7i4fIwpJtP308VPf4hHEG9EKi4RNAuoaAAAAAElFTkSuQmCC"
+			     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAUCAMAAABxjAnBAAAAflBMVEVMaXH+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg7+sg4pu5NeAAAAKXRSTlMAEfm6QqdF/ngBBd1mqVvcAk7TyIYzsaThHTCqwwQtjZBdXGhnrfyu+8txdKYAAACySURBVHjavYlHEsJAEAPXiV3nnAM57P8/iOUqsM0d6TAjdYtvbFtsQxNunrv4dJFqneKzRZJpnSVoZHHWcy5oXOHFgLGHzhPGQVl6iaUOhiCJIPT1Ln4YCIawTf0T0xbI30Uk90xGAiEItYdKIBRx2rLjgjjCdVbmuCAscV3hbQEsUaywwKaJeoU1Nk0My5Y4AzZNNDOpyrKacYPNEuNLPjuU7i4fIwpJtP308VPf4hHEG9EKi4RNAuoaAAAAAElFTkSuQmCC"
 			<br/> <span> by <strong>Antony Agnel</strong></span>
 			<div class="clear"></div>
 		</div>
@@ -621,6 +634,33 @@ function an_add_sidebar() {
 	</div>
 
 	<?php
+}
+
+add_action( 'wp_ajax_an_track_url', 'an_save_track_status' );
+/**
+ * Save tracking option.
+ */
+function an_save_track_status() {
+	check_admin_referer( 'an-nonce', 'nonce' );
+	$status = $_POST['status'];
+	if ( $status == 'yes' ) {
+		update_option( 'an_logger_flag', 'yes' );
+	} else {
+		update_option( 'an_logger_flag', 'no' );
+	}
+	wp_send_json_success( array(
+		'status' => $status,
+	) );
+}
+
+add_filter( 'adblock_notify_by_bweb_logger_flag', 'an_check_logger' );
+/**
+ * Return the logger status.
+ *
+ * @return bool Logger status.
+ */
+function an_check_logger() {
+	return ( get_option( 'an_logger_flag', 'no' ) == 'yes' ) ? true : false;
 }
 
 require AN_PATH . 'vendor/subscribe/subscribe.php';
@@ -780,14 +820,14 @@ function an_check_views() {
 	$limit   = an_get_limit();
 	$current = an_get_current_views();
 	if ( $current === 0 ) {
-	    an_update_option( 'adblock_notify_month_reset',time() );
+		an_update_option( 'adblock_notify_month_reset', time() );
 
 	} else {
-	    $reset_time = an_get_option( 'adblock_notify_month_reset' );
-	    if ( ( time() - $reset_time ) > ( 31 * 24 * 3600 ) ) {
-	        $current = 0;
-	        an_update_option( 'adblock_notify_global_counter', '0' );
-		    an_update_option( 'adblock_notify_month_reset',time() );
+		$reset_time = an_get_option( 'adblock_notify_month_reset' );
+		if ( ( time() - $reset_time ) > ( 31 * 24 * 3600 ) ) {
+			$current = 0;
+			an_update_option( 'adblock_notify_global_counter', '0' );
+			an_update_option( 'adblock_notify_month_reset', time() );
 		}
 	}
 	if ( $limit <= $current ) {

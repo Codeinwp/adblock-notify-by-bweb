@@ -2,6 +2,8 @@
 /*global anWidgetOptions */
 /*global Chart */
 /*global an_admin */
+/*global an_admin */
+/*global ajaxurl */
 
 /*
 
@@ -10,7 +12,20 @@
  Copyright: (c) 2016 Themeisle, themeisle.com
  */
 jQuery(document).ready(function ($) {
+    $("#an-logger input").off('change').on('change',function(){
+        var status = $(this).is(':checked') ? 'yes' : 'no';
+        var data = {
+            'action': 'an_track_url',
+            'nonce' : an_admin.nonce,
+            'status': status
+        };
 
+        // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+        jQuery.post(ajaxurl, data, function(response) {
+        });
+
+        return true;
+    });
     $('.adblock-notify-options input[name="adblocker_notify_an_option_modal_template"]').each(function (i) {
 
         var th = jQuery(this);

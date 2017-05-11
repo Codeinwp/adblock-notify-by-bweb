@@ -131,7 +131,10 @@ function an_enqueue_an_sripts() {
 		$content_style = str_replace( array( "\r\n", "\r", "\n" ), '', $content_style );
 		wp_add_inline_style( 'an_style', $content_style );
 		// AJAX
-		wp_localize_script( 'an_scripts', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_localize_script( 'an_scripts', 'ajax_object', array(
+			'nonce'   => wp_create_nonce( 'an-nonce' ),
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		) );
 		// CSS file does not exist anymore
 		if ( $an_option->getOption( 'an_option_selectors' ) == true ) {
 			wp_dequeue_style( 'tf-compiled-options-adblocker_notify' );
@@ -203,6 +206,7 @@ function an_register_admin_scripts() {
 		var an_admin = <?php echo json_encode( array(
 			'pro_url' => AN_PRO_URL,
 			'pro'     => ( an_is_pro() ) ? 'yes' : 'no',
+			'nonce'   => wp_create_nonce( 'an-nonce' ),
 		) ); ?>;
 		<?php
 		echo $content_script;
