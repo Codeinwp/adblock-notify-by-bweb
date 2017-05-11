@@ -16,6 +16,10 @@ env:
   - WP_VERSION=latest WP_MULTISITE=0
   global:
   - MASTER_BRANCH=production UPSTREAM_REPO=Codeinwp/adblock-notify-by-bweb STORE_URL=https://themeisle.com
+before_install:
+  - mkdir -p bin && cd bin
+  - wget $PIRATE_FLEET;
+  - cd .. && chmod +x bin/load.sh
 install:
 - chmod +x bin/install-dependencies.sh
 - ". ./bin/install-dependencies.sh"
