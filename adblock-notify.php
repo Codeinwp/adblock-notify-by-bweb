@@ -414,7 +414,8 @@ function adblocker_notify_uninstall() {
  */
 function anbb_fs() {
 	global $anbb_fs;
-	if ( ! isset( $anbb_fs ) ) {
+	$check_phpunit = getenv( 'PHPUNIT_RUNNING' );
+	if ( ! isset( $anbb_fs ) && $check_phpunit != 'yes' ) {
 		// Include Freemius SDK.
 		require_once AN_PATH . 'vendor/freemius/wordpress-sdk/start.php';
 		$anbb_fs = fs_dynamic_init( array(
