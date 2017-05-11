@@ -18,7 +18,7 @@ class Test_Adblock extends WP_Ajax_UnitTestCase {
 	 *
 	 * @access public
 	 */
-	public function generic() {
+	public function test_generic() {
 		$this->assertTrue( true );
 	}
 }
