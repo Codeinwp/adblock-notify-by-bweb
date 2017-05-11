@@ -48,10 +48,12 @@ if ! [ $AFTER_DEPLOY_RUN ] && [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then
 
             svn co -q "http://svn.wp-plugins.org/$THEMEISLE_REPO" svn
             # Copy new content to svn trunk.
+            cd svn/trunk
             for file in $(find dist/* -type -f -and -not -path "*.svn*")
             do
                 rm -rf $file
             done
+            cd ../..
             rsync -vaiz --delete   --filter "protect .svn/"  dist/* svn/trunk
             ls svn/trunk
 #            # Create new SVN tag.
