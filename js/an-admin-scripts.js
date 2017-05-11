@@ -2,6 +2,8 @@
 /*global anWidgetOptions */
 /*global Chart */
 /*global an_admin */
+/*global an_admin */
+/*global ajaxurl */
 
 /*
 
@@ -10,7 +12,20 @@
  Copyright: (c) 2016 Themeisle, themeisle.com
  */
 jQuery(document).ready(function ($) {
+    $("#an-logger input").off('change').on('change',function(){
+        var status = $(this).is(':checked') ? 'yes' : 'no';
+        var data = {
+            'action': 'an_track_url',
+            'nonce' : an_admin.nonce,
+            'status': status
+        };
 
+        // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+        jQuery.post(ajaxurl, data, function(response) {
+        });
+
+        return true;
+    });
     $('.adblock-notify-options input[name="adblocker_notify_an_option_modal_template"]').each(function (i) {
 
         var th = jQuery(this);
@@ -24,13 +39,19 @@ jQuery(document).ready(function ($) {
         th.parent().css('display', 'inline-block');
     });
     if (an_admin.pro !== 'yes') {
-        if($('#an-only-pro-area').length === 0){
-          $('#advanced-options').append('<a id="an-only-pro-area" href="' + an_admin.pro_url + '" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
+        if ($('#an-only-pro-area').length === 0) {
+            $('#advanced-options').append('<a id="an-only-pro-area" href="' + an_admin.pro_url + '" title="Buy Adblock Notify PRO" target="_blank" class="pro-badge">Only Pro</a>');
         }
         $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').parent().find('.number-slider').off();
-        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').css({'cursor': 'not-allowed', 'pointer-events': 'none'});
-        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').parent().css({'cursor': 'not-allowed', 'pointer-events': 'none'}) ;
-        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').attr('disabled','disabled') ;
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').css({
+            'cursor': 'not-allowed',
+            'pointer-events': 'none'
+        });
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').parent().css({
+            'cursor': 'not-allowed',
+            'pointer-events': 'none'
+        });
+        $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width, #adblocker_notify_an_option_modal_dismiss').attr('disabled', 'disabled');
     }
     $('#adblocker_notify_an_option_modal_after_pages, #adblocker_notify_an_option_modal_width').show();
     if ($('.an-stats-table').length > 0) {

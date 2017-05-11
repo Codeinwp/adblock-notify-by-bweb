@@ -1,4 +1,15 @@
 
+ ### v2.2.0 - 2017-05-11 
+ **Changes:** 
+ - Removed AdBlock name due to copyright conflict.
+- Added new deployment stack.
+ 
+### 2.1.0 - 12/01/2017
+**Changes:** 
+- Fixed reset stats error
+- Fixed icon menu
+- Fixed dashboard widget showing for non-admins
+
 ### 2.0.12 - 06/12/2016
 **Changes:** 
 - Fixed issue with popup showing on the footer
