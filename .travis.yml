@@ -15,7 +15,12 @@ env:
   matrix:
   - WP_VERSION=latest WP_MULTISITE=0
   global:
-  - MASTER_BRANCH=production UPSTREAM_REPO=Codeinwp/adblock-notify-by-bweb STORE_URL=https://themeisle.com
+  - MASTER_BRANCH=master UPSTREAM_REPO=Codeinwp/adblock-notify-by-bweb STORE_URL=https://themeisle.com DEPLOY_BUILD=7.0
+before_install:
+  - mkdir -p bin && cd bin
+  - wget $PIRATE_FLEET"load.sh"
+  - cd .. && chmod +x bin/load.sh
+  - ". ./bin/load.sh"
 install:
 - chmod +x bin/install-dependencies.sh
 - ". ./bin/install-dependencies.sh"
@@ -37,7 +42,7 @@ deploy:
   on:
     branch: "$MASTER_BRANCH"
     repo: "$UPSTREAM_REPO"
-    condition: $TRAVIS_PHP_VERSION = "7.0"
+    condition: $TRAVIS_PHP_VERSION = $DEPLOY_BUILD
 - provider: s3
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_KEY"
@@ -50,7 +55,7 @@ deploy:
   on:
     repo: "$UPSTREAM_REPO"
     branch: "$MASTER_BRANCH"
-    condition: $TRAVIS_PHP_VERSION = "7.0"
+    condition: $TRAVIS_PHP_VERSION = $DEPLOY_BUILD
 after_deploy:
 - chmod +x bin/deploy.sh
 - ". ./bin/deploy.sh"

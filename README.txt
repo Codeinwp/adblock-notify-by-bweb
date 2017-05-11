@@ -1,5 +1,5 @@
 === Ad Blocker Notify Lite ===
-Contributors: themeisle
+Contributors: themeisle,uriahs-victor,suyogyashukla,hardeepasrani
 Tags:  Ad Blocker, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, Ad Blockerer, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
 Tested up to: 4.7.4
@@ -26,7 +26,7 @@ Ad Blocker Notify is a very easy to use plugin with get around options and a lot
 > * Advance templating system for modal and easy to customize inside the themes
 > * Advance control for modal behaviour
 >
-> **[Learn more about Ad Blocker Notify ](http://themeisle.com/plugins/Ad Blocker-notify/)**
+[Learn more about Ad Blocker Notify](https://themeisle.com/plugins/adblock-notify/)
 
 **Can I stop Ad Blockerer users?**
 
@@ -34,7 +34,7 @@ NO! This plugin does not completly block Ad Blockerer users, it only uses a pass
 
 Note: Plugin originally developed by Brice CAPOBIANCO, b-website.com
 
-Documentation link: http://docs.themeisle.com/article/274-Ad Blocker-notify-documentation
+Documentation link: [Click Here](http://docs.themeisle.com/article/274-adblock-notify-documentation)
 
 = Plugin Capabilities =
 
