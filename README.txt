@@ -2,7 +2,7 @@
 Contributors: themeisle
 Tags:  Ad Blocker, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, Ad Blockerer, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
-Tested up to: 4.7
+Tested up to: 4.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
