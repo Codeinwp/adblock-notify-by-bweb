@@ -12,11 +12,11 @@ Detect Ad Blocker and nofity users. Simple plugin with get around options and a 
 
 <blockquote>
 
-<a href="http://themeisle.com/plugins/Ad Blocker-notify" rel="friend" target="_blank">Ad Blocker Notify</a> has been blacklisted by Ad Blockerer softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your Ad Blockerer to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
+<a href="http://themeisle.com/plugins/adblock-notify" rel="friend" target="_blank">Ad Blocker Notify</a> has been blacklisted by Ad Blockerer softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your Ad Blockerer to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
 
 </blockquote>
 
-Detect Ad Blocker and notify users. Whether you are running a personal blog or a magazine website, Ad Blocker Notify will help you block Ad Blockerers (eg: Ad Blocker Plus) and increase your ad revenue.
+Detect AdBlock and notify users. Whether you are running a personal blog or a magazine website, Ad Blocker Notify will help you block AdBlockers (eg: AdBlock Plus) and increase your ad revenue.
 Ad Blocker Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
 
 > **Time-saving features available in the Pro version:**
@@ -30,7 +30,7 @@ Ad Blocker Notify is a very easy to use plugin with get around options and a lot
 
 **Can I stop Ad Blockerer users?**
 
-NO! This plugin does not completly block Ad Blockerer users, it only uses a passive approach, and it will always be that way.
+NO! This plugin does not completly block AdBlock users, it only uses a passive approach, and it will always be that way.
 
 Note: Plugin originally developed by Brice CAPOBIANCO, b-website.com
 
@@ -38,8 +38,8 @@ Documentation link: [Click Here](http://docs.themeisle.com/article/274-adblock-n
 
 = Plugin Capabilities =
 
-* Detect Ad Blockerer (eg Ad Blocker Plus)
-* Random selectors and files name to prevent Ad Blocker to block the plugin
+* Detect AdBlock (eg AdBlock Plus)
+* Random selectors and files name to prevent AdBlock to block the plugin
 * Custom notification message with jQuery Popup ([Reveal by ZURB](http://zurb.com/playground/reveal-modal-plugin)) or Javascript redirect
 * Replace blocked ads by custom message
 * 3 available options to notify your users
@@ -71,7 +71,7 @@ Documentation link: [Click Here](http://docs.themeisle.com/article/274-adblock-n
 * Should works with SSL certificate (https), but not tryed (need feedback!)
 
 = How to use it =
-You can notify users with an activated Ad Blockerer software by one of THREE ways !
+You can notify users with an activated AdBlock software by one of THREE ways !
 
 * A pretty cool and lightweight Modal Box with a custom content : **the COMPLIANT solution**
 * A simple redirection to the page of your choice : **the AGRESSIVE solution**
