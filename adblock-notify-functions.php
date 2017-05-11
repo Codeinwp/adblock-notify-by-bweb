@@ -307,7 +307,7 @@ function an_stats_notice() {
 function an_reset_stats() {
 	$prefix = an_is_pro() && is_multisite() ? '-network' : '';
 	$screen = get_current_screen();
-	if ( 'toplevel_page_' . AN_ID . $prefix != $screen->id ) {
+	if ( $screen && $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return;
 	}
 	if ( isset( $_GET['an-reset'] ) && 'true' == $_GET['an-reset'] ) {
