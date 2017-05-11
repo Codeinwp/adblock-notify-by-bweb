@@ -47,22 +47,25 @@ if ! [ $AFTER_DEPLOY_RUN ] && [ "$TRAVIS_PHP_VERSION" == "7.0" ]; then
      if [ ! -z "$WPORG_PASS" ]; then
 
             svn co -q "http://svn.wp-plugins.org/$THEMEISLE_REPO" svn
-            rm -rf svn/trunk/*
             # Copy new content to svn trunk.
-            rsync -vaiz --delete  dist/* svn/trunk
-
-            # Create new SVN tag.
-            mkdir -p svn/tags/$THEMEISLE_VERSION
-            rsync -r -p  dist/* svn/tags/$THEMEISLE_VERSION
-            # Add new files to SVN
-            svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
-            # Remove deleted files from SVN
-            svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
-
-            svn stat svn
-
-            # Commit to SVN
-            svn commit svn   --no-auth-cache  -m "Release  v$THEMEISLE_VERSION" --username $WPORG_USER --password $WPORG_PASS
+            for file in $(find dist/* -type -f -and -not -path "*.svn*")
+            do
+                rm -rf $file
+            done
+            rsync -vaiz --delete   --filter "protect .svn/"  dist/* svn/trunk
+            ls svn/trunk
+#            # Create new SVN tag.
+#            mkdir -p svn/tags/$THEMEISLE_VERSION
+#            rsync -r -p  dist/* svn/tags/$THEMEISLE_VERSION
+#            # Add new files to SVN
+#            svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
+#            # Remove deleted files from SVN
+#            svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
+#
+#            svn stat svn
+#
+#            # Commit to SVN
+#            svn commit svn   --no-auth-cache  -m "Release  v$THEMEISLE_VERSION" --username $WPORG_USER --password $WPORG_PASS
             # Remove svn dir.
             rm -fR svn
 
