@@ -1,7 +1,7 @@
 {
   "name": "adblock-notify-by-bweb",
-  "version": "2.1.0",
-  "description": "Adblock Notify plugin",
+  "version": "2.2.0",
+  "description": "Ad Blocker Notify Lite",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Codeinwp/adblock-notify-by-bweb.git"
@@ -10,6 +10,7 @@
     "wordpress-plugin"
   ],
   "textdomain": "an-translate",
+  "category": "plugins",
   "author": "ThemeIsle <friends@themeisle.com>",
   "license": "GPL-2.0+",
   "bugs": {

@@ -4,14 +4,16 @@
  *
  * @package adblock-notify
  *
- * Plugin Name: Adblock Notify Lite
+ * Plugin Name: Ad Blocker Notify Lite
  * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
- * Description: An Adblock detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
- * Version: 2.1.0
+ * Description: An ad blocker detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
+ * Version: 2.2.0
  * Author: Themeisle
- * Author URI: http://themeisle.com
+ * Author URI: https://themeisle.com
  * Text Domain: an-translate
  * Domain Path: /languages
+ * WordPress Available:  yes
+ * Requires License:    no
  */
 /**
  * ************************************************************
@@ -34,7 +36,7 @@ if ( ! defined( 'AN_BASE' ) ) {
 	define( 'AN_BASE', plugin_basename( __FILE__ ) );
 }
 if ( ! defined( 'AN_NAME' ) ) {
-	define( 'AN_NAME', 'Adblock Notify' );
+	define( 'AN_NAME', 'Ad Blocker Notify' );
 }
 if ( ! defined( 'AN_ID' ) ) {
 	define( 'AN_ID', 'adblock-notify' );
@@ -43,7 +45,7 @@ if ( ! defined( 'AN_COOKIE' ) ) {
 	define( 'AN_COOKIE', 'anCookie' );
 }
 if ( ! defined( 'AN_VERSION' ) ) {
-	define( 'AN_VERSION', '2.1.0' );
+	define( 'AN_VERSION', '2.2.0' );
 }
 if ( ! defined( 'AN_TEMP_DEVELOPMENT' ) ) {
 	define( 'AN_TEMP_DEVELOPMENT', false );
@@ -80,6 +82,11 @@ $anFiles = array(
 $anFiles = apply_filters( 'an_files_include', $anFiles );
 foreach ( $anFiles as $anFile ) {
 	require_once( AN_PATH . $anFile . '.php' );
+}
+$vendor_file = AN_PATH . 'vendor/autoload_52.php';
+if ( is_readable( $vendor_file ) ) {
+	require_once $vendor_file;
+	ThemeIsle_SDK_Loader::init_product( AN_PATH . 'adblock-notify.php' );
 }
 /**
  * ************************************************************
@@ -124,7 +131,10 @@ function an_enqueue_an_sripts() {
 		$content_style = str_replace( array( "\r\n", "\r", "\n" ), '', $content_style );
 		wp_add_inline_style( 'an_style', $content_style );
 		// AJAX
-		wp_localize_script( 'an_scripts', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		wp_localize_script( 'an_scripts', 'ajax_object', array(
+			'nonce'   => wp_create_nonce( 'an-nonce' ),
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		) );
 		// CSS file does not exist anymore
 		if ( $an_option->getOption( 'an_option_selectors' ) == true ) {
 			wp_dequeue_style( 'tf-compiled-options-adblocker_notify' );
@@ -159,7 +169,7 @@ function an_register_admin_styles() {
 	WP_Filesystem();
 	global $wp_filesystem;
 	$content_style = $wp_filesystem->get_contents( AN_PATH . 'css/an-admin-style.css' );
-	$ttfcss = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/css/admin-styles.css' );
+	$ttfcss        = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/css/admin-styles.css' );
 	?>
 	<style type="text/css">
 		<?php
@@ -184,18 +194,19 @@ function an_register_admin_scripts() {
 	WP_Filesystem();
 	global $wp_filesystem;
 	$content_script = $wp_filesystem->get_contents( AN_PATH . 'js/an-admin-scripts.js' );
-	$ttfjs1 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
-	$ttfjs2 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
-	$ttfjs3 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
-	$ttfjs4 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
-	$ttfjs5 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
-	$ttfjs6 = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
-	$ttfjs7 = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
+	$ttfjs1         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/admin-styling.js' );
+	$ttfjs2         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/serialize-min.jss' );
+	$ttfjs3         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/min/wp-color-picker-alpha-min.js' );
+	$ttfjs4         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
+	$ttfjs5         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
+	$ttfjs6         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
+	$ttfjs7         = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
 	?>
 	<script type="text/javascript" id="content_script">
 		var an_admin = <?php echo json_encode( array(
 			'pro_url' => AN_PRO_URL,
 			'pro'     => ( an_is_pro() ) ? 'yes' : 'no',
+			'nonce'   => wp_create_nonce( 'an-nonce' ),
 		) ); ?>;
 		<?php
 		echo $content_script;
@@ -270,7 +281,7 @@ function an_enqueue_admin_syles() {
 	an_register_global_styles();
 	$prefix = an_is_bussiness() ? '-network' : '';
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+	if ( $screen && $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return;
 	}
 	an_register_admin_styles();
@@ -322,7 +333,7 @@ add_filter( 'plugin_row_meta', 'an_meta_links', 10, 2 );
 function an_add_favicon() {
 	$prefix = an_is_bussiness() ? '-network' : '';
 	$screen = get_current_screen();
-	if ( $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
+	if ( $screen && $screen->id != 'toplevel_page_' . AN_ID . $prefix ) {
 		return;
 	}
 	$favicon_url = AN_URL . 'img/icon-adblock-notify.png';
@@ -403,9 +414,10 @@ function adblocker_notify_uninstall() {
  */
 function anbb_fs() {
 	global $anbb_fs;
-	if ( ! isset( $anbb_fs ) ) {
+	$check_phpunit = getenv( 'PHPUNIT_RUNNING' );
+	if ( ! isset( $anbb_fs ) && $check_phpunit != 'yes' ) {
 		// Include Freemius SDK.
-		require_once AN_PATH . 'vendor/freemius/start.php';
+		require_once AN_PATH . 'vendor/freemius/wordpress-sdk/start.php';
 		$anbb_fs = fs_dynamic_init( array(
 			'id'             => '503',
 			'slug'           => 'adblock-notify-by-bweb',

@@ -39,7 +39,7 @@ function an_create_options() {
 	 * Create option panel tabs
 	 */
 	$generalTab = $an_panel->createTab( array(
-		'name' => __( 'Adblock Notify Options', 'an-translate' ),
+		'name' => __( 'Ad Blocker Notify Options', 'an-translate' ),
 	) );
 	$modalTab = $an_panel->createTab( array(
 		'name' => __( 'Modal Visual Options', 'an-translate' ),
@@ -63,7 +63,7 @@ function an_create_options() {
 
 	$generalTab->createOption( array(
 		'name' => '',
-		'desc' => '<h3 class=" ">' . __( 'Welcome to Adblock Notify Plugin', 'an-translate' ) . '</h3>' . '
+		'desc' => '<h3 class=" ">' . __( 'Welcome to Ad Blocker Notify Plugin', 'an-translate' ) . '</h3>' . '
                     <div style="color:black; font-style: normal;">
                         <p>
                             ' . __( 'You can notify users with an activated Adblocker software by one of THREE ways !', 'an-translate' ) . '
@@ -104,7 +104,7 @@ function an_create_options() {
 		'name' => __( 'Enable statistics Widget', 'an-translate' ),
 		'id' => 'an_option_stats',
 		'type' => 'select',
-		'desc' => __( 'If you have many page views, this option may cause server overload. You can disable it to make the plugin more lightweight - Default: Yes', 'an-translate' ) . '<br /> <strong class="an-red">' . __( 'Adblock Notify Stats widget is available on your admin dashboard (if not visible, go to the top menu and visit "Screen Options").', 'an-translate' ) . '</strong>',
+		'desc' => __( 'If you have many page views, this option may cause server overload. You can disable it to make the plugin more lightweight - Default: Yes', 'an-translate' ) . '<br /> <strong class="an-red">' . __( 'Ad Blocker Notify Stats widget is available on your admin dashboard (if not visible, go to the top menu and visit "Screen Options").', 'an-translate' ) . '</strong>',
 		'options' => array(
 			'1' => __( 'Yes', 'an-translate' ),
 			'2' => __( 'No', 'an-translate' ),
@@ -387,7 +387,7 @@ function an_create_options() {
                         <p>
                             <strong class="an-red">' . __( 'What does "Clone ad container" mean?', 'an-translate' ) . '</strong>
                             <br />
-                            ' . __( 'It means you can ask Adblock Notify Plugin to copy the CSS properties of the element that contains your ad to a new element which will not be hidden by an adblocker software. With this process, your design should not break.', 'an-translate' ) . '
+                            ' . __( 'It means you can ask Ad Blocker Notify Plugin to copy the CSS properties of the element that contains your ad to a new element which will not be hidden by an adblocker software. With this process, your design should not break.', 'an-translate' ) . '
                             <br />
                             ' . __( 'The new element will be the same type (DIV,SPAN,etc.) as its source, and will have the .an-alternative class.', 'an-translate' ) . '
                         </p>

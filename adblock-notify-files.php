@@ -212,11 +212,11 @@ function an_error_admin_notices() {
 		echo '
                 <div class="error warning">
                     <p>
-                        ' . __( 'WARNING: There was an error creating Adblock Notify CSS and JS files. Upload directory is not writable. Please CHMOD "wp-content/uploads" to 0664 and verify your server settings', 'an-translate' ) . ' &nbsp;&nbsp;&nbsp;&nbsp;
+                        ' . __( 'WARNING: There was an error creating Ad Blocker Notify CSS and JS files. Upload directory is not writable. Please CHMOD "wp-content/uploads" to 0664 and verify your server settings', 'an-translate' ) . ' &nbsp;&nbsp;&nbsp;&nbsp;
                         [ <a href="http://codex.wordpress.org/Changing_File_Permissions" target="_blank" title="Changing File Permissions"> Changing File Permissions</a> ]
                     </p>
                     <p>
-                        ' . __( 'Don\'t worry, we thought about it. Adblock Notify will print the scripts directly in your DOM, but for performance purpose it is recommended to change your uploads directory CHMOD.', 'an-translate' ) . '
+                        ' . __( 'Don\'t worry, we thought about it. Ad Blocker Notify will print the scripts directly in your DOM, but for performance purpose it is recommended to change your uploads directory CHMOD.', 'an-translate' ) . '
                     </p>
                 </div>
         ';

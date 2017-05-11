@@ -672,7 +672,7 @@ div.error.warning {
 	text-align: center;
 }
 
-#an-testimonial {
+#an-testimonial,#an-logger {
 	width: 74%;
 	margin: auto;
 	margin-top: 5px;
@@ -680,4 +680,92 @@ div.error.warning {
 	border-top: 5px solid #252b37;
 	border-bottom: 1px solid #d4d4d4;
 	background: #fff;
+	margin-bottom: 10px;
+}
+
+/* The switch - the box around the slider */
+.an-switch {
+	display: inline-block;
+	position: relative;
+	margin-left:13px;
+	width: 30px;
+	height: 18px;
+}
+
+/* Hide default HTML checkbox */
+.an-switch input {
+	display: none;
+}
+
+/* The slider */
+#an-logger sup {
+	vertical-align: 3px;
+}
+
+.an-slider {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #ccc;
+	cursor: pointer;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.an-slider:before {
+	position: absolute;
+	bottom: 1.5px;
+	left: 2px;
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	content: "";
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .an-slider {
+	background-color: #0085ba;
+}
+
+input:focus + .an-slider {
+	-webkit-box-shadow: 0 0 1px #0085ba;
+	box-shadow: 0 0 1px #0085ba;
+}
+
+input:checked + .an-slider:before {
+	-webkit-transform: translateX(11px);
+	-ms-transform: translateX(11px);
+	transform: translateX(11px);
+}
+
+/* Rounded sliders */
+#an-logger .an-round {
+	border-radius: 34px;
+}
+
+#an-logger .an-round:before {
+	border-radius: 50%;
+}
+
+#an-logger p small sup {
+	margin-left: -3px;
+}
+
+#an-logger p {
+	padding-left: 14px;
+	color: #23282d;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: left;
+}
+
+#an-logger span {
+	margin-left: 10px;
+	color: #23282d;
+	background: none;
+	font-size: 14px;
+	font-weight: bold;
 }
