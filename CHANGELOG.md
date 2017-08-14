@@ -1,4 +1,8 @@
 
+ ### v2.2.2 - 2017-08-14 
+ **Changes:** 
+ * Small improvement with themes compatibility.
+ 
  ### v2.2.1 - 2017-05-11 
  **Changes:** 
  - Updated contributors and links. 
