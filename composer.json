@@ -20,7 +20,6 @@
     "source": "https://github.com/Codeinwp/adblock-notify-by-bweb"
   },
   "require": {
-    "codeinwp/themeisle-sdk": "master",
     "freemius/wordpress-sdk": "master",
     "xrstf/composer-php52": "^1.0.20"
   },
