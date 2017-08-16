@@ -1,4 +1,7 @@
 
+ ### v2.2.3 - 2017-08-16 
+ **Changes:** 
+  
  ### v2.2.2 - 2017-08-14 
  **Changes:** 
  * Small improvement with themes compatibility.
