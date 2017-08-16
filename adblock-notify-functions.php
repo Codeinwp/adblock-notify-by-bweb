@@ -574,21 +574,11 @@ function an_add_sidebar() {
 			}
 			?>
 			<div id="an_sidebar_pro">
-				<span class="an-current"><?php echo number_format( $current ); ?></span><span
-						class="an-left"><?php echo number_format( $limit ); ?></span>
-				<div class="container">
-					<div class="progress">
-						<div class="bar"
-						     style="width: <?php echo ceil( ( ( intval( $current ) / intval( $limit ) ) * 100 ) ) ?>%;"></div>
-					</div>
-				</div>
-				<p class="an-sidebar-label">Views per month available</p>
 				<?php
 				if ( ! an_is_personal() ) :
 					?>
 					<h3>Upgrade to PRO</h3>
 					<ul>
-						<li>Up to 250k views/month</li>
 						<li>Multisite support</li>
 						<li>Modal Templates</li>
 						<li>Prevent user from dismissing popup</li>
@@ -814,6 +804,7 @@ function an_get_limit() {
  * @return bool State of the views.
  */
 function an_check_views() {
+	return false;
 	if ( ! an_is_new() ) {
 		return false;
 	}
