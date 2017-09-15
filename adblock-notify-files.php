@@ -59,7 +59,7 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
 	// Verify that we can create the file
 	if ( $wp_filesystem->exists( $tempFolderPath . $oldFileName ) ) {
 		if ( ! $wp_filesystem->is_writable( $tempFolderPath . $oldFileName ) ||
-		     ! $wp_filesystem->is_readable( $tempFolderPath . $oldFileName )
+			 ! $wp_filesystem->is_readable( $tempFolderPath . $oldFileName )
 		) {
 			return false;
 		}
@@ -67,7 +67,7 @@ function an_change_files_css_selectors( $flush, $tempFolderPath, $tempFolderURL,
 	// Verify directory
 	$uploadDir = wp_upload_dir();
 	if ( ! $wp_filesystem->is_dir( $uploadDir['basedir'] ) ||
-	     ! $wp_filesystem->is_writable( $uploadDir['basedir'] )
+		 ! $wp_filesystem->is_writable( $uploadDir['basedir'] )
 	) {
 		return false;
 	}

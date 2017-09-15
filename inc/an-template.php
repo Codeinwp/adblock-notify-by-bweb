@@ -34,7 +34,7 @@ abstract class AnTemplate {
 		The builder
 	 */
 	public final function build( $file ) {
-		$this->setup_constants( );
+		$this->setup_constants();
 		include_once $file;
 	}
 
