@@ -2,7 +2,7 @@
 Contributors: themeisle,uriahs-victor,suyogyashukla,hardeepasrani
 Tags:  Ad Blocker, page redirect, cookies, notify, modal box, dashboard widget, ads, notification, Ad Blockerer, Responsive, plugin, popup, modal, jquery, ajax, free, advetissement, shortcode, images, image, CSS, lightbox
 Requires at least: 3.7
-Tested up to: 4.7.4
+Tested up to: 4.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,21 +12,12 @@ Detect Ad Blocker and nofity users. Simple plugin with get around options and a 
 
 <blockquote>
 
-<a href="http://themeisle.com/plugins/adblock-notify" rel="friend" target="_blank">Ad Blocker Notify</a> has been blacklisted by Ad Blockerer softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your Ad Blockerer to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
+<a href="https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks" rel="friend" target="_blank">Ad Blocker Notify</a> has been blacklisted by Ad Blockerer softwares but it is still working properly with the "Random selectors and files" option. Make sure to disable your Ad Blockerer to view screenshots in WordPress.org and in your admin area to view all the plugin's options fields and the dashboard widget.
 
 </blockquote>
 
 Detect AdBlock and notify users. Whether you are running a personal blog or a magazine website, Ad Blocker Notify will help you block AdBlockers (eg: AdBlock Plus) and increase your ad revenue.
 Ad Blocker Notify is a very easy to use plugin with get around options and a lot of settings. A smart dashboard widget with counter & statistics is included!
-
-> **Time-saving features available in the Pro version:**
->
-> * Up to 250k page views blocked by our plugin
-> * Support for multisite ( Setup in one place and use it across all network sites )
-> * Advance templating system for modal and easy to customize inside the themes
-> * Advance control for modal behaviour
->
-[Learn more about Ad Blocker Notify](https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks)
 
 **Can I stop Ad Blockerer users?**
 

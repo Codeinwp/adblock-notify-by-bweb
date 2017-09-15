@@ -445,7 +445,7 @@ function an_add_header_panel() {
 			if ( ! an_is_pro() ) {
 				?>
 				<a target="_blank" href="<?php echo AN_PRO_URL; ?>"
-				   class="buy-now"><span></span><?php _e( 'Buy now', 'an-translate' ); ?></a>
+				   class="buy-now"><span></span><?php _e( 'More features', 'an-translate' ); ?></a>
 			<?php } ?>
 			<div class="features">
 				<?php _e( 'Multi-Site Support', 'an-translate' ); ?>
@@ -569,34 +569,9 @@ add_action( 'tf_admin_page_after', 'an_add_sidebar' );
 function an_add_sidebar() {
 	?>
 	<div id="an-sidebar">
-		<?php
-		if ( an_is_new() ) {
-			$limit    = an_get_limit();
-			$current  = an_get_current_views();
-			$link_txt = 'Upgrade';
-			if ( an_is_personal() ) {
-				$link_txt = 'Get more views! ';
-			}
-			?>
-			<div id="an_sidebar_pro">
-				<?php
-				if ( ! an_is_personal() ) :
-					?>
-					<h3>Upgrade to PRO</h3>
-					<ul>
-						<li>Multisite support</li>
-						<li>Modal Templates</li>
-						<li>Prevent user from dismissing popup</li>
-					</ul>
-				<?php endif; ?>
-				<a href="<?php echo AN_PRO_URL; ?>" target="_blank" class="btn"><?php echo $link_txt; ?></a>
-			</div>
-			<?php
-		}
-			?>
 		<div id="an-testimonial">
 			<h3>
-				Over 6.000 happy clients
+				Over 9.000 happy clients
 			</h3>
 			<p> Useful for all people who display ads on their websites! </p>
 			<p> Why lose the ad views or clicks when you can ‘politely’ ask the people to disable the AdBlock and
@@ -610,7 +585,6 @@ function an_add_sidebar() {
 			<br/> <span> by <strong>Antony Agnel</strong></span>
 			<div class="clear"></div>
 		</div>
-
 	</div>
 
 	<?php
