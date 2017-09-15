@@ -37,7 +37,7 @@ before_script:
     - phpenv rehash
     - phpcs --config-set installed_paths $WP_DEVELOP_DIR/wordpress-coding-standards
     - phpenv rehash
-    - cd plugin_dir
+    - cd $plugin_dir
 
 script:
    - find -L .  -path ./vendor -prune -o -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l;
