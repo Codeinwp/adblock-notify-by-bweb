@@ -430,10 +430,10 @@ function an_add_header_panel() {
 	<div class="adblock-notify-top">
 		<p class="logo"><?php echo AN_NAME; ?></p>
 		<span class="slogan">by <a
-					href="<?php echo AN_PRO_URL; ?>?utm_source=antopwp&utm_medium=announce&utm_campaign=anpro">ThemeIsle</a></span>
+					href="https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks">Admiral</a></span>
 		<div class="adblock-notify-actions">
 			<a target="_blank"
-			   href="https://twitter.com/intent/tweet?text=Detect Adblock%20and%20nofity%20users%20with%20this%20awesome%20wordpress%20plugin%20-%20&amp;url=<?php echo urlencode( AN_PRO_URL ) ?>&amp;via=ThemeIsle"
+			   href="https://twitter.com/intent/tweet?text=Detect Adblock%20and%20nofity%20users%20with%20this%20awesome%20wordpress%20plugin%20-%20&amp;url=<?php echo urlencode( AN_PRO_URL ) ?>&amp;via=getadmiral"
 			   class="tweet-about-it"><span></span><?php _e( 'Show your love', 'an-translate' ); ?></a>
 
 			<a target="_blank" href="https://wordpress.org/support/plugin/adblock-notify-by-bweb/reviews/?filter=5"
@@ -588,22 +588,7 @@ function an_add_sidebar() {
 			</div>
 			<?php
 		}
-		$logger = get_option( 'an_logger_flag', 'no' );
-		?>
-		<div id="an-logger">
-			<label class="an-switch">
-				<input type="checkbox" <?php echo ( $logger == 'yes' ) ? 'checked' : '' ?>>
-				<div class="an-slider an-round"></div>
-			</label><span>Enable Tracking<sup>*</sup></span>
-			<p>
-				<small><sup>*</sup>Allow Ad Blocker Notify to anonymously track how this plugin is used and help us make
-					the plugin better. No sensitive data is tracked.
-				</small>
-			</p>
-		</div>
-		<?php
-		do_action( 'adblock_notify_render_subscribe_box' );
-		?>
+		 ?>
 		<div id="an-testimonial">
 			<h3>
 				Over 6.000 happy clients
@@ -651,51 +636,6 @@ add_filter( 'adblock_notify_by_bweb_logger_flag', 'an_check_logger' );
  */
 function an_check_logger() {
 	return ( get_option( 'an_logger_flag', 'no' ) == 'yes' ) ? true : false;
-}
-
-require AN_PATH . 'vendor/subscribe/subscribe.php';
-$an_subscribe = new THEMEISLE_SUBSCRIBE( AN_ID );
-// change subscribe list
-add_filter( 'adblock_notify_themeisle_sdk_subscribe_list', 'an_change_subscribe_list' );
-/**
- * Change the subscribe list id.
- *
- * @return int The new list id.
- */
-function an_change_subscribe_list() {
-	return 87;
-}
-
-// change default heading msg
-add_filter( 'adblock_notify_themeisle_subscribe_heading', 'an_change_heading_subscribe' );
-/**
- * Change the default heading message.
- *
- * @return string The new heading msg.
- */
-function an_change_heading_subscribe() {
-	return __( ' Subscribe for 20% coupon', 'an-translate' );
-}
-
-// change success subscribe message
-add_filter( 'adblock_notify_themeisle_subscribed_msg', 'an_change_subscribe_success' );
-/**
- * Change the default success message.
- *
- * @return string The new success msg.
- */
-function an_change_subscribe_success() {
-	return __( 'You can now check your email for the discount code.', 'an-translate' );
-}
-
-add_filter( 'adblock_notify_themeisle_subscribe_msg', 'an_change_subscribe_msg' );
-/**
- * Change the default success message.
- *
- * @return string The new success msg.
- */
-function an_change_subscribe_msg() {
-	return __( 'Get a sweet 20% discount coupon right on your email for upgrading to the FULL version. ', 'an-translate' );
 }
 
 add_action( 'admin_init', 'an_flag_user' );

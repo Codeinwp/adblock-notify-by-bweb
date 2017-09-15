@@ -2212,7 +2212,7 @@ msgid "Adblock Notify Lite"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://themeisle.com/plugins/adblock-notify-lite/"
+msgid "https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -2226,7 +2226,7 @@ msgid "Themeisle"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://themeisle.com"
+msgid "http://getadmiral.com"
 msgstr ""
 
 #: vendor/freemius/includes/fs-plugin-info-dialog.php:478
