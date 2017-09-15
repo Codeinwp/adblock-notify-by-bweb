@@ -5,15 +5,13 @@
  * @package adblock-notify
  *
  * Plugin Name: Ad Blocker Notify Lite
- * Plugin URI: http://themeisle.com/plugins/adblock-notify-lite/
+ * Plugin URI:  https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks
  * Description: An ad blocker detection and nofitication plugin with get around options and a lot of settings. Dashboard widget with adblock counter included!
  * Version: 2.2.3
- * Author: Themeisle
- * Author URI: https://themeisle.com
+ * Author: Admiral
+ * Author URI: https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks
  * Text Domain: an-translate
  * Domain Path: /languages
- * WordPress Available:  yes
- * Requires License:    no
  */
 /**
  * ************************************************************
@@ -54,7 +52,7 @@ if ( ! defined( 'AN_TEMPLATES_DIRECTORY' ) ) {
 	define( 'AN_TEMPLATES_DIRECTORY', 'an-templates/' );
 }
 if ( ! defined( 'AN_PRO_URL' ) ) {
-	define( 'AN_PRO_URL', 'http://bit.ly/2fb0Dre' );
+	define( 'AN_PRO_URL', 'https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks' );
 }
 /**
  * ************************************************************
@@ -126,10 +124,12 @@ function an_enqueue_an_sripts() {
 		$content_style = str_replace( array( "\r\n", "\r", "\n" ), '', $content_style );
 		wp_add_inline_style( 'an_style', $content_style );
 		// AJAX
-		wp_localize_script( 'an_scripts', 'ajax_object', array(
-			'nonce'   => wp_create_nonce( 'an-nonce' ),
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		) );
+		wp_localize_script(
+			'an_scripts', 'ajax_object', array(
+				'nonce'   => wp_create_nonce( 'an-nonce' ),
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			)
+		);
 		// CSS file does not exist anymore
 		if ( $an_option->getOption( 'an_option_selectors' ) == true ) {
 			wp_dequeue_style( 'tf-compiled-options-adblocker_notify' );
@@ -195,14 +195,19 @@ function an_register_admin_scripts() {
 	$ttfjs4         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/ace.js' );
 	$ttfjs5         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/theme-chrome.js' );
 	$ttfjs6         = $wp_filesystem->get_contents( AN_PATH . 'vendor/titan-framework/js/ace-min-noconflict/mode-css.js' );
-	$ttfjs7         = $wp_filesystem->get_contents( AN_PATH . 'vendor/subscribe/subscribe.js' );
 	?>
 	<script type="text/javascript" id="content_script">
-		var an_admin = <?php echo json_encode( array(
-			'pro_url' => AN_PRO_URL,
-			'pro'     => ( an_is_pro() ) ? 'yes' : 'no',
-			'nonce'   => wp_create_nonce( 'an-nonce' ),
-		) ); ?>;
+		var an_admin = 
+		<?php
+		echo json_encode(
+			array(
+				'pro_url' => AN_PRO_URL,
+				'pro'     => ( an_is_pro() ) ? 'yes' : 'no',
+				'nonce'   => wp_create_nonce( 'an-nonce' ),
+			)
+		);
+		?>
+		;
 		<?php
 		echo $content_script;
 		?>
@@ -314,7 +319,7 @@ add_action( 'plugins_loaded', 'an_settings_link_init' );
  ***************************************************************/
 function an_meta_links( $links, $file ) {
 	if ( $file === 'adblock-notify-by-bweb/adblock-notify.php' ) {
-		$links[] = '<a href="http://themeisle.com/wordpress-plugins/" target="_blank" title="' . __( 'More Plugins', 'an-translate' ) . '">' . __( 'More Plugins', 'an-translate' ) . '</a>';
+		$links[] = '<a href=" https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks" target="_blank" title="' . __( 'More features', 'an-translate' ) . '">' . __( 'More features', 'an-translate' ) . '</a>';
 	}
 
 	return $links;
@@ -413,18 +418,20 @@ function anbb_fs() {
 	if ( ! isset( $anbb_fs ) && $check_phpunit != 'yes' ) {
 		// Include Freemius SDK.
 		require_once AN_PATH . 'vendor/freemius/wordpress-sdk/start.php';
-		$anbb_fs = fs_dynamic_init( array(
-			'id'             => '503',
-			'slug'           => 'adblock-notify-by-bweb',
-			'type'           => 'plugin',
-			'public_key'     => 'pk_80661c61db7cdcbedd0f6461d6a1b',
-			'is_premium'     => false,
-			'has_addons'     => false,
-			'has_paid_plans' => false,
-			'menu'           => array(
-				'slug' => 'adblock-notify',
-			),
-		) );
+		$anbb_fs = fs_dynamic_init(
+			array(
+				'id'             => '503',
+				'slug'           => 'adblock-notify-by-bweb',
+				'type'           => 'plugin',
+				'public_key'     => 'pk_80661c61db7cdcbedd0f6461d6a1b',
+				'is_premium'     => false,
+				'has_addons'     => false,
+				'has_paid_plans' => false,
+				'menu'           => array(
+					'slug' => 'adblock-notify',
+				),
+			)
+		);
 	}
 
 	return $anbb_fs;

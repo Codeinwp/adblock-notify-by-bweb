@@ -1,24 +1,11 @@
 {
-  "name": "codeinwp/adblock-notify-by-bweb",
+  "name": "adblock-notify-by-bweb",
   "description": "Ad Blocker Notify for WordPress.",
   "keywords": [
     "wordpress",
     "adblock"
   ],
-  "homepage": "https://themeisle.com/plugins/adblock-notify-by-bweb/",
-  "license": "GPL-2.0+",
-  "authors": [
-    {
-      "name": "ThemeIsle Team",
-      "email": "friends@themeisle.com.com",
-      "homepage": "https://themeisle.com"
-    }
-  ],
   "type": "wordpress-plugin",
-  "support": {
-    "issues": "https://github.com/Codeinwp/adblock-notify-by-bweb/issues",
-    "source": "https://github.com/Codeinwp/adblock-notify-by-bweb"
-  },
   "require": {
     "freemius/wordpress-sdk": "master",
     "xrstf/composer-php52": "^1.0.20"

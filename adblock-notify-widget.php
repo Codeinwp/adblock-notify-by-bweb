@@ -32,7 +32,7 @@ add_action( 'wp_dashboard_setup', 'an_dashboard_widgets' );
  * Page views & page blocked counter
  ***************************************************************/
 function an_adblock_counter() {
-	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] )  || an_check_views() ) {
+	if ( current_user_can( 'manage_options' ) || empty( $_POST['an_state'] ) || an_check_views() ) {
 		return;
 	}
 	$an_states = $_POST['an_state'] ;
@@ -143,7 +143,7 @@ function an_get_counters() {
 
 		return;
 	}
-	// prevent plugin's counter to be higher than the page counter if page is refreshed during the ajax call or if wordpress caching systeme in not badly configured
+	// prevent plugin's counter to be higher than the page counter if page is refreshed during the ajax call or if WordPress caching systeme in not badly configured
 	if ( ( $anCount['blocked'] > $anCount['total'] ) || ( $anCount['history'][0]['blocked'] > $anCount['history'][0]['total'] ) ) {
 		if ( $anCount['blocked'] > $anCount['total'] ) {
 			$anCount['total'] = $anCount['blocked'];
@@ -237,14 +237,16 @@ function an_get_counters() {
 	$output .= '<script type="text/javascript">';
 	$output .= '/* <![CDATA[ */';
 	$output .= 'var anWidgetOptions =' .
-	           json_encode( array(
-		           'totalNoBlocker'        => $totalNoBlocker,
-		           'anCountBlocked'        => $anCount['blocked'],
-		           'totalNoBlockerToday'   => $totalNoBlockerToday,
-		           'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
-		           'anDataHistotyTotal'    => an_widget_data_histoty( $anCount, 'total' ),
-		           'anDataHistotyBlocked'  => an_widget_data_histoty( $anCount, 'blocked' ),
-	           ) );
+			   json_encode(
+				   array(
+					   'totalNoBlocker'        => $totalNoBlocker,
+					   'anCountBlocked'        => $anCount['blocked'],
+					   'totalNoBlockerToday'   => $totalNoBlockerToday,
+					   'anCountBlockedHistory' => $anCount['history'][0]['blocked'],
+					   'anDataHistotyTotal'    => an_widget_data_histoty( $anCount, 'total' ),
+					   'anDataHistotyBlocked'  => an_widget_data_histoty( $anCount, 'blocked' ),
+				   )
+			   );
 	$output .= '/* ]]> */';
 	$output .= '</script>';
 	echo $output;

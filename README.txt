@@ -26,7 +26,7 @@ Ad Blocker Notify is a very easy to use plugin with get around options and a lot
 > * Advance templating system for modal and easy to customize inside the themes
 > * Advance control for modal behaviour
 >
-[Learn more about Ad Blocker Notify](https://themeisle.com/plugins/adblock-notify/)
+[Learn more about Ad Blocker Notify](https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks)
 
 **Can I stop Ad Blockerer users?**
 
@@ -82,12 +82,12 @@ You can notify users with an activated AdBlock software by one of THREE ways !
 * WordPress 3.7+ (not tested on above versions, but may works)
 
 
-For updates follow https://twitter.com/themeisle If you have anything you can let us know <a href="http://themeisle.com/contact/?utm_source=readmetop&utm_medium=announce&utm_campaign=top">here</a>.
+For updates follow https://twitter.com/themeisle If you have anything you can let us know <a href="https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks">here</a>.
 
 ** Useful Resources **
 
 - Check-out our <a href="http://docs.themeisle.com" rel="friend" target="_blank">tutorials site</a>
-- Take a look at our other <a href="http://themeisle.com/wordpress-plugins/" rel="friend" target="_blank">plugins</a>.
+- Take a look at our other <a href="https://getadmiral.com?utm_medium=plugin&utm_campaign=abn&utm_source=abnlinks" rel="friend" target="_blank">features</a>.
 - Find out what is the <a href="http://www.codeinwp.com/blog/" rel="friend" target="_blank">best WordPress hosting</a> (real research ).
 
 = Supported languages =
